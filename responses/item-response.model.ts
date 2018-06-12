@@ -8,6 +8,8 @@ export interface CollectionResponse {
   data: any[];
   includes?: any[];
   pagination?: {};
+  meta?: {};
+  links?: {};
 }
 
 export interface ErrorResponse {
