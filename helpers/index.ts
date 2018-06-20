@@ -25,3 +25,14 @@
 //
 // }
 //
+
+
+export interface EnumItem {
+  value: string;
+  key: string;
+}
+
+export function enumToArray(_enum): EnumItem[] {
+  return Object.keys(_enum)
+    .map(index => ({key: _enum[index], value: index} as EnumItem));
+}
