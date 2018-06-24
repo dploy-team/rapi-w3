@@ -1,10 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {W3PaginatorComponent} from './components/w3-paginator/w3-paginator.component';
+import {MatPaginatorModule, MatSnackBarModule} from '@angular/material';
+import {PhonePipe} from './pipes/phone.pipe';
+import {KeysPipe} from './pipes/keys.pipe';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MatPaginatorModule,
+      MatSnackBarModule,
   ],
-  declarations: []
+  declarations: [
+    W3PaginatorComponent,
+    PhonePipe,
+    KeysPipe
+  ],
+  exports: [
+    W3PaginatorComponent,
+    PhonePipe,
+    KeysPipe
+  ],
+  entryComponents: [
+    // W3PaginatorComponent
+  ]
 })
-export class W3Module { }
+export class W3Module {
+}

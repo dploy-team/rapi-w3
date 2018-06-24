@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      ["rapi-w3"],
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      ["rapi-w3"],
+      "kebab-case"
+    ]
+  }
+}
