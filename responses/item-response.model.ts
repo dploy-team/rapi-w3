@@ -8,6 +8,11 @@ export interface CollectionResponse {
   data: any[];
   includes?: any[];
   pagination?: {};
+  meta?: {
+    total: number,
+    per_page: any
+  };
+  links?: any;
 }
 
 export interface ErrorResponse {
