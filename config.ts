@@ -1,12 +1,24 @@
-export class W3Config{
+// export class W3Config {
+//
+//
+//   public mask = {
+//     tel: ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+//     cep: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+//   };
+// }
 
-  /* MASKS
-  * chamar TextMaskModule no módulo a ser usado
-  * exemplo: [textMask]="{mask: mask.tel}"
-  * orgem: https://github.com/text-mask/text-mask
+
+export const W3Variables = {
+
+  /**
+   * MASKS
+   *
+   * chamar TextMaskModule no módulo a ser usado
+   * exemplo: [textMask]="{mask: mask.tel}"
+   * orgem: https://github.com/text-mask/text-mask
    */
-  public mask = {
-    tel : ['(', /[1-9]/, /\d/,  ')', ' ', /\d/, /\d/, /\d/,  /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+  mask: {
+    tel: ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
     cep: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-  };
-}
+  }
+};
