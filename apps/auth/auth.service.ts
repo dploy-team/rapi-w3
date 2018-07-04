@@ -64,16 +64,16 @@ export class W3AuthService implements W3AuthAbstractService {
         return url.endsWith('auth/refresh');
     }
 
-    login(email: string, password: string): Observable<User> {
+    login(email: string, password: string): Observable<User | any> {
 
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
             .pipe(
                 tap(res => this.setSession(res)),
-                map((d) => {
-                    return {id: 1, name: 'admin', 'token': d.access_token};
+                map(() => {
+                    return {id: 1, name: 'admin'};
                 }),
-                // shareReplay() //mytodo verificar se o shareReplay pode ser usado MAP junto
+                shareReplay() // mytodo verificar se o shareReplay pode ser usado MAP junto
             );
     }
 
