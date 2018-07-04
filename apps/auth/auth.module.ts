@@ -5,7 +5,7 @@ import {W3AuthService} from './auth.service';
 import {W3AuthInterceptor} from './auth.Interceptor';
 import {W3PublicGuard} from './guards/public.guard';
 import {W3ProtectedGuard} from './guards/protected.guard';
-import {W3_AUTH_SERVICE} from './tokens';
+import {W3_AUTH_SERVICE, W3_PROTECTED_FALLBACK_PAGE_URI, W3_PUBLIC_FALLBACK_PAGE_URI} from './tokens';
 
 
 @NgModule({
@@ -22,7 +22,15 @@ import {W3_AUTH_SERVICE} from './tokens';
             provide: HTTP_INTERCEPTORS,
             useClass: W3AuthInterceptor,
             multi: true,
-        }
+        },
+        {
+            provide: W3_PROTECTED_FALLBACK_PAGE_URI,
+            useValue: '/'
+        },
+        {
+            provide: W3_PUBLIC_FALLBACK_PAGE_URI,
+            useValue: '/auth/login'
+        },
     ]
 })
 export class W3AuthModule {

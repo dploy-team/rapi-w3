@@ -23,7 +23,8 @@ export class W3AuthService implements W3AuthAbstractService {
     getHeaders(token: string): { [p: string]: string | string[] } {
         return {
             Authorization: `Bearer ${token}`,
-            'X-Pdv': '1'
+            'X-Pdv': '1',
+            'X-Project': '1'
         };
     }
 
@@ -64,14 +65,15 @@ export class W3AuthService implements W3AuthAbstractService {
     }
 
     login(email: string, password: string): Observable<User> {
+
         return this.http
-            .post<User>(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
+            .post(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
             .pipe(
                 tap(res => this.setSession(res)),
-                map(() => {
-                    return {id: 1, name: 'admin'};
+                map((d) => {
+                    return {id: 1, name: 'admin', 'token': d.access_token};
                 }),
-                shareReplay()
+                // shareReplay() //mytodo verificar se o shareReplay pode ser usado MAP junto
             );
     }
 
