@@ -69,7 +69,7 @@ export class W3AuthService implements W3AuthAbstractService {
             .pipe(
                 tap(res => this.setSession(res)),
                 map(() => {
-                    return {name: 'admin'};
+                    return {id: 1, name: 'admin'};
                 }),
                 shareReplay()
             );
