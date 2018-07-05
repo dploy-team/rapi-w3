@@ -24,7 +24,7 @@ export class W3AuthService implements W3AuthAbstractService {
         return {
             Authorization: `Bearer ${token}`,
             'X-Pdv': '1',
-            'X-Project': '1'
+            // 'X-Project': '1'
         };
     }
 
