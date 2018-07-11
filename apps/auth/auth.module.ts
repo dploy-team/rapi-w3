@@ -10,7 +10,7 @@ import {W3_AUTH_SERVICE, W3_PROTECTED_FALLBACK_PAGE_URI, W3_PUBLIC_FALLBACK_PAGE
 
 @NgModule({
     providers: [
-        W3AuthService,
+        // W3AuthService,
         W3PublicGuard,
         W3ProtectedGuard,
         W3AuthInterceptor,

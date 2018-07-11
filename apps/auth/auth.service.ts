@@ -11,97 +11,107 @@ import {environment} from '../../../../environments/environment';
 @Injectable()
 export class W3AuthService implements W3AuthAbstractService {
 
-    constructor(private http: HttpClient) {
-    }
+  private _headers = {};
 
-    getAccessToken(): Observable<string> {
-        const accessToken: string = localStorage.getItem('access_token');
+  constructor(private http: HttpClient) {
+  }
 
-        return of(accessToken);
-    }
+  getAccessToken(): Observable<string> {
+    const accessToken: string = localStorage.getItem('access_token');
 
-    getHeaders(token: string): { [p: string]: string | string[] } {
-        return {
-            Authorization: `Bearer ${token}`,
-            'X-Pdv': '1',
-            // 'X-Project': '1'
-        };
-    }
+    return of(accessToken);
+  }
 
-    isAuthorized(): Observable<boolean> {
-        // const isAuthorized = this.isLoggedIn();
-        const isAuthorized: boolean = !!localStorage.getItem('access_token');
+  getHeaders(token: string): { [p: string]: string | string[] } {
+    this._headers['Authorization'] = `Bearer ${token}`;
+    console.log('getHeaders', this._headers);
+    return this._headers;
+    // return {
+    //   Authorization: `Bearer ${token}`,
+    //   'X-Pdv': '1',
+    //   // 'X-Project': '1'
+    // };
+  }
 
-        return of(isAuthorized);
-    }
+  isAuthorized(): Observable<boolean> {
+    // const isAuthorized = this.isLoggedIn();
+    const isAuthorized: boolean = !!localStorage.getItem('access_token');
 
-    refreshShouldHappen(response: HttpErrorResponse): boolean {
-        console.log('refreshShouldHappen', response);
-        // mytodo quando der erro tratar aqui
-        return response.status === 401 && localStorage.getItem('access_token') !== null;
-    }
+    return of(isAuthorized);
+  }
 
-    refreshToken(): Observable<any> {
-        const refreshToken: string = localStorage.getItem('access_token');
-        const options = {
-            headers: {Authorization: `Bearer ${refreshToken}`},
-        };
+  refreshShouldHappen(response: HttpErrorResponse): boolean {
+    console.log('refreshShouldHappen', response);
+    // mytodo quando der erro tratar aqui
+    return response.status === 401 && localStorage.getItem('access_token') !== null;
+  }
 
-        console.log('refreshToken');
+  refreshToken(): Observable<any> {
+    const refreshToken: string = localStorage.getItem('access_token');
+    const options = {
+      headers: {Authorization: `Bearer ${refreshToken}`},
+    };
 
-        return this.http
-            .post(`${environment.URL_API}/rapi/guardian/auth/refresh`, null, options)
-            .pipe(
-                tap(res => this.setSession(res)),
-                catchError((err) => {
-                    this.logout();
-                    return err;
-                })
-            );
-    }
+    console.log('refreshToken');
 
-    verifyTokenRequest(url: string): boolean {
-        return url.endsWith('auth/refresh');
-    }
+    return this.http
+      .post(`${environment.URL_API}/rapi/guardian/auth/refresh`, null, options)
+      .pipe(
+        tap(res => this.setSession(res)),
+        catchError((err) => {
+          this.logout();
+          return err;
+        })
+      );
+  }
 
-    login(email: string, password: string): Observable<User | any> {
+  verifyTokenRequest(url: string): boolean {
+    return url.endsWith('auth/refresh');
+  }
 
-        return this.http
-            .post(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
-            .pipe(
-                tap(res => this.setSession(res)),
-                map(() => {
-                    return {id: 1, name: 'admin'};
-                }),
-                shareReplay() // mytodo verificar se o shareReplay pode ser usado MAP junto
-            );
-    }
+  login(email: string, password: string): Observable<User | any> {
 
-    private setSession(authResult): void {
-        console.log('setSession', authResult);
-        const expiresAt = moment().add(authResult.data.expires_in, 'second');
+    return this.http
+      .post(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
+      .pipe(
+        tap(res => this.setSession(res)),
+        map(() => {
+          return {id: 1, name: 'admin'};
+        }),
+        shareReplay() // mytodo verificar se o shareReplay pode ser usado MAP junto
+      );
+  }
 
-        localStorage.setItem('access_token', authResult.data.access_token);
-        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-    }
+  private setSession(authResult): void {
+    console.log('setSession', authResult);
+    const expiresAt = moment().add(authResult.data.expires_in, 'second');
 
-    logout(): void {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('expires_at');
-    }
+    localStorage.setItem('access_token', authResult.data.access_token);
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
 
-    isLoggedIn(): boolean {
-        return moment().isBefore(this.getExpiration());
-    }
+  logout(): void {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('expires_at');
+  }
 
-    isLoggedOut(): boolean {
-        return !this.isLoggedIn();
-    }
+  isLoggedIn(): boolean {
+    return moment().isBefore(this.getExpiration());
+  }
 
-    getExpiration(): moment.Moment {
-        const expiration = localStorage.getItem('expires_at');
-        const expiresAt = JSON.parse(expiration);
-        return moment(expiresAt);
-    }
+  isLoggedOut(): boolean {
+    return !this.isLoggedIn();
+  }
+
+  getExpiration(): moment.Moment {
+    const expiration = localStorage.getItem('expires_at');
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
+  }
+
+  addHeader(key, value): void {
+    this._headers[key] = value;
+    console.log('addHeader', this._headers);
+  }
 
 }
