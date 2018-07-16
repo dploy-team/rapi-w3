@@ -19,20 +19,20 @@ export interface Response20x {
     data?: any;
 }
 
-interface Error {
-    code: string;
-    http_code: number;
-    message: string;
-    // validation?: [{ string: string[] }];
-    validation: {
-        [key: string]: string[]
-    };
-}
-
 export interface Response40x {
     status?: 'success' | 'error';
     data?: any;
     error: Error;
+}
+
+interface Error {
+    code: string;
+    http_code: number;
+    message: string;
+    validation?: [{ string: string[] }];
+    // validation: {
+    //     [key: string]: string[]
+    // };
 }
 
 //

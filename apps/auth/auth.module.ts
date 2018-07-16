@@ -14,10 +14,10 @@ import {W3_AUTH_SERVICE, W3_PROTECTED_FALLBACK_PAGE_URI, W3_PUBLIC_FALLBACK_PAGE
         W3PublicGuard,
         W3ProtectedGuard,
         W3AuthInterceptor,
-        {
-            provide: W3_AUTH_SERVICE,
-            useClass: W3AuthService
-        },
+        // {
+        //     provide: W3_AUTH_SERVICE,
+        //     useClass: W3AuthService
+        // },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: W3AuthInterceptor,
