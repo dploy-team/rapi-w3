@@ -40,6 +40,12 @@ export class W3AuthInterceptor implements HttpInterceptor {
         const authService: W3AuthAbstractService =
             this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
 
+        if (req.headers.has('skipAuthorization')) {
+            const headers = req.headers.delete('skipAuthorization');
+            const directRequest = req.clone({ headers });
+            return delegate.handle(directRequest);
+        }
+
         if (authService.verifyTokenRequest(req.url)) {
             return delegate.handle(req);
         }
