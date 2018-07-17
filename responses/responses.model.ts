@@ -1,9 +1,11 @@
-export interface ItemResponse<T> {
-    data: T | any;
+export interface ItemResponse {
+    data: any;
 }
 
-export interface CollectionResponse<T> {
-    data: T[];
+// CollectionResponse<T>
+export interface CollectionResponse {
+    // data: T[];
+    data: any[];
     includes?: any[];
     pagination?: {};
     meta?: {
