@@ -20,7 +20,7 @@ export class W3AuthService extends W3AuthAbstractService {
     }
 
     login(email: string, password: string): Observable<User | any> {
-        alert('N');
+
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
             .pipe(
@@ -31,6 +31,5 @@ export class W3AuthService extends W3AuthAbstractService {
                 shareReplay() // mytodo verificar se o shareReplay pode ser usado MAP junto
             );
     }
-
 
 }
