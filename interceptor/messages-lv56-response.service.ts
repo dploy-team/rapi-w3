@@ -9,15 +9,15 @@ import {W3MessagesBaseResponseService} from './messages-base-response.service';
  */
 
 @Injectable()
-export class W3MessagesLv55ResponseService extends W3MessagesBaseResponseService implements MessagesResponse {
+export class W3MessagesLv56ResponseService extends W3MessagesBaseResponseService implements MessagesResponse {
 
     constructor(_toast: ToastrService) {
         super(_toast);
     }
 
     respondNotFound(data): void {
-        if (data.status === 'error' && data.error.message) {
-            this._toast.error(data.error.message);
+        if (data.status === 'error' && data.message) {
+            this._toast.error(data.message);
         }
     }
 
@@ -39,7 +39,7 @@ export class W3MessagesLv55ResponseService extends W3MessagesBaseResponseService
             error += '</ul>';
         }
 
-        this._toast.error(error, data.error.message);
+        this._toast.error(error, data.message);
     }
 
     /**
@@ -47,24 +47,24 @@ export class W3MessagesLv55ResponseService extends W3MessagesBaseResponseService
      * @param data
      */
     respondPermissionRequired(data): void {
-        const msg = (data.error && data.error.message)
-            ? data.error.message
+        const msg = (data.error && data.message)
+            ? data.message
             : 'Seu usuário não possui acesso!';
 
         this._toast.warning(msg);
     }
 
     respondUnauthorized(data): void {
-        const msg = (data.error && data.error.message)
-            ? data.error.message
+        const msg = (data.error && data.message)
+            ? data.message
             : 'Favor efetuar login!';
 
         this._toast.info(msg);
     }
 
     respondError(data): void {
-        if (data.error && data.error.message) {
-            this._toast.error(data.error.message);
+        if (data.error && data.message) {
+            this._toast.error(data.message);
         } else {
             this.respondInternalError(data);
         }
