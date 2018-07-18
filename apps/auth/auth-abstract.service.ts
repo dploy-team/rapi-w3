@@ -2,7 +2,8 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
 import * as moment from 'moment';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
+import {environment} from '../../../../environments/environment';
 
 /**
  * Essential service for authentication
@@ -93,9 +94,25 @@ export abstract class W3AuthAbstractService {
         localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
     }
 
-    public logout(): void {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('expires_at');
+    public logout(): any {
+
+        const refreshToken: string = localStorage.getItem('access_token');
+        const options = {
+            headers: {Authorization: `Bearer ${refreshToken}`},
+        };
+        return this.http
+            .post(`${environment.URL_API}/rapi/guardian/auth/token/revoke`, null, options)
+            .pipe(
+                map((resp) => {
+                    console.log('resp', resp);
+
+                    localStorage.removeItem('access_token');
+                    localStorage.removeItem('expires_at');
+
+                    return resp;
+                }),
+
+            );
     }
 
     public isLoggedIn(): boolean {
