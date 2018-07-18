@@ -14,6 +14,12 @@ export class W3ApiToastInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+        if (request.headers.has('skipToast')) {
+            const headers = request.headers.delete('skipToast');
+            const directRequest = request.clone({ headers });
+            return next.handle(directRequest);
+        }
+
         return next.handle(request)
             .pipe(
                 tap((event: HttpEvent<any>) => this.responseSuccess(event)),
