@@ -2,38 +2,17 @@ import {Injectable} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import * as _ from 'lodash';
 import {MessagesResponse} from './messages-response';
+import {W3MessagesBaseResponseService} from './messages-base-response.service';
 
 /**
  * https://github.com/scttcper/ngx-toastr
  */
 
 @Injectable()
-export class W3MessagesLv55ResponseService implements MessagesResponse {
+export class W3MessagesLv55ResponseService extends W3MessagesBaseResponseService implements MessagesResponse {
 
-    constructor(private _toast: ToastrService) {
-    }
-
-    respondOffline(): void {
-        this._toast.warning('Sem conexão com a internet!');
-    }
-
-    respondOk(data): void {
-
-        if (!data.message) {
-            return;
-        }
-
-        switch (data.status) {
-            case 'success':
-                this._toast.success(data.message);
-                break;
-            case 'error':
-                this._toast.error(data.message);
-                break;
-            default:
-                this._toast.info(data.message);
-        }
-
+    constructor(_toast: ToastrService) {
+        super(_toast);
     }
 
     respondNotFound(data): void {
@@ -91,7 +70,4 @@ export class W3MessagesLv55ResponseService implements MessagesResponse {
         }
     }
 
-    respondInternalError(error): void {
-        this._toast.error('Falha ao se comunicar com o servidor!');
-    }
 }
