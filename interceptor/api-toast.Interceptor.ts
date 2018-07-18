@@ -4,7 +4,7 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,
 import {Observable, throwError} from 'rxjs';
 import {tap, catchError} from 'rxjs/operators';
 import {MessagesResponse} from './messages-response';
-import {W3_MESSAGE_RESPONSE} from '@rapi/w3';
+import {W3_MESSAGE_RESPONSE} from '..';
 
 @Injectable()
 export class W3ApiToastInterceptor implements HttpInterceptor {
@@ -35,7 +35,7 @@ export class W3ApiToastInterceptor implements HttpInterceptor {
         if (event instanceof HttpResponse) {
             // do stuff with response if you want
             this._msg.respondOk(event.body);
-            console.log('responseSuccess', event);
+            // console.log('responseSuccess', event);
         }
 
     }
@@ -78,7 +78,7 @@ export class W3ApiToastInterceptor implements HttpInterceptor {
             this._msg.respondError(err.error);
         }
 
-        console.log('response in the catch: ', err);
+        // console.log('response in the catch: ', err);
 
         return throwError(err);
     }
