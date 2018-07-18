@@ -1,5 +1,6 @@
 export interface ItemResponse {
     data: any;
+    message?: string; // mytodo remove
 }
 
 // CollectionResponse<T>
