@@ -78,6 +78,7 @@ export interface DataUpload {
     owner_type: string;
     created_at: string;
     updated_at: string;
+    _pathSrc: ''
 }
 
 interface FileReaderEventTarget extends EventTarget {
