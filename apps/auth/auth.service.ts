@@ -31,7 +31,8 @@ export class W3AuthService extends W3AuthAbstractService {
                 shareReplay() // mytodo verificar se o shareReplay pode ser usado MAP junto
             );
     }
-    remind(data): Observable< any>{
+
+    remind(data): Observable<any> {
 
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/password/remind`, data)
@@ -40,10 +41,10 @@ export class W3AuthService extends W3AuthAbstractService {
                     console.log('resp', resp);
                     return resp;
                 }),
-
             );
     }
-    reset(data): Observable< any>{
+
+    reset(data): Observable<any> {
 
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/password/reset`, data)
@@ -52,7 +53,6 @@ export class W3AuthService extends W3AuthAbstractService {
                     console.log('resp', resp);
                     return resp;
                 }),
-
             );
     }
 }

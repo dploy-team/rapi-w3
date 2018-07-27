@@ -52,7 +52,7 @@ export abstract class W3AuthAbstractService {
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},
         };
-
+        localStorage.removeItem('access_token');
         console.log('refreshToken');
 
         return this.http
