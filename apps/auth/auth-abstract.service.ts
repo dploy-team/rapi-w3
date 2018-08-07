@@ -101,7 +101,7 @@ export abstract class W3AuthAbstractService {
             headers: {Authorization: `Bearer ${refreshToken}`},
         };
         return this.http
-            .post(`${environment.URL_API}/rapi/guardian/auth/token/revoke`, null, options)
+            .post(`${environment.URL_API}/rapi/guardian/auth/logout`, null, options)
             .pipe(
                 map((resp) => {
                     console.log('resp', resp);
