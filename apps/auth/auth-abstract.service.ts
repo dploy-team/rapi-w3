@@ -143,6 +143,5 @@ export abstract class W3AuthAbstractService {
 
     public addHeader(key, value): void {
         this._headers[key] = value;
-        console.log('addHeader', this._headers);
     }
 }
