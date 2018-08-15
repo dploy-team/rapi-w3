@@ -1,8 +1,8 @@
 import {InjectionToken} from '@angular/core';
 
-
 export * from './config';
 export * from './responses/responses.model';
+export * from './services/abstract-request.service';
 
 export const skipAuthorization = {headers: {skipAuthorization: '1'}};
 export const skipToast = {headers: {skipToast: '1'}};
