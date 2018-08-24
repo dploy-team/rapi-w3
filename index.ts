@@ -11,3 +11,4 @@ export const skipToastAndAuthorization = {headers: {skipToast: '1', skipAuthoriz
 
 // TOKENS
 export const W3_MESSAGE_RESPONSE = new InjectionToken('W3_MESSAGE_RESPONSE');
+export const W3_CONFIG = new InjectionToken('w3CustomConfig');

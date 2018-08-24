@@ -4,6 +4,7 @@ import {of} from 'rxjs/internal/observable/of';
 import * as moment from 'moment';
 import {catchError, map, tap} from 'rxjs/operators';
 import {environment} from '../../../../environments/environment';
+import {W3StorageService} from '../storage';
 
 /**
  * Essential service for authentication
@@ -13,7 +14,7 @@ export abstract class W3AuthAbstractService {
 
     protected _headers = {};
 
-    protected constructor(protected http: HttpClient) {
+    protected constructor(protected http: HttpClient, protected storage: W3StorageService) {
     }
 
     // `${environment.URL_API}/rapi/guardian/auth/refresh`
@@ -26,7 +27,7 @@ export abstract class W3AuthAbstractService {
      */
     public isAuthorized(): Observable<boolean> {
         // const isAuthorized = this.isLoggedIn();
-        const isAuthorized: boolean = !!localStorage.getItem('access_token');
+        const isAuthorized: boolean = !!this.storage.get('access_token');
         return of(isAuthorized);
     }
 
@@ -37,7 +38,7 @@ export abstract class W3AuthAbstractService {
      * localStorage
      */
     public getAccessToken(): Observable<string> {
-        const accessToken: string = localStorage.getItem('access_token');
+        const accessToken: string = this.storage.get('access_token');
         return of(accessToken);
     }
 
@@ -48,11 +49,11 @@ export abstract class W3AuthAbstractService {
      * can execute pending requests or retry original one
      */
     public refreshToken(): Observable<any> {
-        const refreshToken: string = localStorage.getItem('access_token');
+        const refreshToken: string = this.storage.get('access_token');
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},
         };
-        localStorage.removeItem('access_token');
+        this.storage.remove('access_token');
         console.log('refreshToken');
 
         return this.http
@@ -75,7 +76,7 @@ export abstract class W3AuthAbstractService {
     public refreshShouldHappen(response: HttpErrorResponse): boolean {
         console.log('refreshShouldHappen', response);
         // mytodo quando der erro tratar aqui
-        return response.status === 401 && localStorage.getItem('access_token') !== null;
+        return response.status === 401 && this.storage.get('access_token') !== null;
     }
 
     /**
@@ -90,13 +91,13 @@ export abstract class W3AuthAbstractService {
         console.log('setSession', authResult);
         const expiresAt = moment().add(authResult.data.expires_in, 'second');
 
-        localStorage.setItem('access_token', authResult.data.access_token);
-        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+        this.storage.set('access_token', authResult.data.access_token);
+        this.storage.set('expires_at', JSON.stringify(expiresAt.valueOf()));
     }
 
     public logout(): any {
 
-        const refreshToken: string = localStorage.getItem('access_token');
+        const refreshToken: string = this.storage.get('access_token');
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},
         };
@@ -106,12 +107,11 @@ export abstract class W3AuthAbstractService {
                 map((resp) => {
                     console.log('resp', resp);
 
-                    localStorage.removeItem('access_token');
-                    localStorage.removeItem('expires_at');
+                    this.storage.remove('access_token');
+                    this.storage.remove('expires_at');
 
                     return resp;
                 }),
-
             );
     }
 
@@ -124,7 +124,7 @@ export abstract class W3AuthAbstractService {
     }
 
     public getExpiration(): moment.Moment {
-        const expiration = localStorage.getItem('expires_at');
+        const expiration = this.storage.get('expires_at');
         const expiresAt = JSON.parse(expiration);
         return moment(expiresAt);
     }

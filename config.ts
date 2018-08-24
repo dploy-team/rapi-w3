@@ -8,6 +8,8 @@
 // }
 
 
+import {w3StorageByLocalStorage, W3StorageOption} from './apps/storage';
+
 export const W3Variables = {
 
     /**
@@ -28,4 +30,12 @@ export const W3ConfigToast = {
     timeOut: 5500,
     enableHtml: true,
     positionClass: 'toast-top-right'
+};
+
+export interface W3Config {
+    storage: W3StorageOption;
+}
+
+export const w3ConfigDefault: W3Config = {
+    storage: w3StorageByLocalStorage
 };
