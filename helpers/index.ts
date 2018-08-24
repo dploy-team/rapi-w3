@@ -53,6 +53,13 @@ export function makeSortParams(sort: Sort, def: string): string {
 
 }
 
-export function jsonEqual(a, b): boolean {
-    return JSON.stringify(a) === JSON.stringify(b);
+export function jsonEqual(current, next, debug?: boolean): boolean {
+    const cj = JSON.stringify(current);
+    const nj = JSON.stringify(next);
+
+    if (debug === true) {
+        console.log('jsonEqual.debug', cj === nj, 'OLD', cj, 'NEW', nj);
+    }
+
+    return cj === nj;
 }
