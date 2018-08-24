@@ -1,4 +1,4 @@
-import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatPaginatorIntl, MatPaginatorModule, MatSnackBarModule} from '@angular/material';
 
@@ -9,9 +9,9 @@ import {KeysPipe} from './pipes/keys.pipe';
 import {W3WeekDayPipe} from './pipes/w3-week-day.pipe';
 import {getPtBrPaginatorIntl} from './components/w3-paginator/pt-br-paginator-intl';
 import {W3PaginatorComponent} from './components/w3-paginator/w3-paginator.component';
-import {W3Config, w3ConfigDefault} from './config';
-import {W3StorageService, W3StorageOption} from './apps/storage';
-import {W3_CONFIG} from './index';
+import {W3StorageOption, W3StorageService} from './apps/storage';
+import {W3_CONFIG, W3Config} from './w3.config';
+
 
 @NgModule({
     imports: [
@@ -38,18 +38,13 @@ import {W3_CONFIG} from './index';
 })
 export class W3Module {
 
-
     // constructor(@Optional() @SkipSelf() parentModule: W3Module) {
     //     if (parentModule) {
     //         throw new Error('W3Module is already loaded. Import it in the AppModule only!');
     //     }
     // }
 
-    static forRoot(configs?: W3Config): ModuleWithProviders {
-
-        if (!configs) {
-            configs = w3ConfigDefault;
-        }
+    static forRoot(configs: W3Config): ModuleWithProviders {
 
         return {
             ngModule: W3Module,
