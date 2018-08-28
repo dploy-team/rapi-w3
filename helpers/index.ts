@@ -27,12 +27,39 @@
 //
 
 
+import {Sort} from '@angular/material';
+
 export interface EnumItem {
-  value: string;
-  key: string;
+    value: string;
+    key: string;
 }
 
 export function enumToArray(_enum): EnumItem[] {
-  return Object.keys(_enum)
-    .map(index => ({key: _enum[index], value: index} as EnumItem));
+    return Object.keys(_enum)
+        .map(index => ({key: _enum[index], value: index} as EnumItem));
+}
+
+export function makeSortParams(sort: Sort, def: string): string {
+
+    if (sort.direction === 'asc') {
+        return `${sort.active}`;
+
+    } else if (sort.direction === 'desc') {
+        return `-${sort.active}`;
+
+    } else {
+        return def;
+    }
+
+}
+
+export function jsonEqual(current, next, debug?: boolean): boolean {
+    const cj = JSON.stringify(current);
+    const nj = JSON.stringify(next);
+
+    if (debug === true) {
+        console.log('jsonEqual.debug', cj === nj, 'OLD', cj, 'NEW', nj);
+    }
+
+    return cj === nj;
 }
