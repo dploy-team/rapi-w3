@@ -1,44 +1,49 @@
-
-
-<div class="p-24" style="width: 500px" fxLayout="row" fxLayoutAlign="space-around center">
-    <button >IS ADMIN</button>
-    <br>
-    <button>IS manager</button>
-    <br>
-    <button>IS speaker</button>
+<div class="box">
+    <div class="p-24" style="width: 500px" fxLayout="row" fxLayoutAlign="space-around center">
+        <button (click)="active(['admin'])">ADMIN</button>
+        <br>
+        <button (click)="active(['editor'])">EDITOR</button>
+        <br>
+        <button (click)="active(['admin' ,'editor'])">ADMIN && EDITOR</button>
+    </div>
 </div>
 
-<br>
-<br>
-<br>
+<div class="box">
+    <h4>Permissions:</h4>
+    <ul>
+        <li *ngFor="let p of perms" [ngClass]="{'red-500-bg': !acl.can(p)}">{{p.toUpperCase()}}</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'])}">READ || DELETE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'], true)}">READ && DELETE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'update'], true)}">READ && UPDATE</li>
+    </ul>
+</div>
 
-<h3>Admin</h3>
-<ul>
-    <li>criar</li>
-    <li>Ler</li>
-    <li>editar</li>
-    <li>excluir</li>
-</ul>
+<div class="box">
+    <h4>Roles:</h4>
+    <ul>
+        <li *ngFor="let r of roles" [ngClass]="{'red-500-bg': !acl.hasRole(r)}">{{r.toUpperCase()}}</li>
+        <li [ngClass]="{'red-500-bg': !acl.hasRole(['admin', 'editor'])}">ADMIN || EDITOR</li>
+        <li [ngClass]="{'red-500-bg': !acl.hasRole(['admin', 'editor'], true)}">ADMIN && EDITOR</li>
+    </ul>
+</div>
 
-<br>
+<hr/>
 
+<div class="box">
+    <h4>Permissions:</h4>
+    <ul>
+        <li *ngFor="let p of perms" [w3AclCan]="p">{{p.toUpperCase()}}</li>
+        <li [w3AclCan]="['read', 'delete']">READ || DELETE</li>
+        <li [w3AclCan]="['read', 'delete']: true">READ && DELETE</li>
+        <li [w3AclCan]="['read', 'update']: true">READ && UPDATE</li>
+    </ul>
+</div>
 
-<h3>Manager</h3>
-<ul>
-    <li>criar</li>
-    <li>Ler</li>
-    <li>editar</li>
-    <li>excluir</li>
-</ul>
-
-<br>
-
-<h3>Speaker</h3>
-<ul>
-    <li>criar</li>
-    <li>Ler</li>
-    <li>editar</li>
-    <li>excluir</li>
-</ul>
-
-<br>
+<div class="box">
+    <h4>Roles:</h4>
+    <ul>
+        <li *ngFor="let r of roles" [w3AclRole]="r">{{r.toUpperCase()}}</li>
+        <li [w3AclRole]="['admin', 'editor'])}">ADMIN || EDITOR</li>
+        <li [w3AclRole]="['admin', 'editor']:true">ADMIN && EDITOR</li>
+    </ul>
+</div>

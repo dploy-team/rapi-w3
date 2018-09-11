@@ -19,6 +19,7 @@ export class W3AclService {
     }
 
     setData(data: DataAclModel): void {
+        console.log('ACL.setData', data);
         this._data.next(data);
     }
 
