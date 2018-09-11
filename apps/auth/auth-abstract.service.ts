@@ -49,22 +49,28 @@ export abstract class W3AuthAbstractService {
      * can execute pending requests or retry original one
      */
     public refreshToken(): Observable<any> {
+        console.log('refreshToken');
+
         const refreshToken: string = this.storage.get('access_token');
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},
         };
-        this.storage.remove('access_token');
-        console.log('refreshToken');
 
         return this.http
             .post(this.getUrlRefreshToken(), null, options)
             .pipe(
                 tap(res => this.setSession(res)),
                 catchError((err) => {
-                    this.logout();
+                    this.forceLogout();
                     return err;
                 })
             );
+    }
+
+    public forceLogout(): void {
+        console.log('forceLogout');
+        this.clearToken();
+        window.location.href = '/auth/login';
     }
 
     /**
@@ -75,7 +81,6 @@ export abstract class W3AuthAbstractService {
      */
     public refreshShouldHappen(response: HttpErrorResponse): boolean {
         console.log('refreshShouldHappen', response);
-        // mytodo quando der erro tratar aqui
         return response.status === 401 && this.storage.get('access_token') !== null;
     }
 
@@ -106,13 +111,15 @@ export abstract class W3AuthAbstractService {
             .pipe(
                 map((resp) => {
                     console.log('resp', resp);
-
-                    this.storage.remove('access_token');
-                    this.storage.remove('expires_at');
-
+                    this.clearToken();
                     return resp;
                 }),
             );
+    }
+
+    public clearToken(): void {
+        this.storage.remove('access_token');
+        this.storage.remove('expires_at');
     }
 
     public isLoggedIn(): boolean {
