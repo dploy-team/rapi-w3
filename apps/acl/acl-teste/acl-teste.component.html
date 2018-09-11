@@ -13,8 +13,12 @@
     <ul>
         <li *ngFor="let p of perms" [ngClass]="{'red-500-bg': !acl.can(p)}">{{p.toUpperCase()}}</li>
         <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'])}">READ || DELETE</li>
-        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'], true)}">READ && DELETE</li>
-        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'update'], true)}">READ && UPDATE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'], true)}">array: READ && DELETE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'update'], true)}">array: READ && UPDATE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read,delete')}">syntax: read,delete</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read,update')}">syntax: read,update</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read|delete')}">syntax: read|delete</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read|update')}">syntax: read|update</li>
     </ul>
 </div>
 

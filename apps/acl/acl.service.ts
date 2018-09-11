@@ -31,25 +31,25 @@ export class W3AclService {
         return this._data.value.perms;
     }
 
-    can(perms: string | string[], requireAll = false): boolean {
-
-        if (typeof perms === 'string') {
-            perms = [perms];
-        }
-
+    can(perms: string | string[], requireAll ?: boolean): boolean {
         return this.check(perms, this.allPerms(), requireAll);
     }
 
-    hasRole(roles: string | string[], requireAll = false): boolean {
-
-        if (typeof roles === 'string') {
-            roles = [roles];
-        }
-
+    hasRole(roles: string | string[], requireAll ?: boolean): boolean {
         return this.check(roles, this.allRoles(), requireAll);
     }
 
-    private check(find: string[], data: string[], requireAll = false): boolean {
+    private check(find: string | string[], data: string[], requireAll ?: boolean): boolean {
+
+        if (typeof find === 'string') {
+
+            if (typeof requireAll === 'undefined') {
+                requireAll = find.includes(',');
+            }
+
+            find = find.split(/[\|,\,]/);
+        }
+
         const result = _.intersection(data, find);
         const min = requireAll ? find.length : 1;
 
