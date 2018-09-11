@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, ElementRef, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {W3AclService} from './acl.service';
 
 @Directive({
@@ -11,7 +11,7 @@ import {W3AclService} from './acl.service';
  * simple example =>  *W3AclCan="['read', 'delete']"
  * complete example =>  *W3AclCan="['read', 'delete']; op 'AND'"
  */
-export class W3AclCanDirective {
+export class W3AclCanDirective implements OnInit{
 
     private permissions = [];
     private logicalOp = 'OR';
@@ -39,6 +39,10 @@ export class W3AclCanDirective {
         this.updateView();
     }
 
+    ngOnInit(): void {
+        this.viewContainer.clear();
+        this.updateView();
+    }
 
     private updateView(): void {
         if (this.checkPermissions()) {

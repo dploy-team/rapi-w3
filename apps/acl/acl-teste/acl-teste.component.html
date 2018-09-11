@@ -7,13 +7,11 @@
         <button (click)="active(['admin' ,'editor'])">ADMIN && EDITOR</button>
     </div>
     <div *W3AclRole="['admin']">
-        Só aparece para admin
+        Só aparece para admin {{acl.hasRole(['admin'])}}
     </div>
-    <div *W3AclRole="['editor']">
-        Só aparece para editor
-    </div>
-    <div *W3AclRole="['']">
-        Só aparece para todos
+    {{acl.hasRole(['editor|teste'])}}
+    <div *W3AclRole="['editor', 'teste']; op 'OR'">
+        Só aparece para editor {{acl.hasRole(['editor'])}}
     </div>
 </div>
 

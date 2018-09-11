@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, ElementRef, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {W3AclService} from './acl.service';
 
 @Directive({
@@ -12,7 +12,7 @@ import {W3AclService} from './acl.service';
  * simple example =>  *W3AclRole="['admin', 'editor']"
  * complete example =>  *W3AclRole="['admin', 'editor']; op 'AND'"
  */
-export class W3AclRoleDirective {
+export class W3AclRoleDirective implements OnInit{
 
     private roles = [];
     private logicalOp = 'OR';
@@ -40,18 +40,24 @@ export class W3AclRoleDirective {
         this.updateView();
     }
 
+    ngOnInit(): void {
+        this.viewContainer.clear();
+        this.updateView();
+    }
+
     private updateView(): void {
 
         if (this.checkRole()) {
-            this.viewContainer.clear();
-        } else {
             this.viewContainer.createEmbeddedView(this.templateRef);
+
+        } else {
+            this.viewContainer.clear();
         }
     }
 
     private checkRole(): boolean {
         const text = this.makeStringPermission();
-        return this.acl.can(text);
+        return this.acl.hasRole(text);
     }
 
     private makeStringPermission(): string {
