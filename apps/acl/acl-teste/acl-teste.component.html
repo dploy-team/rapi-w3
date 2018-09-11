@@ -1,10 +1,19 @@
 <div class="box">
-    <div class="p-24" style="width: 500px" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="p-24" style="width: 300px" fxLayout="row" fxLayoutAlign="space-around center">
         <button (click)="active(['admin'])">ADMIN</button>
         <br>
         <button (click)="active(['editor'])">EDITOR</button>
         <br>
         <button (click)="active(['admin' ,'editor'])">ADMIN && EDITOR</button>
+    </div>
+    <div *W3AclRole="['admin']">
+        Só aparece para admin
+    </div>
+    <div *W3AclRole="['editor']">
+        Só aparece para editor
+    </div>
+    <div *W3AclRole="['']">
+        Só aparece para todos
     </div>
 </div>
 
@@ -36,18 +45,21 @@
 <div class="box">
     <h4>Permissions:</h4>
     <ul>
-        <li *ngFor="let p of perms" [w3AclCan]="p">{{p.toUpperCase()}}</li>
-        <li [w3AclCan]="['read', 'delete']">READ || DELETE</li>
-        <li [w3AclCan]="['read', 'delete']: true">READ && DELETE</li>
-        <li [w3AclCan]="['read', 'update']: true">READ && UPDATE</li>
+        <li *ngFor="let p of perms" >{{p.toUpperCase()}}</li>
+        <li *W3AclCan="['read', 'delete']; op 'AND'">READ || DELETE</li>
+        <li *W3AclCan="['read', 'delete']; op 'AND'">READ && DELETE</li>
+        <li *W3AclCan="['read', 'update']; op 'OR'">READ && UPDATE</li>
     </ul>
+</div>
+<div *W3AclCan="['read', 'delete']">
+    is visible
 </div>
 
 <div class="box">
     <h4>Roles:</h4>
     <ul>
-        <li *ngFor="let r of roles" [w3AclRole]="r">{{r.toUpperCase()}}</li>
-        <li [w3AclRole]="['admin', 'editor'])}">ADMIN || EDITOR</li>
-        <li [w3AclRole]="['admin', 'editor']:true">ADMIN && EDITOR</li>
+        <li *ngFor="let r of roles" >{{r.toUpperCase()}}</li>
+        <li *W3AclRole="['admin', 'editor']">ADMIN || EDITOR</li>
+        <li *W3AclRole="['admin', 'editor']; op 'AND'">ADMIN && EDITOR</li>
     </ul>
 </div>
