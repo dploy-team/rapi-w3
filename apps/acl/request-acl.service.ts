@@ -27,7 +27,7 @@ export class W3RequestAclService {
     }
 
     allPerms(): string[] {
-
+        return [''];
     }
 
     refresh(): Observable<ResponseAclData> {

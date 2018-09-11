@@ -1,12 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {W3AclService} from './acl.service';
+import { AclTesteComponent } from './acl-teste/acl-teste.component';
+
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: [],
+    declarations: [AclTesteComponent],
     providers: [
         W3AclService
     ]
