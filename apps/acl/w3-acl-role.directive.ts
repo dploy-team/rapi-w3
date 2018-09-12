@@ -18,7 +18,6 @@ export class W3AclRoleDirective implements OnInit, OnDestroy {
     private _subject: Subscription;
 
     constructor(private templateRef: TemplateRef<any>,
-                // private element: ElementRef,
                 private acl: W3AclService,
                 private viewContainer: ViewContainerRef) {
     }
@@ -41,14 +40,10 @@ export class W3AclRoleDirective implements OnInit, OnDestroy {
 
     private check(): void {
         const newStatus = this.acl.hasRole(this._role);
-        console.log('check', this._role, newStatus);
 
         if (this._last !== newStatus) {
             this._last = newStatus;
-            console.log('NOVO', this._last);
             this.updateView();
-        } else {
-            console.log('MESMO');
         }
     }
 

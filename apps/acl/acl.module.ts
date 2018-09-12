@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {AclTesteComponent} from './acl-teste/acl-teste.component';
@@ -16,14 +16,27 @@ import {W3RequestAclService} from './request-acl.service';
         W3AclCanDirective,
         W3AclRoleDirective
     ],
-    providers: [
-        W3AclService,
-        W3RequestAclService
-    ],
     exports: [
         W3AclCanDirective,
         W3AclRoleDirective
     ]
 })
 export class W3AclModule {
+
+    // constructor(@Optional() @SkipSelf() parentModule: W3AclModule) {
+    //     if (parentModule) {
+    //         throw new Error('W3AclModule is already loaded. Import it in the AppModule only!');
+    //     }
+    // }
+
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: W3AclModule,
+            providers: [
+                W3AclService,
+                W3RequestAclService
+            ]
+        };
+    }
+
 }
