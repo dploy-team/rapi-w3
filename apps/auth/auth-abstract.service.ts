@@ -1,11 +1,13 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {W3StorageService} from '@rapi/w3/apps/storage';
+import {W3MeService} from '@rapi/w3/apps/auth';
+
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
-import * as moment from 'moment';
 import {catchError, map, tap} from 'rxjs/operators';
+import * as moment from 'moment';
+
 import {environment} from '../../../../environments/environment';
-import {W3StorageService} from '../storage';
-import {W3MeService} from '../../../piece/services/me.service';
 
 /**
  * Essential service for authentication
