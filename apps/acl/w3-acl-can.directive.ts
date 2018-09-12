@@ -6,9 +6,9 @@ import {Subscription} from 'rxjs';
     selector: '[w3AclCan]'
 })
 /**
- * use =>  *W3AclCan="array_permissions; "
+ * use =>  *w3AclCan="array_permissions; "
  * array_permissions = ['perm 1', 'perm 2']
- * simple example =>  *W3AclCan="['read', 'delete']"
+ * simple example =>  *w3AclCan="['read', 'delete']"
  */
 export class W3AclCanDirective implements OnInit, OnDestroy {
 

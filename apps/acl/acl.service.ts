@@ -36,6 +36,7 @@ export class W3AclService {
     }
 
     can(perms: string | string[], requireAll ?: boolean): boolean {
+        console.log('find can', perms, this.allPerms());
         return this.check(perms, this.allPerms(), requireAll);
     }
 
@@ -53,7 +54,6 @@ export class W3AclService {
 
             find = find.split(/[\|,\,]/);
         }
-
         const result = _.intersection( find, data);
         const min = requireAll ? find.length : 1;
 
