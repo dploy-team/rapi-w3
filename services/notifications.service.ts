@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable()
 export class W3NotificationService {
 
-    constructor(public snackBar: MatSnackBar) {
+    constructor(public snackBar: MatSnackBar, private _toast: ToastrService) {
     }
 
     notify(message: string, position: string = 'bottom', duration: number = 4000): void {
@@ -14,6 +15,22 @@ export class W3NotificationService {
         }, duration);
 
         this.snackBar.open(message);
+    }
+
+    info(message?: string, title?: string): void {
+        this._toast.info(message, title);
+    }
+
+    error(message?: string, title?: string): void {
+        this._toast.error(message, title);
+    }
+
+    success(message?: string, title?: string): void {
+        this._toast.success(message, title);
+    }
+
+    warning(message?: string, title?: string): void {
+        this._toast.warning(message, title);
     }
 
     //

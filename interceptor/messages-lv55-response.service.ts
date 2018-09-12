@@ -55,6 +55,10 @@ export class W3MessagesLv55ResponseService extends W3MessagesBaseResponseService
     }
 
     respondUnauthorized(data): void {
+        if (this.getCode(data) === 'UNAUTHORIZED') {
+            return;
+        }
+
         const msg = (data.error && data.error.message)
             ? data.error.message
             : 'Favor efetuar login!';
@@ -70,4 +74,7 @@ export class W3MessagesLv55ResponseService extends W3MessagesBaseResponseService
         }
     }
 
+    private getCode(data): string {
+        return data.error ? data.error.code : null;
+    }
 }
