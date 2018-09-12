@@ -1,70 +1,63 @@
-import {Directive, ElementRef, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {W3AclService} from './acl.service';
+import {Subscription} from 'rxjs';
 
 @Directive({
-  selector: '[W3AclRole]'
+    selector: '[w3AclRole]'
 })
 
 /**
- * use =>  *W3AclRole="array_roles; op string_operador"
+ * use =>  *W3AclRole="array_roles;"
  * array_roles = ['role 1', 'role 2']
- * string_operador (opcional) = 'AND' | 'OR' default: 'OR'
  * simple example =>  *W3AclRole="['admin', 'editor']"
- * complete example =>  *W3AclRole="['admin', 'editor']; op 'AND'"
  */
-export class W3AclRoleDirective implements OnInit{
+export class W3AclRoleDirective implements OnInit, OnDestroy {
 
-    private roles = [];
-    private logicalOp = 'OR';
+    private _last: boolean;
+    private _role: any;
+    private _subject: Subscription;
 
     constructor(private templateRef: TemplateRef<any>,
-                private element: ElementRef,
+                // private element: ElementRef,
                 private acl: W3AclService,
                 private viewContainer: ViewContainerRef) {
     }
 
     @Input()
-    set W3AclRole(val) {
-        if (!val.isArray) {
-            this.roles = [val];
-        } else {
-            this.roles = val;
-        }
-
-        this.updateView();
-    }
-
-    @Input()
-    set W3AclRoleOp(permop) {
-        this.logicalOp = permop;
-        this.updateView();
+    set w3AclRole(val) {
+        this._role = val;
+        this.check();
     }
 
     ngOnInit(): void {
-        this.viewContainer.clear();
-        this.updateView();
+        this._subject = this.acl.onChange$
+            .subscribe(() => this.check());
+    }
+
+    ngOnDestroy(): void {
+        console.log('W3AclRoleDirective.ngOnDestroy');
+        this._subject.unsubscribe();
+    }
+
+    private check(): void {
+        const newStatus = this.acl.hasRole(this._role);
+        console.log('check', this._role, newStatus);
+
+        if (this._last !== newStatus) {
+            this._last = newStatus;
+            console.log('NOVO', this._last);
+            this.updateView();
+        } else {
+            console.log('MESMO');
+        }
     }
 
     private updateView(): void {
-
-        if (this.checkRole()) {
+        if (this._last) {
             this.viewContainer.createEmbeddedView(this.templateRef);
-
         } else {
             this.viewContainer.clear();
         }
     }
 
-    private checkRole(): boolean {
-        const text = this.makeStringPermission();
-        return this.acl.hasRole(text);
-    }
-
-    private makeStringPermission(): string {
-        if (this.logicalOp === 'AND') {
-            return this.roles.join(',');
-        } else {
-            return this.roles.join('|');
-        }
-    }
 }

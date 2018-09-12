@@ -6,13 +6,39 @@
         <br>
         <button (click)="active(['admin' ,'editor'])">ADMIN && EDITOR</button>
     </div>
-    <div *W3AclRole="['admin']">
-        Só aparece para admin {{acl.hasRole(['admin'])}}
+
+    <div *w3AclRole="'editor'">
+        0 Só aparece para editor
     </div>
-    {{acl.hasRole(['editor|teste'])}}
-    <div *W3AclRole="['editor', 'teste']; op 'OR'">
-        Só aparece para editor {{acl.hasRole(['editor'])}}
+    <div *w3AclRole="'admin'">
+        1 Só aparece para admin
     </div>
+    <div *w3AclRole="'admin,editor'">
+        2 Só aparece para admin e editor
+    </div>
+    <div *w3AclRole="'admin|editor'">
+        3 Só aparece para admin ou editor
+    </div>
+
+    <hr>
+    <div *w3AclCan="'read'">
+        0 Só aparece para READ
+    </div>
+    <div *w3AclCan="'delete'">
+        1 Só aparece para DELETE
+    </div>
+    <div *w3AclCan="'read,delete'">
+        2 Só aparece para READ && DELETE
+    </div>
+    <div *w3AclCan="'read|delete'">
+        3 Só aparece para READ || DELETE
+    </div>
+    <!--<div *w3AclRole="['editor', 'teste']">-->
+    <!--Só aparece para editor ou teste {{acl.hasRole(['editor', 'teste'], false)}}-->
+    <!--</div>-->
+    <!--<div *w3AclRole="['editor', 'teste']">-->
+    <!--Só aparece para editor e teste {{acl.hasRole(['editor', 'teste'], true)}}-->
+    <!--</div>-->
 </div>
 
 <div class="box">
@@ -41,23 +67,18 @@
 <hr/>
 
 <div class="box">
-    <h4>Permissions:</h4>
+    <h4>w3AclCan :</h4>
     <ul>
-        <li *ngFor="let p of perms" >{{p.toUpperCase()}}</li>
-        <li *W3AclCan="['read', 'delete']; op 'AND'">READ || DELETE</li>
-        <li *W3AclCan="['read', 'delete']; op 'AND'">READ && DELETE</li>
-        <li *W3AclCan="['read', 'update']; op 'OR'">READ && UPDATE</li>
+        <li *w3AclCan="['read', 'delete']">READ || DELETE</li>
+        <li *w3AclCan="['read', 'delete']">READ && DELETE</li>
+        <li *w3AclCan="['read', 'update']">READ && UPDATE</li>
     </ul>
-</div>
-<div *W3AclCan="['read', 'delete']">
-    is visible
 </div>
 
 <div class="box">
-    <h4>Roles:</h4>
+    <h4>w3AclRole:</h4>
     <ul>
-        <li *ngFor="let r of roles" >{{r.toUpperCase()}}</li>
-        <li *W3AclRole="['admin', 'editor']">ADMIN || EDITOR</li>
-        <li *W3AclRole="['admin', 'editor']; op 'AND'">ADMIN && EDITOR</li>
+        <li *w3AclRole="['admin', 'editor']">ADMIN || EDITOR</li>
+        <li *w3AclRole="['admin', 'editor']">ADMIN && EDITOR</li>
     </ul>
 </div>

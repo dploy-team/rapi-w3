@@ -9,8 +9,6 @@ import {environment} from '../../../../environments/environment';
 import {map, tap} from 'rxjs/operators';
 import {W3AclService} from './acl.service';
 
-// import * as _ from 'lodash';
-
 @Injectable()
 export class W3RequestAclService {
 

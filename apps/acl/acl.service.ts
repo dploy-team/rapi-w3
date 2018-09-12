@@ -18,6 +18,10 @@ export class W3AclService {
         this.onChange$ = this._data.asObservable();
     }
 
+    getData(): DataAclModel {
+        return this._data.value;
+    }
+
     setData(data: DataAclModel): void {
         console.log('ACL.setData', data);
         this._data.next(data);
@@ -36,6 +40,7 @@ export class W3AclService {
     }
 
     hasRole(roles: string | string[], requireAll ?: boolean): boolean {
+        console.log('has roles', this.allRoles())
         return this.check(roles, this.allRoles(), requireAll);
     }
 
@@ -50,7 +55,7 @@ export class W3AclService {
             find = find.split(/[\|,\,]/);
         }
 
-        const result = _.intersection(data, find);
+        const result = _.intersection( find, data);
         const min = requireAll ? find.length : 1;
 
         return result.length >= min;

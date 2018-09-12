@@ -1,66 +1,61 @@
-import {Directive, ElementRef, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {W3AclService} from './acl.service';
+import {Subscription} from 'rxjs';
 
 @Directive({
-    selector: '[W3AclCan]'
+    selector: '[w3AclCan]'
 })
 /**
- * use =>  *W3AclCan="array_permissions; op string_operador"
+ * use =>  *W3AclCan="array_permissions; "
  * array_permissions = ['perm 1', 'perm 2']
- * string_operador (opcional) = 'AND' | 'OR' default: 'OR'
  * simple example =>  *W3AclCan="['read', 'delete']"
- * complete example =>  *W3AclCan="['read', 'delete']; op 'AND'"
  */
-export class W3AclCanDirective implements OnInit{
+export class W3AclCanDirective implements OnInit, OnDestroy {
 
-    private permissions = [];
-    private logicalOp = 'OR';
+    private _last: boolean;
+    private _perms: any;
+    private _subject: Subscription;
 
     constructor(private templateRef: TemplateRef<any>,
-                private element: ElementRef,
+                // private element: ElementRef,
                 private acl: W3AclService,
                 private viewContainer: ViewContainerRef) {
     }
 
     @Input()
-    set W3AclCan(val) {
-        if (!val.isArray) {
-            this.permissions = [val];
-        } else {
-            this.permissions = val;
-        }
-
-        this.updateView();
-    }
-
-    @Input()
-    set W3AclCanOp(permop) {
-        this.logicalOp = permop;
-        this.updateView();
+    set w3AclCan(val) {
+        this._perms = val;
+        this.check();
     }
 
     ngOnInit(): void {
-        this.viewContainer.clear();
-        this.updateView();
+        this._subject = this.acl.onChange$
+            .subscribe(() => this.check());
     }
 
-    private updateView(): void {
-        if (this.checkPermissions()) {
-            this.viewContainer.createEmbeddedView(this.templateRef);
+    ngOnDestroy(): void {
+        console.log('W3AclCanDirective.ngOnDestroy');
+        this._subject.unsubscribe();
+    }
+
+    private check(): void {
+        const newStatus = this.acl.can(this._perms);
+        console.log('check', this._perms, newStatus);
+
+        if (this._last !== newStatus) {
+            this._last = newStatus;
+            console.log('NOVO', this._last);
+            this.updateView();
         } else {
-            this.viewContainer.clear();
+            console.log('MESMO');
         }
     }
 
-    private checkPermissions(): boolean {
-        return this.acl.can(this.makeStringPermission());
-    }
-
-    private makeStringPermission(): string {
-        if (this.logicalOp === 'AND') {
-            return this.permissions.join(',');
+    private updateView(): void {
+        if (this._last) {
+            this.viewContainer.createEmbeddedView(this.templateRef);
         } else {
-            return this.permissions.join('|');
+            this.viewContainer.clear();
         }
     }
 }
