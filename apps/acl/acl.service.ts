@@ -6,7 +6,6 @@ import * as _ from 'lodash';
 @Injectable()
 export class W3AclService {
 
-    private _t;
     public onChange$: Observable<DataAclModel>;
 
     private _dataInit = {
@@ -16,8 +15,6 @@ export class W3AclService {
     private _data = new BehaviorSubject<DataAclModel>(this._dataInit);
 
     constructor() {
-        this._t = Math.random();
-        console.log('ACL.constructor', this._t);
         this.onChange$ = this._data.asObservable();
     }
 
@@ -26,7 +23,7 @@ export class W3AclService {
     }
 
     setData(data: DataAclModel): void {
-        console.log('ACL.setData', data, this._t);
+        console.log('ACL.setData', data);
         this._data.next(data);
     }
 
@@ -39,7 +36,7 @@ export class W3AclService {
     }
 
     can(perms: string | string[], requireAll ?: boolean): boolean {
-        console.log('ACL.findCan', perms, this.allPerms(), this._t);
+        console.log('ACL.findCan', perms, this.allPerms());
         return this.check(perms, this.allPerms(), requireAll);
     }
 

@@ -6,6 +6,8 @@ import {W3AclCanDirective} from './w3-acl-can.directive';
 import {W3AclRoleDirective} from './w3-acl-role.directive';
 import {W3AclService} from './acl.service';
 import {W3RequestAclService} from './request-acl.service';
+import {W3AclCanGuard} from './guards/acl-can.guard';
+import {W3AclRolesGuard} from './guards/acl-roles.guard';
 
 @NgModule({
     imports: [
@@ -34,7 +36,9 @@ export class W3AclModule {
             ngModule: W3AclModule,
             providers: [
                 W3AclService,
-                W3RequestAclService
+                W3RequestAclService,
+                W3AclCanGuard,
+                W3AclRolesGuard
             ]
         };
     }
