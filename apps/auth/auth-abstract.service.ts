@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import {catchError, map, tap} from 'rxjs/operators';
 import {environment} from '../../../../environments/environment';
 import {W3StorageService} from '../storage';
+import {W3MeService} from '../../../piece/services/me.service';
 
 /**
  * Essential service for authentication
@@ -14,7 +15,7 @@ export abstract class W3AuthAbstractService {
 
     protected _headers = {};
 
-    protected constructor(protected http: HttpClient, protected storage: W3StorageService) {
+    protected constructor(protected http: HttpClient, protected storage: W3StorageService, protected me: W3MeService) {
     }
 
     // `${environment.URL_API}/rapi/guardian/auth/refresh`
@@ -98,19 +99,22 @@ export abstract class W3AuthAbstractService {
 
         this.storage.set('access_token', authResult.data.access_token);
         this.storage.set('expires_at', JSON.stringify(expiresAt.valueOf()));
+
+        this.me.refresh();
     }
 
     public logout(): any {
-
         const refreshToken: string = this.storage.get('access_token');
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},
         };
+
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/logout`, null, options)
             .pipe(
                 map((resp) => {
                     console.log('resp', resp);
+                    this.me.clear();
                     this.clearToken();
                     return resp;
                 }),

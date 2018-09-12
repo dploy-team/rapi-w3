@@ -2,19 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {ItemRespDec} from '@rapi/w3';
-import {Observable} from 'rxjs';
+import {W3AclService} from '@rapi/w3/apps/acl/acl.service';
+import {DataAclModel, ResponseAclData} from '@rapi/w3/apps/acl/acl.model';
 
-import {DataAclModel, ResponseAclData} from './acl.model';
-import {environment} from '../../../../environments/environment';
+import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
-import {W3AclService} from './acl.service';
+
+import {environment} from '../../../../environments/environment';
 
 @Injectable()
 export class W3RequestAclService {
 
-
     constructor(private http: HttpClient, private acl: W3AclService) {
-
     }
 
     findData(): Observable<ResponseAclData> {
@@ -28,11 +27,14 @@ export class W3RequestAclService {
         return [''];
     }
 
-    refresh(): Observable<ResponseAclData> {
-        return this.findData()
+    refresh(): void {// : Observable<ResponseAclData>
+        console.log('W3RequestAcl.refresh');
+
+        this.findData()
             .pipe(
                 tap(data => this.fillAcl(data))
-            );
+            )
+            .subscribe();
     }
 
     private fillAcl(data: ResponseAclData): void {

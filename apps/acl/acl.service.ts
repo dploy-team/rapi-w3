@@ -40,7 +40,6 @@ export class W3AclService {
     }
 
     hasRole(roles: string | string[], requireAll ?: boolean): boolean {
-        console.log('has roles', this.allRoles())
         return this.check(roles, this.allRoles(), requireAll);
     }
 

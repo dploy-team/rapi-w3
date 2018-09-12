@@ -12,4 +12,4 @@ export {
     W3_PROTECTED_FALLBACK_PAGE_URI
 } from './tokens';
 export {W3AuthModule} from './auth.module';
-export {User} from './auth.model';
+export {UserModel} from './auth.model';
