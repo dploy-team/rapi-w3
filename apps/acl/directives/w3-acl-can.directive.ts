@@ -1,20 +1,19 @@
 import {Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {W3AclService} from './acl.service';
+import {W3AclService} from '../acl.service';
 import {Subscription} from 'rxjs';
 
 @Directive({
-    selector: '[w3AclRole]'
+    selector: '[w3AclCan]'
 })
-
 /**
- * use =>  *W3AclRole="array_roles;"
- * array_roles = ['role 1', 'role 2']
- * simple example =>  *W3AclRole="['admin', 'editor']"
+ * use =>  *w3AclCan="array_permissions; "
+ * array_permissions = ['perm 1', 'perm 2']
+ * simple example =>  *w3AclCan="['read', 'delete']"
  */
-export class W3AclRoleDirective implements OnInit, OnDestroy {
+export class W3AclCanDirective implements OnInit, OnDestroy {
 
     private _last: boolean;
-    private _role: any;
+    private _perms: any;
     private _subject: Subscription;
 
     constructor(private templateRef: TemplateRef<any>,
@@ -23,8 +22,8 @@ export class W3AclRoleDirective implements OnInit, OnDestroy {
     }
 
     @Input()
-    set w3AclRole(val) {
-        this._role = val;
+    set w3AclCan(val) {
+        this._perms = val;
         this.check();
     }
 
@@ -34,12 +33,12 @@ export class W3AclRoleDirective implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        console.log('W3AclRoleDirective.ngOnDestroy');
+        console.log('W3AclCanDirective.ngOnDestroy');
         this._subject.unsubscribe();
     }
 
     private check(): void {
-        const newStatus = this.acl.hasRole(this._role);
+        const newStatus = this.acl.can(this._perms);
 
         if (this._last !== newStatus) {
             this._last = newStatus;
@@ -54,5 +53,4 @@ export class W3AclRoleDirective implements OnInit, OnDestroy {
             this.viewContainer.clear();
         }
     }
-
 }
