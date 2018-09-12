@@ -32,17 +32,12 @@ export class W3AuthInterceptor implements HttpInterceptor {
     /**
      * Intercept an outgoing `HttpRequest`
      */
-    public intercept(
-        req: HttpRequest<any>,
-        delegate: HttpHandler
-    ): Observable<HttpEvent<any>> {
-
-        const authService: W3AuthAbstractService =
-            this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
+    public intercept(req: HttpRequest<any>, delegate: HttpHandler): Observable<HttpEvent<any>> {
+        const authService: W3AuthAbstractService = this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
 
         if (req.headers.has('skipAuthorization')) {
             const headers = req.headers.delete('skipAuthorization');
-            const directRequest = req.clone({ headers });
+            const directRequest = req.clone({headers});
             return delegate.handle(directRequest);
         }
 
@@ -56,11 +51,7 @@ export class W3AuthInterceptor implements HttpInterceptor {
     /**
      * Process all the requests via custom interceptors.
      */
-    private processIntercept(
-        original: HttpRequest<any>,
-        delegate: HttpHandler
-    ): Observable<HttpEvent<any>> {
-
+    private processIntercept(original: HttpRequest<any>, delegate: HttpHandler): Observable<HttpEvent<any>> {
         const clone: HttpRequest<any> = original.clone();
 
         return this.request(clone)
@@ -74,10 +65,7 @@ export class W3AuthInterceptor implements HttpInterceptor {
      * Request interceptor. Delays request if refresh is in progress
      * otherwise adds token to the headers
      */
-    private request(
-        req: HttpRequest<any>
-    ): Observable<HttpRequest<any>> {
-
+    private request(req: HttpRequest<any>): Observable<HttpRequest<any>> {
         if (this.refreshInProgress) {
             return this.delayRequest(req);
         }
@@ -88,16 +76,11 @@ export class W3AuthInterceptor implements HttpInterceptor {
     /**
      * Failed request interceptor, check if it has to be processed with refresh
      */
-    private responseError(
-        req: HttpRequest<any>,
-        res: HttpErrorResponse
-    ): Observable<HttpEvent<any>> {
+    private responseError(req: HttpRequest<any>, res: HttpErrorResponse): Observable<HttpEvent<any>> {
 
-        const authService: W3AuthAbstractService =
-            this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
+        const authService: W3AuthAbstractService = this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
 
-        const refreshShouldHappen: boolean =
-            authService.refreshShouldHappen(res);
+        const refreshShouldHappen: boolean = authService.refreshShouldHappen(res);
 
         if (refreshShouldHappen && !this.refreshInProgress) {
             this.refreshInProgress = true;
@@ -126,12 +109,9 @@ export class W3AuthInterceptor implements HttpInterceptor {
     /**
      * Add access token to headers or the request
      */
-    private addToken(
-        req: HttpRequest<any>
-    ): Observable<HttpRequest<any>> {
+    private addToken(req: HttpRequest<any>): Observable<HttpRequest<any>> {
 
-        const authService: W3AuthAbstractService =
-            this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
+        const authService: W3AuthAbstractService = this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
 
         return authService.getAccessToken()
             .pipe(
@@ -158,10 +138,7 @@ export class W3AuthInterceptor implements HttpInterceptor {
      * Delay request, by subscribing on refresh event, once it finished, process it
      * otherwise throw error
      */
-    private delayRequest(
-        req: HttpRequest<any>
-    ): Observable<HttpRequest<any>> {
-
+    private delayRequest(req: HttpRequest<any>): Observable<HttpRequest<any>> {
         return this.refreshSubject.pipe(
             first(),
             switchMap((status: boolean) =>
@@ -174,13 +151,9 @@ export class W3AuthInterceptor implements HttpInterceptor {
      * Retry request, by subscribing on refresh event, once it finished, process it
      * otherwise throw error
      */
-    private retryRequest(
-        req: HttpRequest<any>,
-        res: HttpErrorResponse
-    ): Observable<HttpEvent<any>> {
+    private retryRequest(req: HttpRequest<any>, res: HttpErrorResponse): Observable<HttpEvent<any>> {
 
-        const http: HttpClient =
-            this.injector.get<HttpClient>(HttpClient);
+        const http: HttpClient = this.injector.get<HttpClient>(HttpClient);
 
         return this.refreshSubject.pipe(
             first(),

@@ -3,6 +3,10 @@ export interface ItemResponse {
     message?: string; // mytodo remove
 }
 
+export interface ItemRespDec<T> {
+    data: T;
+}
+
 // CollectionResponse<T>
 export interface CollectionResponse {
     // data: T[];
@@ -78,7 +82,7 @@ export interface DataUpload {
     owner_type: string;
     created_at: string;
     updated_at: string;
-    _pathSrc: ''
+    _pathSrc: '';
 }
 
 interface FileReaderEventTarget extends EventTarget {
