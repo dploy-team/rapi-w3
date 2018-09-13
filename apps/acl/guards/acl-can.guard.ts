@@ -19,7 +19,7 @@ export class W3AclCanGuard implements CanActivate, CanActivateChild {
         state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
         if (!next.data.perms) {
-            this._notification.error('Permissão não intendificada! Informar no router. => ' + next.url);
+            this._notification.error('Permissão não intendificada! Informar no router. Não foi encontrado o data.perms => url: ' + next.url);
             return false;
         }
 
