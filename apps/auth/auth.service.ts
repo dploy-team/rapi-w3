@@ -9,7 +9,8 @@ import {W3AuthAbstractService} from './auth-abstract.service';
 import {W3StorageService} from '../storage';
 
 import {environment} from '../../../../environments/environment';
-import {W3MeService} from './me.service';
+import {W3MeService} from "./me.service";
+
 
 
 @Injectable()

@@ -11,6 +11,7 @@ import {getPtBrPaginatorIntl} from './components/w3-paginator/pt-br-paginator-in
 import {W3PaginatorComponent} from './components/w3-paginator/w3-paginator.component';
 import {W3StorageOption, W3StorageService} from './apps/storage';
 import {W3_CONFIG, W3Config} from './w3.config';
+import {W3MeService} from "./apps/auth/me.service";
 
 
 @NgModule({
@@ -51,6 +52,7 @@ export class W3Module {
             providers: [
                 W3NotificationService,
                 W3AuthService,
+
                 {provide: W3_CONFIG, useValue: configs},
                 {provide: W3StorageOption, useValue: configs.storage},
                 // HttpErrorEvent,
