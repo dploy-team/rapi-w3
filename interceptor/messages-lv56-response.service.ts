@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+
 import * as _ from 'lodash';
 import {MessagesResponse} from './messages-response';
 import {W3MessagesBaseResponseService} from './messages-base-response.service';
@@ -22,7 +24,6 @@ export class W3MessagesLv56ResponseService extends W3MessagesBaseResponseService
     }
 
     respondValidation(data): void {
-
         if (!data.error) {
             return;
         }
@@ -55,6 +56,10 @@ export class W3MessagesLv56ResponseService extends W3MessagesBaseResponseService
     }
 
     respondUnauthorized(data): void {
+        if (this.getCode(data) === 'UNAUTHORIZED') {
+            return;
+        }
+
         const msg = (data.error && data.message)
             ? data.message
             : 'Favor efetuar login!';
@@ -70,4 +75,7 @@ export class W3MessagesLv56ResponseService extends W3MessagesBaseResponseService
         }
     }
 
+    private getCode(data): string {
+        return data.error ? data.error.code : null;
+    }
 }

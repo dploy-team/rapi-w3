@@ -4,26 +4,27 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {map, shareReplay, tap} from 'rxjs/operators';
 
-import {User} from './auth.model';
+import {UserModel} from './auth.model';
 import {W3AuthAbstractService} from './auth-abstract.service';
 import {W3StorageService} from '../storage';
 
 import {environment} from '../../../../environments/environment';
+import {W3MeService} from "./me.service";
+
 
 
 @Injectable()
 export class W3AuthService extends W3AuthAbstractService {
 
-    constructor(http: HttpClient, storage: W3StorageService) {
-        super(http, storage);
+    constructor(http: HttpClient, storage: W3StorageService, me: W3MeService) {
+        super(http, storage, me);
     }
 
     getUrlRefreshToken(): string {
         return `${environment.URL_API}/rapi/guardian/auth/refresh`;
     }
 
-    login(email: string, password: string): Observable<User | any> {
-
+    login(email: string, password: string): Observable<UserModel | any> {
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/login`, {email, password})
             .pipe(
@@ -36,7 +37,6 @@ export class W3AuthService extends W3AuthAbstractService {
     }
 
     remind(data): Observable<any> {
-
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/password/remind`, data)
             .pipe(
@@ -48,7 +48,6 @@ export class W3AuthService extends W3AuthAbstractService {
     }
 
     reset(data): Observable<any> {
-
         return this.http
             .post(`${environment.URL_API}/rapi/guardian/auth/password/reset`, data)
             .pipe(

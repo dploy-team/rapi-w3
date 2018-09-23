@@ -1,0 +1,84 @@
+<div class="box">
+    <div class="p-24" style="width: 300px" fxLayout="row" fxLayoutAlign="space-around center">
+        <button (click)="active(['admin'])">ADMIN</button>
+        <br>
+        <button (click)="active(['editor'])">EDITOR</button>
+        <br>
+        <button (click)="active(['admin' ,'editor'])">ADMIN && EDITOR</button>
+    </div>
+
+    <div *w3AclRole="'editor'">
+        0 Só aparece para editor
+    </div>
+    <div *w3AclRole="'admin'">
+        1 Só aparece para admin
+    </div>
+    <div *w3AclRole="'admin,editor'">
+        2 Só aparece para admin e editor
+    </div>
+    <div *w3AclRole="'admin|editor'">
+        3 Só aparece para admin ou editor
+    </div>
+
+    <hr>
+    <div *w3AclCan="'read'">
+        0 Só aparece para READ
+    </div>
+    <div *w3AclCan="'delete'">
+        1 Só aparece para DELETE
+    </div>
+    <div *w3AclCan="'read,delete'">
+        2 Só aparece para READ && DELETE
+    </div>
+    <div *w3AclCan="'read|delete'">
+        3 Só aparece para READ || DELETE
+    </div>
+    <!--<div *w3AclRole="['editor', 'teste']">-->
+    <!--Só aparece para editor ou teste {{acl.hasRole(['editor', 'teste'], false)}}-->
+    <!--</div>-->
+    <!--<div *w3AclRole="['editor', 'teste']">-->
+    <!--Só aparece para editor e teste {{acl.hasRole(['editor', 'teste'], true)}}-->
+    <!--</div>-->
+</div>
+
+<div class="box">
+    <h4>Permissions:</h4>
+    <ul>
+        <li *ngFor="let p of perms" [ngClass]="{'red-500-bg': !acl.can(p)}">{{p.toUpperCase()}}</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'])}">READ || DELETE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'delete'], true)}">array: READ && DELETE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can(['read', 'update'], true)}">array: READ && UPDATE</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read,delete')}">syntax: read,delete</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read,update')}">syntax: read,update</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read|delete')}">syntax: read|delete</li>
+        <li [ngClass]="{'red-500-bg': !acl.can('read|update')}">syntax: read|update</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h4>Roles:</h4>
+    <ul>
+        <li *ngFor="let r of roles" [ngClass]="{'red-500-bg': !acl.hasRole(r)}">{{r.toUpperCase()}}</li>
+        <li [ngClass]="{'red-500-bg': !acl.hasRole(['admin', 'editor'])}">ADMIN || EDITOR</li>
+        <li [ngClass]="{'red-500-bg': !acl.hasRole(['admin', 'editor'], true)}">ADMIN && EDITOR</li>
+    </ul>
+</div>
+
+<hr/>
+
+<div class="box">
+    <h4>w3AclCan :</h4>
+    <ul>
+        <li *w3AclCan="['read', 'delete']">READ || DELETE</li>
+        <li *w3AclCan="['read', 'delete']">READ && DELETE</li>
+        <li *w3AclCan="['read', 'update']">READ && UPDATE</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h4>w3AclRole:</h4>
+    <ul>
+        <li *w3AclRole="['admin', 'editor']">ADMIN || EDITOR</li>
+        <li *w3AclRole="['admin', 'editor']">ADMIN && EDITOR</li>
+    </ul>
+</div>
