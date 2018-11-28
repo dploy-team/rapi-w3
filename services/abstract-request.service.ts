@@ -66,8 +66,8 @@ export abstract class W3AbstractRequestService<T> {
             .pipe(
                 tap(res => {
                     this.metas = res.meta;
-                    //     this.paginationData.total = +res.meta.total;
-                    //     this.paginationData.per_page = +res.meta.per_page;
+                        this.paginationData.total = +res.meta.total;
+                        this.paginationData.per_page = +res.meta.per_page;
                 }),
                 map(res => this.transformCollectionResponse(res.data))
             );

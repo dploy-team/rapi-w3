@@ -16,7 +16,6 @@ export class W3PaginatorComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   changePage(event): void {
