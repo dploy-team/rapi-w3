@@ -12,10 +12,10 @@ export abstract class W3AbstractRequestService<T> {
     public perPage = 15;
     public metas: any;
 
-    // public paginationData = {
-    //     total: 0,
-    //     per_page: 0
-    // };
+    public paginationData = {
+        total: 0,
+        per_page: 0
+    };
 
     protected constructor(protected http: HttpClient) {
     }
@@ -66,8 +66,8 @@ export abstract class W3AbstractRequestService<T> {
             .pipe(
                 tap(res => {
                     this.metas = res.meta;
-                    //     this.paginationData.total = +res.meta.total;
-                    //     this.paginationData.per_page = +res.meta.per_page;
+                        this.paginationData.total = +res.meta.total;
+                        this.paginationData.per_page = +res.meta.per_page;
                 }),
                 map(res => this.transformCollectionResponse(res.data))
             );
@@ -94,12 +94,12 @@ export abstract class W3AbstractRequestService<T> {
     }
 
     /** Registra a pagina */
-    // setPage(newPage: number): void {
-    //     this.page = newPage;
-    // }
-    //
-    // pagination(): any {
-    //     return this.paginationData;
-    // }
+    setPage(newPage: number): void {
+        this.page = newPage;
+    }
+
+    pagination(): any {
+        return this.paginationData;
+    }
 
 }

@@ -5,12 +5,14 @@ import {W3AuthInterceptor} from './auth.Interceptor';
 import {W3PublicGuard} from './guards/public.guard';
 import {W3ProtectedGuard} from './guards/protected.guard';
 import {W3_PROTECTED_FALLBACK_PAGE_URI, W3_PUBLIC_FALLBACK_PAGE_URI} from './tokens';
+import {W3MeService} from "./me.service";
 
 @NgModule({
     providers: [
         W3PublicGuard,
         W3ProtectedGuard,
         W3AuthInterceptor,
+        W3MeService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: W3AuthInterceptor,

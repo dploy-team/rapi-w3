@@ -23,6 +23,10 @@ export abstract class W3AuthAbstractService {
     // `${environment.URL_API}/rapi/guardian/auth/refresh`
     public abstract getUrlRefreshToken(): string;
 
+    getUrlRevokeToken(): string {
+        return `${environment.URL_API}/rapi/guardian/auth/logout`;
+    }
+
     /**
      * Check, if user already authorized.
      *
@@ -112,7 +116,7 @@ export abstract class W3AuthAbstractService {
         };
 
         return this.http
-            .post(`${environment.URL_API}/rapi/guardian/auth/logout`, null, options)
+            .post(this.getUrlRevokeToken(), null, options)
             .pipe(
                 map((resp) => {
                     console.log('resp', resp);
