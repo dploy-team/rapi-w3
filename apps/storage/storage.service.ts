@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {W3StorageOption} from './models';
-import {isObject} from 'util';
+import {isObject, isString} from 'util';
 
 @Injectable()
 export class W3StorageService {
@@ -19,7 +19,7 @@ export class W3StorageService {
   get(key: string, def: any = null): any {
     let value = this.drive.getItem(this.key(key)) || def;
 
-    if (value && value.indexOf('json:') === 0) {
+    if (value && isString(value) && value.indexOf('json:') === 0) {
       value = JSON.parse(value.substr(5));
     }
 
