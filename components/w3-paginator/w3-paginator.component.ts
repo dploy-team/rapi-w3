@@ -2,23 +2,17 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {MatPaginator, MatPaginatorIntl} from '@angular/material';
 
 @Component({
-  selector: 'rapi-w3-paginator',
-  templateUrl: './w3-paginator.component.html',
-  styleUrls: ['./w3-paginator.component.scss']
+    selector: 'rapi-w3-paginator',
+    templateUrl: './w3-paginator.component.html',
+    styleUrls: ['./w3-paginator.component.scss']
 })
-export class W3PaginatorComponent implements OnInit {
+export class W3PaginatorComponent {
 
-  @Input() pagination: any;
-  @Output() onChange = new EventEmitter<any>();
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+    @Input() pagination: any;
+    @Output() onChange = new EventEmitter<any>();
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-  changePage(event): void {
-    this.onChange.emit(event);
-  }
+    changePage(event): void {
+        this.onChange.emit(event);
+    }
 }

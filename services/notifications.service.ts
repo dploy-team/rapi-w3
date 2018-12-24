@@ -1,11 +1,18 @@
 import {Injectable} from '@angular/core';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
+import {RapiPiecesConfirmDialogComponent} from '../../piece/components/confirm-dialog/confirm-dialog.component';
+import {RequestDeleteWallet} from '../../../app/main/wallet/wallet.actions';
+import {toPromise} from 'rxjs-compat/operator/toPromise';
+import {Observable} from 'rxjs';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class W3NotificationService {
 
-    constructor(public snackBar: MatSnackBar, private _toast: ToastrService) {
+    private _confirmDialogRef: MatDialogRef<RapiPiecesConfirmDialogComponent>;
+
+    constructor(public snackBar: MatSnackBar, public dialog: MatDialog, private _toast: ToastrService) {
     }
 
     notify(message: string, position: string = 'bottom', duration: number = 4000): void {
@@ -31,6 +38,26 @@ export class W3NotificationService {
 
     warning(message?: string, title?: string): void {
         this._toast.warning(message, title);
+    }
+
+    confirmDeleteDialog(name = '', payload?: any): Observable<{ result: string, payload: any }> {
+        return this.confirmDialog(`Deseja excluir o item ${name}?`, 'Excluir item', 'warn', payload);
+    }
+
+    confirmDialog(message: string, title: string, typeClass = 'warn', payload?: any): Observable<{ result: string, payload: any }> {
+        this._confirmDialogRef = this.dialog.open(RapiPiecesConfirmDialogComponent, {
+            disableClose: false
+        });
+
+        this._confirmDialogRef.componentInstance.confirmMessage = message;
+        this._confirmDialogRef.componentInstance.confirmTitle = title;
+        this._confirmDialogRef.componentInstance.typeClass = typeClass;
+
+        return this._confirmDialogRef.afterClosed()
+            .pipe(
+                tap(() => this._confirmDialogRef = null),
+                map(r => r ? {result: 'OK', payload} : {result: 'CANCEL', payload}),
+            );
     }
 
     //
