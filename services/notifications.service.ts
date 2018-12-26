@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 import {RapiPiecesConfirmDialogComponent} from '../../piece/components/confirm-dialog/confirm-dialog.component';
-import {RequestDeleteWallet} from '../../../app/main/wallet/wallet.actions';
+import {RequestDeleteWallet} from '../../../app/main/wallet/store/wallet.actions';
 import {toPromise} from 'rxjs-compat/operator/toPromise';
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';

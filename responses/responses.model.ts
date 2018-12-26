@@ -39,6 +39,7 @@ export interface Response20x {
 
 export interface Response40x {
     status?: 'success' | 'error';
+    message: string;
     data?: any;
     error: Error;
 }
@@ -46,8 +47,7 @@ export interface Response40x {
 interface Error {
     code: string;
     http_code: number;
-    message: string;
-    validation?: [{ string: string[] }];
+    validation?: { [key: string]: string[]; }; // [{ [key: string]: string[]; }];
     // validation: {
     //     [key: string]: string[]
     // };
