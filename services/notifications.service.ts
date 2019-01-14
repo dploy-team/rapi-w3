@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 
 import {ToastrService} from 'ngx-toastr';
-import {RapiPiecesConfirmDialogComponent} from '../../piece/components/confirm-dialog/confirm-dialog.component';
 
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
