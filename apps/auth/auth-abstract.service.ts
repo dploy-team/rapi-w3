@@ -109,7 +109,7 @@ export abstract class W3AuthAbstractService {
         this.me.refresh();
     }
 
-    public logout(): any {
+  public logout(): Observable<any> {
         const refreshToken: string = this.storage.get('access_token');
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},

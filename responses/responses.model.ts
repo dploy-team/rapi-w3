@@ -7,17 +7,28 @@ export interface ItemRespDec<T> {
     data: T;
 }
 
-// CollectionResponse<T>
+export interface CollectionRespDec<T> extends CollectionResponse {
+    data: T[];
+}
+
 export interface CollectionResponse {
-    // data: T[];
     data: any[];
-    includes?: any[];
-    pagination?: {};
+    includes?: string[];
     meta?: {
-        total: number,
-        per_page: any
+        current_page: number;
+        from: number;
+        last_page: number;
+        path: string;
+        per_page: number;
+        to: number;
+        total: number;
     };
-    links?: any;
+    links?: {
+        first: string;
+        last: string;
+        prev: string;
+        next: string;
+    };
 }
 
 export interface Response20x {
@@ -28,6 +39,7 @@ export interface Response20x {
 
 export interface Response40x {
     status?: 'success' | 'error';
+    message: string;
     data?: any;
     error: Error;
 }
@@ -35,8 +47,7 @@ export interface Response40x {
 interface Error {
     code: string;
     http_code: number;
-    message: string;
-    validation?: [{ string: string[] }];
+    validation?: { [key: string]: string[]; }; // [{ [key: string]: string[]; }];
     // validation: {
     //     [key: string]: string[]
     // };

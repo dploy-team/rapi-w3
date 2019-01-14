@@ -1,4 +1,4 @@
-import {HttpResponseBase, HttpHeaders} from '@angular/common/http';
+import {HttpHeaders, HttpResponseBase} from '@angular/common/http';
 import {Response40x} from '@rapi/w3';
 
 export class MyHttpErrorResponse extends HttpResponseBase implements Error {
@@ -10,7 +10,7 @@ export class MyHttpErrorResponse extends HttpResponseBase implements Error {
     readonly response: Response40x | null;
     readonly data: object | null;
     readonly code: string | null;
-    readonly validation: [{ string: string[] }];
+    readonly validation: { [key: string]: string[]; };
 
     /**
      * Errors are never okay, even when the status code is in the 2xx success range.
@@ -42,7 +42,7 @@ export class MyHttpErrorResponse extends HttpResponseBase implements Error {
 
             if (this.response.error) {
                 this.code = this.response.error.code;
-                this.message = this.response.error.message;
+                this.message = this.response.message;
                 this.validation = this.response.error.validation;
             } else {
                 this.code = this.response.status;
@@ -57,12 +57,10 @@ export class MyHttpErrorResponse extends HttpResponseBase implements Error {
             return [];
         }
 
-        const messages = Object.getOwnPropertyNames(this.validation)
+        return Object.getOwnPropertyNames(this.validation)
             .reduce((map: any, key: string) => {
                 return map.concat(this.validation[key]);
             }, []);
-
-        return messages;
     }
 
     getFirstValidation(): string {
