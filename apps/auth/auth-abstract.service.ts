@@ -1,6 +1,6 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {W3StorageService} from '@rapi/w3/apps/storage';
-import {W3MeService} from '@rapi/w3/apps/auth';
+import {UserModel, W3MeService} from '@rapi/w3/apps/auth';
 
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
@@ -19,6 +19,8 @@ export abstract class W3AuthAbstractService {
 
     protected constructor(protected http: HttpClient, protected storage: W3StorageService, protected me: W3MeService) {
     }
+
+    public abstract login(email: string, password: string): Observable<UserModel | any>;
 
     // `${environment.URL_API}/rapi/guardian/auth/refresh`
     public abstract getUrlRefreshToken(): string;
@@ -109,7 +111,7 @@ export abstract class W3AuthAbstractService {
         this.me.refresh();
     }
 
-  public logout(): Observable<any> {
+    public logout(): Observable<any> {
         const refreshToken: string = this.storage.get('access_token');
         const options = {
             headers: {Authorization: `Bearer ${refreshToken}`},
