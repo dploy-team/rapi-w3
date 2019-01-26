@@ -1,19 +1,33 @@
+/**
+ * @deprecated use ResponseCollection<T>
+ */
+export interface CollectionResponse extends ResponseCollection {
+    old?: null;
+}
+
+/**
+ * @deprecated use ResponseItem<T>
+ */
 export interface ItemResponse {
     data: any;
     message?: string; // mytodo remove
 }
 
-export interface ItemRespDec<T> {
+/**
+ * @deprecated use ResponseItem
+ */
+export interface ItemRespDec<T> extends ResponseItem<T> {
+
+}
+
+export interface ResponseItem<T> {
     data: T;
 }
 
-export interface CollectionRespDec<T> extends CollectionResponse {
+export interface ResponseCollection<T = any> {
     data: T[];
-}
-
-export interface CollectionResponse {
-    data: any[];
     includes?: string[];
+    // pagination?: {};
     meta?: {
         current_page: number;
         from: number;
