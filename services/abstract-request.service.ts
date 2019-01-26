@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
-import {CollectionRespDec, CollectionResponse, ItemRespDec, ItemResponse, Response20x} from '..';
+import {Response20x, ResponseCollection, ResponseItem} from '..';
 
 @Injectable()
 export abstract class W3AbstractRequestService<T> {
@@ -37,7 +37,7 @@ export abstract class W3AbstractRequestService<T> {
         params = this.transformRequest(params, 'find');
 
         return this.http
-            .get<ItemRespDec<T>>(`${this.getBaseUrl()}/${id}`, {params})
+            .get<ResponseItem<T>>(`${this.getBaseUrl()}/${id}`, {params})
             .pipe(map(res => this.transformItemResponse(res.data)));
     }
 
@@ -63,7 +63,7 @@ export abstract class W3AbstractRequestService<T> {
         params = this.transformRequest(params, 'search');
 
         return this.http
-            .get<CollectionRespDec<T>>(this.getBaseUrl(), {params})
+            .get<ResponseCollection<T>>(this.getBaseUrl(), {params})
             .pipe(
                 tap(res => {
                     this.metas = res.meta || {};
