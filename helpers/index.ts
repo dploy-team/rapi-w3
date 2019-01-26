@@ -39,6 +39,16 @@ export function enumToArray(_enum): EnumItem[] {
         .map(index => ({key: _enum[index], value: index} as EnumItem));
 }
 
+
+export function enumToArrayWithLabels(_enum, labels: string[]) {
+    const newEnumArray = [];
+    Object.keys(_enum).forEach((ob, i) => {
+        console.log('i', i, ob)
+        newEnumArray.push({key: _enum[ob], value: ob, label: (labels[i] ? labels[i] : ob)})
+    });
+    return newEnumArray;
+}
+
 export function makeSortParams(sort: Sort, def: string): string {
 
     if (sort.direction === 'asc') {
