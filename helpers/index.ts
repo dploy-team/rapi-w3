@@ -40,10 +40,9 @@ export function enumToArray(_enum): EnumItem[] {
 }
 
 
-export function enumToArrayWithLabels(_enum, labels: string[]) {
+export function enumToArrayWithLabels(_enum, labels: string[]): any[] {
     const newEnumArray = [];
     Object.keys(_enum).forEach((ob, i) => {
-        console.log('i', i, ob)
         newEnumArray.push({key: _enum[ob], value: ob, label: (labels[i] ? labels[i] : ob)})
     });
     return newEnumArray;
