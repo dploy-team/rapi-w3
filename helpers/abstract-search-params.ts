@@ -44,8 +44,6 @@ export abstract class AbstractSearchParams {
 
                 if (!w3IsEmpty(this[k])) {
                     r[k] = this[k];
-                } else {
-                    console.log('isEmpty is FALSE', k, this[k]);
                 }
 
                 return r;
@@ -57,7 +55,6 @@ export abstract class AbstractSearchParams {
      */
     getQueryParams(): any {
         const data = this.getData();
-        console.log('getQueryParams', data);
 
         return Object.keys(data)
             .reduce((r, k) => {
