@@ -111,6 +111,14 @@ export abstract class W3AuthAbstractService {
         this.me.refresh();
     }
 
+    public remind(data: any): Observable<any> {
+        return of(null);
+    }
+
+    public reset(data: any): Observable<any> {
+        return of(null);
+    }
+
     public logout(): Observable<any> {
         const refreshToken: string = this.storage.get('access_token');
         const options = {
