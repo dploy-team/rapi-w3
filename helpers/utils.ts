@@ -1,8 +1,9 @@
 import {Sort} from '@angular/material';
 
 export interface EnumItem {
-    value: string;
-    key: string;
+    key: string | number;
+    value: any;
+    label?: string;
 }
 
 export function enumToArray(_enum): EnumItem[] {
@@ -10,8 +11,7 @@ export function enumToArray(_enum): EnumItem[] {
         .map(index => ({key: _enum[index], value: index} as EnumItem));
 }
 
-
-export function enumToArrayWithLabels(_enum, labels: string[]): any[] {
+export function enumToArrayWithLabels(_enum, labels: string[]): EnumItem[] {
     const newEnumArray = [];
     Object.keys(_enum).forEach((ob, i) => {
         newEnumArray.push({key: _enum[ob], value: ob, label: (labels[i] ? labels[i] : ob)});
