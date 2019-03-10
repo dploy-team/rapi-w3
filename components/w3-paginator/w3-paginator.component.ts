@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorIntl} from '@angular/material';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material';
 
 @Component({
     selector: 'rapi-w3-paginator',
