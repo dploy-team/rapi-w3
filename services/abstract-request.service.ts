@@ -21,6 +21,10 @@ export abstract class W3AbstractRequestService<T> {
 
     abstract getBaseUrl(): string;
 
+    protected makeUrl(path = ''): string {
+        return this.getBaseUrl() + path;
+    }
+
     protected transformItemResponse(data: any): T {
         return data;
     }
