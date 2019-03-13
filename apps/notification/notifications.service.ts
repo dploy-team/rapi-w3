@@ -5,12 +5,13 @@ import {ToastrService} from 'ngx-toastr';
 
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
-import {RapiPiecesConfirmDialogComponent} from '../../piece/components/confirm-dialog/confirm-dialog.component';
+import {W3MatConfirmDialogComponent} from "@rapi/w3/apps/notification/components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component";
+
 
 @Injectable()
 export class W3NotificationService {
 
-    private _confirmDialogRef: MatDialogRef<RapiPiecesConfirmDialogComponent>;
+    private _confirmDialogRef: MatDialogRef<W3MatConfirmDialogComponent>;
 
     constructor(public snackBar: MatSnackBar, public dialog: MatDialog, private _toast: ToastrService) {
     }
@@ -45,7 +46,7 @@ export class W3NotificationService {
     }
 
     confirmDialog(message: string, title: string, typeClass = 'warn', payload?: any): Observable<{ result: string, payload: any }> {
-        this._confirmDialogRef = this.dialog.open(RapiPiecesConfirmDialogComponent, {
+        this._confirmDialogRef = this.dialog.open(W3MatConfirmDialogComponent, {
             disableClose: false
         });
 

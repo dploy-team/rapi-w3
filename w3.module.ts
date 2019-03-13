@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {MatPaginatorIntl, MatPaginatorModule, MatSnackBarModule} from '@angular/material';
 
-import {W3NotificationService} from './services/notifications.service';
+
 import {getPtBrPaginatorIntl, W3PaginatorComponent} from './components/w3-paginator';
 
 import {W3StorageOption, W3StorageService} from './apps/storage';
@@ -40,8 +40,7 @@ export class W3Module {
             ngModule: W3Module,
             providers: [
                 W3StorageService,
-                W3NotificationService,
-
+                
                 {provide: W3_CONFIG, useValue: configs},
                 {provide: W3StorageOption, useValue: configs.storage},
                 // HttpErrorEvent,
