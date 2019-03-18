@@ -3,7 +3,8 @@ import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChi
 
 import {Observable} from 'rxjs';
 import {W3AclService} from '../acl.service';
-import {W3NotificationService} from '../../../services/notifications.service';
+import {W3NotificationService} from '@rapi/w3/apps/notification/notifications.service';
+
 
 @Injectable()
 export class W3AclCanGuard implements CanActivate, CanActivateChild {
@@ -11,7 +12,6 @@ export class W3AclCanGuard implements CanActivate, CanActivateChild {
     constructor(
         private _acl: W3AclService,
         private _notification: W3NotificationService) {
-
     }
 
     canActivate(

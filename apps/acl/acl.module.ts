@@ -1,6 +1,8 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
+import {W3NotificationModule} from '@rapi/w3/apps/notification/notification.module';
+
 import {W3AclService} from './acl.service';
 import {W3RequestAclService} from './request-acl.service';
 import {W3AclCanGuard} from './guards/acl-can.guard';
@@ -11,7 +13,8 @@ import {W3AclRoleDirective} from './directives/w3-acl-role.directive';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        W3NotificationModule
     ],
     declarations: [
         AclTesteComponent,
