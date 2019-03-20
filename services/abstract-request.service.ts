@@ -37,8 +37,8 @@ export abstract class W3AbstractRequestService<T> {
         return data;
     }
 
-    find(id: number, params: any): Observable<T> {
-        params = this.transformRequest(params, 'find');
+    find(id: number, params?: any): Observable<T> {
+        params = params ? this.transformRequest(params, 'find') : {};
 
         return this.http
             .get<ResponseItem<T>>(`${this.getBaseUrl()}/${id}`, {params})
