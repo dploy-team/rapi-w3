@@ -13,7 +13,8 @@ export abstract class W3AbstractRequestService<T> {
     public paginationData = {
         page: 1,
         total: 0,
-        per_page: 0
+        per_page: 0,
+        current_page: 0
     };
 
     protected constructor(protected http: HttpClient) {
