@@ -4,13 +4,14 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {Response20x, ResponseCollection, ResponseItem} from '..';
+import {W3MetaPagination} from '@rapi/w3/services/request.model';
 
 @Injectable()
 export abstract class W3AbstractRequestService<T> {
 
     public metas: any;
 
-    public paginationData = {
+    public paginationData: W3MetaPagination = {
         page: 1,
         total: 0,
         per_page: 0,
@@ -106,7 +107,7 @@ export abstract class W3AbstractRequestService<T> {
         this.paginationData.page = newPage;
     }
 
-    pagination(): any {
+    pagination(): W3MetaPagination {
         return this.paginationData;
     }
 }
