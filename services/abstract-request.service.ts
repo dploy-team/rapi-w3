@@ -102,6 +102,21 @@ export abstract class W3AbstractRequestService<T> {
             .pipe(map(res => res.status === 'success'));
     }
 
+    /** disabled registro */
+    disable(id: number): Observable<boolean> {
+        return this.http
+            .put<Response20x>(`${this.getBaseUrl()}/${id}/disable`, {})
+            .pipe(map(res => res.status === 'success'));
+    }
+
+    /** restore registro */
+    restore(id: number): Observable<boolean> {
+        return this.http
+            .put<Response20x>(`${this.getBaseUrl()}/${id}/restore`, {})
+            .pipe(map(res => res.status === 'success'));
+    }
+
+
     /** Registra a pagina */
     setPage(newPage: number): void {
         this.paginationData.page = newPage;
