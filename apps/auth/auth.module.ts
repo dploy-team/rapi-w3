@@ -31,6 +31,5 @@ import {W3_PROTECTED_FALLBACK_PAGE_URI, W3_PUBLIC_FALLBACK_PAGE_URI} from './tok
     ]
 })
 export class W3AuthModule {
-    constructor() {
-    }
+
 }

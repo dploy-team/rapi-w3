@@ -169,6 +169,10 @@ export abstract class W3AuthAbstractService {
     }
 
     public addHeader(key, value): void {
-        this._headers[key] = value;
+        if (value === null || value === '') {
+            delete this._headers[key];
+        } else {
+            this._headers[key] = value;
+        }
     }
 }
