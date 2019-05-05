@@ -5,7 +5,8 @@ import {ToastrService} from 'ngx-toastr';
 
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
-import {W3MatConfirmDialogComponent} from "@rapi/w3/apps/notification/components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component";
+import {W3MatConfirmDialogComponent} from '@rapi/w3/apps/notification/components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component';
+;
 
 
 @Injectable()

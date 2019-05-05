@@ -55,4 +55,15 @@ export class W3AuthService extends W3AuthAbstractService {
                 }),
             );
     }
+
+    register(data): Observable<any> {
+        return this.http
+            .post(`${environment.URL_API}/rapi/guardian/auth/sign-up`, data)
+            .pipe(
+                map((resp) => {
+                    console.log('resp', resp);
+                    return resp;
+                }),
+            );
+    }
 }
