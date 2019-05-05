@@ -28,6 +28,7 @@ export abstract class ValueAccessorBase<T> implements ControlValueAccessor {
     private innerValue: T;
 
     onChange = (value: T) => {
+
     };
 
     onTouched = () => {
@@ -42,8 +43,18 @@ export abstract class ValueAccessorBase<T> implements ControlValueAccessor {
             this.innerValue = value;
             // informação da view para o  controller
             this.onChange(value);
+            this.onChangeValue(value);
             this.onTouched();
         }
+    }
+
+    /**
+     * methodo chamado em toda alteracao do valor, indicado para sobcrever ela no componente instanciado
+     *
+     * @param value
+     */
+    onChangeValue(value: T): void {
+
     }
 
     /**
