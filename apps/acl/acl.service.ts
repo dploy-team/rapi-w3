@@ -36,7 +36,6 @@ export class W3AclService {
     }
 
     can(perms: string | string[], requireAll ?: boolean): boolean {
-        console.log('ACL.findCan', perms, this.allPerms());
         return this.check(perms, this.allPerms(), requireAll);
     }
 
@@ -45,7 +44,6 @@ export class W3AclService {
     }
 
     private check(find: string | string[], data: string[], requireAll ?: boolean): boolean {
-
         if (typeof find === 'string') {
 
             if (typeof requireAll === 'undefined') {
