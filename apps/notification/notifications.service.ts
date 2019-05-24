@@ -5,7 +5,9 @@ import {ToastrService} from 'ngx-toastr';
 
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
+
 import {W3MatConfirmDialogComponent} from '@rapi/w3/apps/notification/components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component';
+import {W3ConfirmResponse} from '../../helpers/rxjs';
 
 
 @Injectable()
@@ -41,11 +43,11 @@ export class W3NotificationService {
         this._toast.warning(message, title);
     }
 
-    confirmDeleteDialog(name = '', payload?: any): Observable<{ result: string, payload: any }> {
+    confirmDeleteDialog(name = '', payload?: any): Observable<W3ConfirmResponse> {
         return this.confirmDialog(`Deseja excluir o item ${name}?`, 'Excluir item', 'warn', payload);
     }
 
-    confirmDialog(message: string, title: string, typeClass = 'warn', payload?: any): Observable<{ result: string, payload: any }> {
+    confirmDialog(message: string, title: string, typeClass = 'warn', payload?: any): Observable<W3ConfirmResponse> {
         this._confirmDialogRef = this.dialog.open(W3MatConfirmDialogComponent, {
             disableClose: false
         });
