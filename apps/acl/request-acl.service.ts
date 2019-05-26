@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {ItemRespDec} from '@rapi/w3';
-import {W3AclService} from '@rapi/w3/apps/acl/acl.service';
-import {DataAclModel, ResponseAclData} from '@rapi/w3/apps/acl/acl.model';
-
 import {Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 
-import {environment} from '../../../../environments/environment';
+import {ResponseItem} from '@rapi/w3';
+import {W3AclService} from '@rapi/w3/apps/acl/acl.service';
+import {DataAclModel, ResponseAclData} from '@rapi/w3/apps/acl/acl.model';
+
+import {environment} from '@env/environment';
 
 @Injectable()
 export class W3RequestAclService {
@@ -17,7 +17,7 @@ export class W3RequestAclService {
     }
 
     findData(): Observable<ResponseAclData> {
-        return this.http.get<ItemRespDec<ResponseAclData>>(`${environment.URL_API}/rapi/guardian/me/acl`)
+        return this.http.get<ResponseItem<ResponseAclData>>(`${environment.URL_API}/rapi/guardian/me/acl`)
             .pipe(
                 map(result => result.data)
             );
