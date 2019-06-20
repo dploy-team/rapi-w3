@@ -15,10 +15,10 @@ export class W3PaginatorComponent implements OnChanges {
 
     @Input() pagination: any;
     @Output() onChange = new EventEmitter<any>();
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
     ngOnChanges(changes: SimpleChanges): void {
-        const pagination = {...changes.pagination.currentValue};
+        const pagination = { ...changes.pagination.currentValue };
         pagination.page = pagination.page > 0 ? pagination.page - 1 : 0;
         this.data = Object.assign({}, this.data, pagination);
     }
