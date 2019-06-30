@@ -4,7 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Response20x, ResponseCollection, ResponseItem } from '..';
-import { W3MetaPagination } from '@rapi/w3/services/request.model';
+import {
+    W3MetaPagination,
+    HttpPostOptions
+} from '@rapi/w3/services/request.model';
 
 @Injectable()
 export abstract class W3AbstractRequestService<T> {
@@ -79,44 +82,47 @@ export abstract class W3AbstractRequestService<T> {
     }
 
     /** salva data */
-    save(data): Observable<T> {
+    save(data, options?: HttpPostOptions): Observable<T> {
         console.log(data);
         return this.http
             .post<Response20x>(
                 this.getBaseUrl(),
-                this.transformRequest(data, 'save')
+                this.transformRequest(data, 'save'),
+                options
             )
+
             .pipe(map(res => this.transformItemResponse(res.data)));
     }
 
     /** edita informações do idem id */
-    update(id: number, data: any): Observable<T> {
+    update(id: number, data: any, options?: HttpPostOptions): Observable<T> {
         return this.http
             .put<Response20x>(
                 `${this.getBaseUrl()}/${id}`,
-                this.transformRequest(data, 'update')
+                this.transformRequest(data, 'update'),
+                options
             )
             .pipe(map(res => this.transformItemResponse(res.data)));
     }
 
     /** remove registro */
-    remove(id: number): Observable<boolean> {
+    remove(id: number, options?: HttpPostOptions): Observable<boolean> {
         return this.http
-            .delete<Response20x>(`${this.getBaseUrl()}/${id}`)
+            .delete<Response20x>(`${this.getBaseUrl()}/${id}`, options)
             .pipe(map(res => res.status === 'success'));
     }
 
     /** disabled registro */
-    disable(id: number): Observable<boolean> {
+    disable(id: number, options?: HttpPostOptions): Observable<boolean> {
         return this.http
-            .put<Response20x>(`${this.getBaseUrl()}/${id}/disable`, {})
+            .put<Response20x>(`${this.getBaseUrl()}/${id}/disable`, {}, options)
             .pipe(map(res => res.status === 'success'));
     }
 
     /** restore registro */
-    restore(id: number): Observable<boolean> {
+    restore(id: number, options?: HttpPostOptions): Observable<boolean> {
         return this.http
-            .put<Response20x>(`${this.getBaseUrl()}/${id}/restore`, {})
+            .put<Response20x>(`${this.getBaseUrl()}/${id}/restore`, {}, options)
             .pipe(map(res => res.status === 'success'));
     }
 
