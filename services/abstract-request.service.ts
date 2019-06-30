@@ -1,14 +1,13 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import {Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
-import {Response20x, ResponseCollection, ResponseItem} from '..';
-import {W3MetaPagination} from '@rapi/w3/services/request.model';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { Response20x, ResponseCollection, ResponseItem } from '..';
+import { W3MetaPagination } from '@rapi/w3/services/request.model';
 
 @Injectable()
 export abstract class W3AbstractRequestService<T> {
-
     public metas: any;
 
     public paginationData: W3MetaPagination = {
@@ -18,8 +17,7 @@ export abstract class W3AbstractRequestService<T> {
         current_page: 0
     };
 
-    protected constructor(protected http: HttpClient) {
-    }
+    protected constructor(protected http: HttpClient) {}
 
     abstract getBaseUrl(): string;
 
@@ -43,24 +41,23 @@ export abstract class W3AbstractRequestService<T> {
         params = params ? this.transformRequest(params, 'find') : {};
 
         return this.http
-            .get<ResponseItem<T>>(`${this.getBaseUrl()}/${id}`, {params})
+            .get<ResponseItem<T>>(`${this.getBaseUrl()}/${id}`, { params })
             .pipe(map(res => this.transformItemResponse(res.data)));
     }
-
 
     /** retorna os primeiros 15 items itens da rota + includes */
     get(includes: string): Observable<T[]> {
         return this.search({
-            'include': includes,
-            'paginate': this.paginationData.per_page
+            include: includes,
+            paginate: this.paginationData.per_page
         });
     }
 
     /** retorna todos os itens da rota + includes */
     all(includes: string): Observable<T[]> {
         return this.search({
-            'include': includes,
-            'take': -1
+            include: includes,
+            take: -1
         });
     }
 
@@ -69,7 +66,7 @@ export abstract class W3AbstractRequestService<T> {
         params = this.transformRequest(params, 'search');
 
         return this.http
-            .get<ResponseCollection<T>>(this.getBaseUrl(), {params})
+            .get<ResponseCollection<T>>(this.getBaseUrl(), { params })
             .pipe(
                 tap(res => {
                     this.metas = res.meta || {};
@@ -83,15 +80,22 @@ export abstract class W3AbstractRequestService<T> {
 
     /** salva data */
     save(data): Observable<T> {
+        console.log(data);
         return this.http
-            .post<Response20x>(this.getBaseUrl(), this.transformRequest(data, 'save'))
+            .post<Response20x>(
+                this.getBaseUrl(),
+                this.transformRequest(data, 'save')
+            )
             .pipe(map(res => this.transformItemResponse(res.data)));
     }
 
     /** edita informações do idem id */
     update(id: number, data: any): Observable<T> {
         return this.http
-            .put<Response20x>(`${this.getBaseUrl()}/${id}`, this.transformRequest(data, 'update'))
+            .put<Response20x>(
+                `${this.getBaseUrl()}/${id}`,
+                this.transformRequest(data, 'update')
+            )
             .pipe(map(res => this.transformItemResponse(res.data)));
     }
 
@@ -115,7 +119,6 @@ export abstract class W3AbstractRequestService<T> {
             .put<Response20x>(`${this.getBaseUrl()}/${id}/restore`, {})
             .pipe(map(res => res.status === 'success'));
     }
-
 
     /** Registra a pagina */
     setPage(newPage: number): void {
