@@ -4,6 +4,7 @@ import { W3StorageService } from '@rapi/w3/apps/storage';
 
 import Echo from 'laravel-echo';
 import { environment } from '@env/environment';
+import { W3Notification } from './notification';
 
 interface DataObj {
     [key: string]: any;
@@ -13,6 +14,7 @@ export interface SwChannel {
     name: string;
 
     listen(event: string, func: (e) => void): SwChannel;
+    notification(func: (e: W3Notification) => void): SwChannel;
 }
 
 export interface SwInChannel<T> extends SwChannel {
@@ -53,7 +55,7 @@ export class WebSocketService {
             key: environment.SOCKET_KEY,
             cluster: environment.SOCKET_CLUSTER,
             authEndpoint: environment.URL_SOCKET + '/broadcasting/auth',
-            logToConsole : true,
+            logToConsole: true,
             auth: {
                 headers: {
                     Authorization: 'Bearer ' + token
