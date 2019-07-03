@@ -1,30 +1,44 @@
-import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild} from '@angular/router';
+import { Injectable } from '@angular/core';
+import {
+    CanActivate,
+    ActivatedRouteSnapshot,
+    RouterStateSnapshot,
+    CanActivateChild,
+    Router
+} from '@angular/router';
 
-import {Observable} from 'rxjs';
-import {W3AclService} from '../acl.service';
-import {W3NotificationService} from '@rapi/w3/apps/notification/notifications.service';
-
+import { Observable } from 'rxjs';
+import { W3AclService } from '../acl.service';
+import { W3NotificationService } from '@rapi/w3/apps/notification/notifications.service';
 
 @Injectable()
 export class W3AclCanGuard implements CanActivate, CanActivateChild {
-
     constructor(
         private _acl: W3AclService,
-        private _notification: W3NotificationService) {
-    }
+        private _notification: W3NotificationService,
+        private router: Router
+    ) {}
 
     canActivate(
         next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
+        state: RouterStateSnapshot
+    ): Observable<boolean> | Promise<boolean> | boolean {
         if (!next.data.perms) {
-            this._notification.error('Permissão não intendificada! Informar no router. Não foi encontrado o data.perms => url: ' + next.url);
+            this._notification.error(
+                'Permissão não intendificada! Informar no router. Não foi encontrado o data.perms => url: ' +
+                    next.url
+            );
             return false;
         }
 
         if (!this._acl.can(next.data.perms)) {
-            this._notification.warning('Seu usuário não possui acesso a esta permissão: ' + next.data.perms);
+            this._notification.warning(
+                'Seu usuário não possui acesso a esta permissão: ' +
+                    next.data.perms
+            );
+            if (next.data.redirectUrl) {
+                this.router.navigate([next.data.redirectUrl]);
+            }
             return false;
         }
 
@@ -36,8 +50,8 @@ export class W3AclCanGuard implements CanActivate, CanActivateChild {
      */
     public canActivateChild(
         next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+        state: RouterStateSnapshot
+    ): Observable<boolean> | Promise<boolean> | boolean {
         return this.canActivate(next, state);
     }
-
 }
