@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import {
     CanActivate,
     ActivatedRouteSnapshot,
@@ -10,13 +10,15 @@ import {
 import { Observable } from 'rxjs';
 import { W3AclService } from '../acl.service';
 import { W3NotificationService } from '@rapi/w3/apps/notification/notifications.service';
+import { W3_AUTH_SERVICE, W3AuthAbstractService } from '../../auth';
 
 @Injectable()
 export class W3AclCanGuard implements CanActivate, CanActivateChild {
     constructor(
         private _acl: W3AclService,
         private _notification: W3NotificationService,
-        private router: Router
+        private router: Router,
+        @Inject(W3_AUTH_SERVICE) private authService: W3AuthAbstractService
     ) {}
 
     canActivate(
@@ -36,7 +38,7 @@ export class W3AclCanGuard implements CanActivate, CanActivateChild {
                 'Seu usuário não possui acesso a esta permissão: ' +
                     next.data.perms
             );
-            if (next.data.redirectUrl) {
+            if (next.data.redirectUrl && this.authService.isLoggedIn()) {
                 this.router.navigate([next.data.redirectUrl]);
             }
             return false;
