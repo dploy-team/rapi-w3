@@ -6,7 +6,7 @@
 #                                                                             #
 ###############################################################################
 
-DistDir='/home/wagner/Documents/projects/rapi-w3/dist/'
+DistDir='/home/wagner/Documents/projects/rapi-w3/dist/rapi-e3'
 
 
 #============================
