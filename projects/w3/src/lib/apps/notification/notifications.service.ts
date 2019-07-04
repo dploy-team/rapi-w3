@@ -1,90 +1,102 @@
-import {Injectable} from '@angular/core';
-import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
+import { Injectable } from "@angular/core";
+import { MatDialog, MatDialogRef, MatSnackBar } from "@angular/material";
 
-import {ToastrService} from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 
-import {Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { map, tap } from "rxjs/operators";
 
-import {W3MatConfirmDialogComponent} from '@rapi/w3/apps/notification/components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component';
-import {W3ConfirmResponse} from '../../helpers/rxjs';
-
+import { W3ConfirmResponse } from "../../helpers/rxjs";
+import { W3MatConfirmDialogComponent } from "./components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component";
 
 @Injectable()
 export class W3NotificationService {
+  private _confirmDialogRef: MatDialogRef<W3MatConfirmDialogComponent>;
 
-    private _confirmDialogRef: MatDialogRef<W3MatConfirmDialogComponent>;
+  constructor(
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    private _toast: ToastrService
+  ) {}
 
-    constructor(public snackBar: MatSnackBar, public dialog: MatDialog, private _toast: ToastrService) {
-    }
+  notify(
+    message: string,
+    position: string = "bottom",
+    duration: number = 4000
+  ): void {
+    setTimeout(() => {
+      this.snackBar.dismiss();
+    }, duration);
 
-    notify(message: string, position: string = 'bottom', duration: number = 4000): void {
+    this.snackBar.open(message);
+  }
 
-        setTimeout(() => {
-            this.snackBar.dismiss();
-        }, duration);
+  info(message?: string, title?: string): void {
+    this._toast.info(message, title);
+  }
 
-        this.snackBar.open(message);
-    }
+  error(message?: string, title?: string): void {
+    this._toast.error(message, title);
+  }
 
-    info(message?: string, title?: string): void {
-        this._toast.info(message, title);
-    }
+  success(message?: string, title?: string): void {
+    this._toast.success(message, title);
+  }
 
-    error(message?: string, title?: string): void {
-        this._toast.error(message, title);
-    }
+  warning(message?: string, title?: string): void {
+    this._toast.warning(message, title);
+  }
 
-    success(message?: string, title?: string): void {
-        this._toast.success(message, title);
-    }
+  confirmDeleteDialog(name = "", payload?: any): Observable<W3ConfirmResponse> {
+    return this.confirmDialog(
+      `Deseja excluir o item ${name}?`,
+      "Excluir item",
+      "warn",
+      payload
+    );
+  }
 
-    warning(message?: string, title?: string): void {
-        this._toast.warning(message, title);
-    }
+  confirmDialog(
+    message: string,
+    title: string,
+    typeClass = "warn",
+    payload?: any
+  ): Observable<W3ConfirmResponse> {
+    this._confirmDialogRef = this.dialog.open(W3MatConfirmDialogComponent, {
+      disableClose: false
+    });
 
-    confirmDeleteDialog(name = '', payload?: any): Observable<W3ConfirmResponse> {
-        return this.confirmDialog(`Deseja excluir o item ${name}?`, 'Excluir item', 'warn', payload);
-    }
+    this._confirmDialogRef.componentInstance.confirmMessage = message;
+    this._confirmDialogRef.componentInstance.confirmTitle = title;
+    this._confirmDialogRef.componentInstance.typeClass = typeClass;
 
-    confirmDialog(message: string, title: string, typeClass = 'warn', payload?: any): Observable<W3ConfirmResponse> {
-        this._confirmDialogRef = this.dialog.open(W3MatConfirmDialogComponent, {
-            disableClose: false
-        });
+    return this._confirmDialogRef.afterClosed().pipe(
+      tap(() => (this._confirmDialogRef = null)),
+      map(r => (r ? { result: "OK", payload } : { result: "CANCEL", payload }))
+    );
+  }
 
-        this._confirmDialogRef.componentInstance.confirmMessage = message;
-        this._confirmDialogRef.componentInstance.confirmTitle = title;
-        this._confirmDialogRef.componentInstance.typeClass = typeClass;
+  //
+  // load(message = "Aguarde..."): Loading {
+  //   let loading = this.loadingCtrl.create({
+  //     content: message
+  //   });
+  //
+  //   loading.present();
+  //   return loading;
+  // }
 
-        return this._confirmDialogRef.afterClosed()
-            .pipe(
-                tap(() => this._confirmDialogRef = null),
-                map(r => r ? {result: 'OK', payload} : {result: 'CANCEL', payload}),
-            );
-    }
-
-    //
-    // load(message = "Aguarde..."): Loading {
-    //   let loading = this.loadingCtrl.create({
-    //     content: message
-    //   });
-    //
-    //   loading.present();
-    //   return loading;
-    // }
-
-    // loadAsObservable(obs: Observable<any>, message = 'Aguarde...'): Observable<any> {
-    //
-    //   // let load = this.load(message);
-    //
-    //   return obs.pipe(
-    //     // tap(() => load.dismiss()),
-    //     catchError((error) => {
-    //       // load.dismiss();
-    //       return observableThrowError(error);
-    //     })
-    //   );
-    //
-    // }
-
+  // loadAsObservable(obs: Observable<any>, message = 'Aguarde...'): Observable<any> {
+  //
+  //   // let load = this.load(message);
+  //
+  //   return obs.pipe(
+  //     // tap(() => load.dismiss()),
+  //     catchError((error) => {
+  //       // load.dismiss();
+  //       return observableThrowError(error);
+  //     })
+  //   );
+  //
+  // }
 }

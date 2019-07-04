@@ -5,8 +5,10 @@ import { Observable } from "rxjs";
 import { map, tap } from "rxjs/operators";
 
 import { environment } from "@env/environment";
-import { W3AclService, ResponseAclData, DataAclModel } from ".";
-import { ResponseItem } from "../..";
+
+import { ResponseItem } from "../../responses/responses.model";
+import { ResponseAclData, DataAclModel } from "./acl.model";
+import { W3AclService } from "./acl.service";
 
 @Injectable()
 export class W3RequestAclService {

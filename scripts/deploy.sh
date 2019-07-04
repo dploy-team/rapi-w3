@@ -6,7 +6,7 @@
 #                                                                             #
 ###############################################################################
 
-DistDir='/home/wagner/Documents/projects/rapi-w3/dist/rapi-w3'
+DistDir='/home/wagner/Documents/projects/rapi-w3/dist/w3'
 
 
 #============================
@@ -21,18 +21,21 @@ Init(){
 }
 
 Major(){
-    cd $DistDir
     npm version major
+    ng build w3
+    cd $DistDir
     npm publish
 }
 Minor(){
-    cd $DistDir
     npm version minor
+    ng build w3
+    cd $DistDir
     npm publish
 }
 Patch(){
-    cd $DistDir
     npm version patch
+    ng build w3
+    cd $DistDir
     npm publish
 }
 
