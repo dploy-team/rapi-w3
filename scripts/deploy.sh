@@ -6,7 +6,7 @@
 #                                                                             #
 ###############################################################################
 
-
+DistDir='/home/wagner/Documents/projects/rapi-w3/dist/'
 
 
 #============================
@@ -21,14 +21,17 @@ Init(){
 }
 
 Major(){
+    cd $DistDir
     npm version major
     npm publish
 }
 Minor(){
+    cd $DistDir
     npm version minor
     npm publish
 }
 Patch(){
+    cd $DistDir
     npm version patch
     npm publish
 }
