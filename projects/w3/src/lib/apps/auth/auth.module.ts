@@ -9,6 +9,7 @@ import {
   W3_PROTECTED_FALLBACK_PAGE_URI,
   W3_PUBLIC_FALLBACK_PAGE_URI
 } from "./tokens";
+import { W3AuthService } from "./auth.service";
 
 /**
  * ## Módulo de autenticação do W3
@@ -35,7 +36,7 @@ import {
     W3PublicGuard,
     W3ProtectedGuard,
     W3AuthInterceptor,
-
+    W3AuthService,
     W3MeService,
     {
       provide: HTTP_INTERCEPTORS,

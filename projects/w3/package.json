@@ -35,6 +35,10 @@
   ],
   "peerDependencies": {
     "@angular/common": "^8.0.3",
-    "@angular/core": "^8.0.3"
+    "@angular/core": "^8.0.3",
+    "@angular/animations": "8.0.3",
+    "@angular/router": "8.1.0",
+    "ngx-toastr": "10.0.4",
+    "moment": "2.24.0"
   }
 }
