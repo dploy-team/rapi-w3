@@ -1,0 +1,1704 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rapi-w3 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rapi-w3 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injetáveis</li>
+  <li>W3AbstractRequestService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>Arquivo</h3>
+        </p>
+        <p class="comment">
+            <code>projects/w3/src/lib/services/abstract-request.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Descrição</h3>
+            </p>
+            <p class="comment">
+                <p>Classe abstrata para request na API</p>
+
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#metas">metas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#paginationData">paginationData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#all">all</a>
+                            </li>
+                            <li>
+                                <a href="#disable">disable</a>
+                            </li>
+                            <li>
+                                <a href="#find">find</a>
+                            </li>
+                            <li>
+                                <a href="#get">get</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#getBaseUrl">getBaseUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#makeUrl">makeUrl</a>
+                            </li>
+                            <li>
+                                <a href="#pagination">pagination</a>
+                            </li>
+                            <li>
+                                <a href="#remove">remove</a>
+                            </li>
+                            <li>
+                                <a href="#restore">restore</a>
+                            </li>
+                            <li>
+                                <a href="#save">save</a>
+                            </li>
+                            <li>
+                                <a href="#search">search</a>
+                            </li>
+                            <li>
+                                <a href="#setPage">setPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#transformCollectionResponse">transformCollectionResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#transformItemResponse">transformItemResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#transformRequest">transformRequest</a>
+                            </li>
+                            <li>
+                                <a href="#update">update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Protected</span>
+                        <code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="25" class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parâmetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nome</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="all"></a>
+                    <span class="name">
+                        <b>
+                            all
+                        </b>
+                        <a href="#all"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>all(includes: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="68"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>retorna todos os itens da rota + includes</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>includes</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;T[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disable"></a>
+                    <span class="name">
+                        <b>
+                            disable
+                        </b>
+                        <a href="#disable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>disable(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, options?: <a href="../interfaces/HttpPostOptions.html">HttpPostOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="133"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>disabled registro</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/HttpPostOptions.html" target="_self" >HttpPostOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Sim
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="find"></a>
+                    <span class="name">
+                        <b>
+                            find
+                        </b>
+                        <a href="#find"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>find(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="47"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Sim
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                        <b>
+                            get
+                        </b>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>get(includes: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="58"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>retorna os primeiros 15 items itens da rota + includes</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>includes</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;T[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBaseUrl"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Abstract</span>
+                            getBaseUrl
+                        </b>
+                        <a href="#getBaseUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getBaseUrl()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="29"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="makeUrl"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            makeUrl
+                        </b>
+                        <a href="#makeUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>makeUrl(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="31"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Valor padrão</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>path</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+                                    <td>
+                                        <code>&quot;&quot;</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pagination"></a>
+                    <span class="name">
+                        <b>
+                            pagination
+                        </b>
+                        <a href="#pagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pagination()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="155"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="../interfaces/W3MetaPagination.html" target="_self" >W3MetaPagination</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <b>
+                            remove
+                        </b>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, options?: <a href="../interfaces/HttpPostOptions.html">HttpPostOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="124"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>remove registro</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/HttpPostOptions.html" target="_self" >HttpPostOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Sim
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restore"></a>
+                    <span class="name">
+                        <b>
+                            restore
+                        </b>
+                        <a href="#restore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>restore(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, options?: <a href="../interfaces/HttpPostOptions.html">HttpPostOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="142"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>restore registro</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/HttpPostOptions.html" target="_self" >HttpPostOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Sim
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <b>
+                            save
+                        </b>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>save(data, options?: <a href="../interfaces/HttpPostOptions.html">HttpPostOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="97"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>salva data</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/HttpPostOptions.html" target="_self" >HttpPostOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Sim
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                        <b>
+                            search
+                        </b>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>search(params)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="78"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>retorna os itens da rota  filtrados por params</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;T[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPage"></a>
+                    <span class="name">
+                        <b>
+                            setPage
+                        </b>
+                        <a href="#setPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPage(newPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="151"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Registra a pagina</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newPage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformCollectionResponse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            transformCollectionResponse
+                        </b>
+                        <a href="#transformCollectionResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>transformCollectionResponse(collect: any[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="39"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>collect</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>T[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformItemResponse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            transformItemResponse
+                        </b>
+                        <a href="#transformItemResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>transformItemResponse(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="35"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformRequest"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            transformRequest
+                        </b>
+                        <a href="#transformRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>transformRequest(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="43"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
+                            update
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options?: <a href="../interfaces/HttpPostOptions.html">HttpPostOptions</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="111"
+                            class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>edita informações do idem id</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/HttpPostOptions.html" target="_self" >HttpPostOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Sim
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Propriedades
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="metas"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            metas</b>
+                            <a href="#metas"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Tipo : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Definido em <a href="" data-line="18" class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paginationData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            paginationData</b>
+                            <a href="#paginationData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Tipo : </i>        <code><a href="../interfaces/W3MetaPagination.html" target="_self" >W3MetaPagination</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Valor padrão : </i><code>{
+    page: 1,
+    total: 0,
+    per_page: 0,
+    current_page: 0
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Definido em <a href="" data-line="20" class="link-to-prism">projects/w3/src/lib/services/abstract-request.service.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+
+import { Observable } from &quot;rxjs&quot;;
+import { map, tap } from &quot;rxjs/operators&quot;;
+import {
+  ResponseItem,
+  ResponseCollection,
+  Response20x
+} from &quot;../responses/responses.model&quot;;
+import { HttpPostOptions, W3MetaPagination } from &quot;./request.model&quot;;
+
+/**
+ * Classe abstrata para request na API
+ */
+@Injectable()
+export abstract class W3AbstractRequestService&lt;T&gt; {
+  public metas: any;
+
+  public paginationData: W3MetaPagination &#x3D; {
+    page: 1,
+    total: 0,
+    per_page: 0,
+    current_page: 0
+  };
+
+  protected constructor(protected http: HttpClient) {}
+
+  abstract getBaseUrl(): string;
+
+  protected makeUrl(path &#x3D; &quot;&quot;): string {
+    return this.getBaseUrl() + path;
+  }
+
+  protected transformItemResponse(data: any): T {
+    return data;
+  }
+
+  protected transformCollectionResponse(collect: any[]): T[] {
+    return collect.map(d &#x3D;&gt; this.transformItemResponse(d));
+  }
+
+  protected transformRequest(data: any, action: string): any {
+    return data;
+  }
+
+  find(id: number, params?: any): Observable&lt;T&gt; {
+    params &#x3D; params ? this.transformRequest(params, &quot;find&quot;) : {};
+
+    return this.http
+      .get&lt;ResponseItem&lt;T&gt;&gt;(&#x60;${this.getBaseUrl()}/${id}&#x60;, { params })
+      .pipe(map(res &#x3D;&gt; this.transformItemResponse(res.data)));
+  }
+
+  /**
+   *  retorna os primeiros 15 items itens da rota + includes
+   */
+  get(includes: string): Observable&lt;T[]&gt; {
+    return this.search({
+      include: includes,
+      paginate: this.paginationData.per_page
+    });
+  }
+
+  /**
+   *  retorna todos os itens da rota + includes
+   */
+  all(includes: string): Observable&lt;T[]&gt; {
+    return this.search({
+      include: includes,
+      take: -1
+    });
+  }
+
+  /**
+   * retorna os itens da rota  filtrados por params
+   */
+  search(params): Observable&lt;T[]&gt; {
+    params &#x3D; this.transformRequest(params, &quot;search&quot;);
+
+    return this.http
+      .get&lt;ResponseCollection&lt;T&gt;&gt;(this.getBaseUrl(), { params })
+      .pipe(
+        tap(res &#x3D;&gt; {
+          this.metas &#x3D; res.meta || {};
+          this.paginationData.total &#x3D; +this.metas.total;
+          this.paginationData.page &#x3D; +this.metas.current_page;
+          this.paginationData.per_page &#x3D; +this.metas.per_page;
+        }),
+        map(res &#x3D;&gt; this.transformCollectionResponse(res.data))
+      );
+  }
+
+  /**
+   * salva data
+   */
+  save(data, options?: HttpPostOptions): Observable&lt;T&gt; {
+    return this.http
+      .post&lt;Response20x&gt;(
+        this.getBaseUrl(),
+        this.transformRequest(data, &quot;save&quot;),
+        options
+      )
+
+      .pipe(map(res &#x3D;&gt; this.transformItemResponse(res.data)));
+  }
+
+  /**
+   *  edita informações do idem id
+   */
+  update(id: number, data: any, options?: HttpPostOptions): Observable&lt;T&gt; {
+    return this.http
+      .put&lt;Response20x&gt;(
+        &#x60;${this.getBaseUrl()}/${id}&#x60;,
+        this.transformRequest(data, &quot;update&quot;),
+        options
+      )
+      .pipe(map(res &#x3D;&gt; this.transformItemResponse(res.data)));
+  }
+
+  /**
+   * remove registro
+   */
+  remove(id: number, options?: HttpPostOptions): Observable&lt;boolean&gt; {
+    return this.http
+      .delete&lt;Response20x&gt;(&#x60;${this.getBaseUrl()}/${id}&#x60;, options)
+      .pipe(map(res &#x3D;&gt; res.status &#x3D;&#x3D;&#x3D; &quot;success&quot;));
+  }
+
+  /**
+   * disabled registro
+   */
+  disable(id: number, options?: HttpPostOptions): Observable&lt;boolean&gt; {
+    return this.http
+      .put&lt;Response20x&gt;(&#x60;${this.getBaseUrl()}/${id}/disable&#x60;, {}, options)
+      .pipe(map(res &#x3D;&gt; res.status &#x3D;&#x3D;&#x3D; &quot;success&quot;));
+  }
+
+  /**
+   * restore registro
+   */
+  restore(id: number, options?: HttpPostOptions): Observable&lt;boolean&gt; {
+    return this.http
+      .put&lt;Response20x&gt;(&#x60;${this.getBaseUrl()}/${id}/restore&#x60;, {}, options)
+      .pipe(map(res &#x3D;&gt; res.status &#x3D;&#x3D;&#x3D; &quot;success&quot;));
+  }
+
+  /**
+   * Registra a pagina
+   */
+  setPage(newPage: number): void {
+    this.paginationData.page &#x3D; newPage;
+  }
+
+  pagination(): W3MetaPagination {
+    return this.paginationData;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'W3AbstractRequestService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

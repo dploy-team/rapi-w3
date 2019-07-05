@@ -11,6 +11,9 @@ import { W3StorageService } from "../storage";
 import { environment } from "@env/environment";
 import { W3MeService } from "./me.service";
 
+/**
+ * Serviço padrão de autenticação
+ */
 @Injectable()
 export class W3AuthService extends W3AuthAbstractService {
   constructor(http: HttpClient, storage: W3StorageService, me: W3MeService) {
@@ -21,6 +24,11 @@ export class W3AuthService extends W3AuthAbstractService {
     return `${environment.URL_API}/rapi/guardian/auth/refresh`;
   }
 
+  /**
+   * Serviço de login
+   * @param email
+   * @param password
+   */
   login(email: string, password: string): Observable<UserModel | any> {
     return this.http
       .post(`${environment.URL_API}/rapi/guardian/auth/login`, {
@@ -29,41 +37,44 @@ export class W3AuthService extends W3AuthAbstractService {
       })
       .pipe(
         tap(res => this.setSession(res)),
-        // map(() => {
-        //     return {id: 1, name: 'admin'};
-        // }),
-        shareReplay() // mytodo verificar se o shareReplay pode ser usado MAP junto
+        shareReplay()
       );
   }
 
+  /**
+   * Serviço de recuperação de senha
+   */
   remind(data): Observable<any> {
     return this.http
       .post(`${environment.URL_API}/rapi/guardian/auth/password/remind`, data)
       .pipe(
         map(resp => {
-          console.log("resp", resp);
           return resp;
         })
       );
   }
 
+  /**
+   * Serviço de alteração de senha
+   */
   reset(data): Observable<any> {
     return this.http
       .post(`${environment.URL_API}/rapi/guardian/auth/password/reset`, data)
       .pipe(
         map(resp => {
-          console.log("resp", resp);
           return resp;
         })
       );
   }
 
+  /**
+   * Service de sign-up
+   */
   register(data): Observable<any> {
     return this.http
       .post(`${environment.URL_API}/rapi/guardian/auth/sign-up`, data)
       .pipe(
         map(resp => {
-          console.log("resp", resp);
           return resp;
         })
       );

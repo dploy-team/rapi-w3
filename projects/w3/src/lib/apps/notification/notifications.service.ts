@@ -9,16 +9,28 @@ import { map, tap } from "rxjs/operators";
 import { W3ConfirmResponse } from "../../helpers/rxjs";
 import { W3MatConfirmDialogComponent } from "./components/w3-mat-confirm-dialog/w3-mat-confirm-dialog.component";
 
+/**
+ * Serviço de notificações e alertas
+ */
 @Injectable()
 export class W3NotificationService {
   private _confirmDialogRef: MatDialogRef<W3MatConfirmDialogComponent>;
 
+  /**
+   *
+   * @param snackBar
+   * @param dialog
+   * @param _toast @see https://github.com/scttcper/ngx-toastr
+   */
   constructor(
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
     private _toast: ToastrService
   ) {}
 
+  /**
+   * Notificação de snackbar
+   */
   notify(
     message: string,
     position: string = "bottom",
@@ -31,22 +43,37 @@ export class W3NotificationService {
     this.snackBar.open(message);
   }
 
+  /**
+   * Info toast
+   */
   info(message?: string, title?: string): void {
     this._toast.info(message, title);
   }
 
+  /**
+   * Info error
+   */
   error(message?: string, title?: string): void {
     this._toast.error(message, title);
   }
 
+  /**
+   * Info toast
+   */
   success(message?: string, title?: string): void {
     this._toast.success(message, title);
   }
 
+  /**
+   * Warning toast
+   */
   warning(message?: string, title?: string): void {
     this._toast.warning(message, title);
   }
 
+  /**
+   * Dialog Confirmação de deleção
+   */
   confirmDeleteDialog(name = "", payload?: any): Observable<W3ConfirmResponse> {
     return this.confirmDialog(
       `Deseja excluir o item ${name}?`,
@@ -56,6 +83,9 @@ export class W3NotificationService {
     );
   }
 
+  /**
+   * Dialog Confirmação
+   */
   confirmDialog(
     message: string,
     title: string,
@@ -75,28 +105,4 @@ export class W3NotificationService {
       map(r => (r ? { result: "OK", payload } : { result: "CANCEL", payload }))
     );
   }
-
-  //
-  // load(message = "Aguarde..."): Loading {
-  //   let loading = this.loadingCtrl.create({
-  //     content: message
-  //   });
-  //
-  //   loading.present();
-  //   return loading;
-  // }
-
-  // loadAsObservable(obs: Observable<any>, message = 'Aguarde...'): Observable<any> {
-  //
-  //   // let load = this.load(message);
-  //
-  //   return obs.pipe(
-  //     // tap(() => load.dismiss()),
-  //     catchError((error) => {
-  //       // load.dismiss();
-  //       return observableThrowError(error);
-  //     })
-  //   );
-  //
-  // }
 }

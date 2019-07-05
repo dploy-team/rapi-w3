@@ -13,6 +13,20 @@ import { W3NotificationService } from "../../notification/notifications.service"
 import { W3AuthAbstractService } from "../../auth/auth-abstract.service";
 import { W3_AUTH_SERVICE } from "../../auth/tokens";
 
+/**
+ * Guarda de rotas para ACL.
+ * Verifica as permissões do usuário logado para liberar ou não acesso à rota
+ *
+ * Para usar deve-se passar o array de permissões nos dados das rotas
+ *
+ * @example
+ * export const routes: Routes = [
+ *               {path: 'foo', component: BarComponent, data: {perms: ['data.access']} }
+ * ]
+ *
+ *
+ *
+ */
 @Injectable()
 export class W3AclCanGuard implements CanActivate, CanActivateChild {
   constructor(
@@ -22,6 +36,11 @@ export class W3AclCanGuard implements CanActivate, CanActivateChild {
     @Inject(W3_AUTH_SERVICE) private authService: W3AuthAbstractService
   ) {}
 
+  /**
+   *
+   * @param next
+   * @param state
+   */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

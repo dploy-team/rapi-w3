@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "compodoc": "npx compodoc -p projects/w3/tsconfig.lib.json -s -w --customLogo src/assets/dploy.jpeg --language pt-br --disablePrivate --disableLifeCycleHooks",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -24,11 +25,12 @@
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
-    "ngx-toastr": "10.0.4",
+    "@compodoc/compodoc": "^1.1.9",
     "laravel-echo": "1.5.4",
     "moment": "2.24.0",
-    "rxjs-compat": "6.5.2",
+    "ngx-toastr": "10.0.4",
     "rxjs": "~6.4.0",
+    "rxjs-compat": "6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

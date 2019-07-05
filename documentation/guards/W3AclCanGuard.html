@@ -1,0 +1,520 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rapi-w3 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rapi-w3 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content guard">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li>Guardas</li>
+    <li>W3AclCanGuard</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+        <div class="tab-pane fade active in" id="c-info">
+            <p class="comment">
+            <h3>Arquivo</h3>
+            </p>
+            <p class="comment">
+                <code>projects/w3/src/lib/apps/acl/guards/acl-can.guard.ts</code>
+            </p>
+
+                <p class="comment">
+                <h3>Descrição</h3>
+                </p>
+                <p class="comment">
+                    <p>Guarda de rotas para ACL.
+Verifica as permissões do usuário logado para liberar ou não acesso à rota</p>
+<p>Para usar deve-se passar o array de permissões nos dados das rotas</p>
+
+                </p>
+
+
+
+                <p class="comment">
+                <h3>Exemplo</h3>
+                </p>
+                <div class="io-description">
+                            <div>
+                                <pre class="line-numbers"><code class="language-html">export const routes: Routes = [
+   {path: 'foo', component: BarComponent, data: {perms: ['data.access']} }
+]</code></pre>
+                            </div>
+                </div>
+
+                <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#canActivate">canActivate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#canActivateChild">canActivateChild</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+                <section>
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_acl: <a href="../injectables/W3AclService.html">W3AclService</a>, _notification: <a href="../injectables/W3NotificationService.html">W3NotificationService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authService: <a href="../classes/W3AuthAbstractService.html">W3AuthAbstractService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="31" class="link-to-prism">projects/w3/src/lib/apps/acl/guards/acl-can.guard.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parâmetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nome</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_acl</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/W3AclService.html" target="_self" >W3AclService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_notification</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/W3NotificationService.html" target="_self" >W3NotificationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/W3AuthAbstractService.html" target="_self" >W3AuthAbstractService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+                <section>
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canActivate"></a>
+                    <span class="name">
+                        <b>
+                            canActivate
+                        </b>
+                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="44"
+                            class="link-to-prism">projects/w3/src/lib/apps/acl/guards/acl-can.guard.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank" >ActivatedRouteSnapshot</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank" >RouterStateSnapshot</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable | Promise | boolean</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canActivateChild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            canActivateChild
+                        </b>
+                        <a href="#canActivateChild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>canActivateChild(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="72"
+                            class="link-to-prism">projects/w3/src/lib/apps/acl/guards/acl-can.guard.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>CanActivateChild handler</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank" >ActivatedRouteSnapshot</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank" >RouterStateSnapshot</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable | Promise | boolean</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+        </div>
+
+
+        <div class="tab-pane fade  tab-source-code" id="c-source">
+            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &quot;@angular/core&quot;;
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  CanActivateChild,
+  Router
+} from &quot;@angular/router&quot;;
+
+import { Observable } from &quot;rxjs&quot;;
+import { W3AclService } from &quot;../acl.service&quot;;
+import { W3NotificationService } from &quot;../../notification/notifications.service&quot;;
+import { W3AuthAbstractService } from &quot;../../auth/auth-abstract.service&quot;;
+import { W3_AUTH_SERVICE } from &quot;../../auth/tokens&quot;;
+
+/**
+ * Guarda de rotas para ACL.
+ * Verifica as permissões do usuário logado para liberar ou não acesso à rota
+ *
+ * Para usar deve-se passar o array de permissões nos dados das rotas
+ *
+ * @example
+ * export const routes: Routes &#x3D; [
+ *               {path: &#x27;foo&#x27;, component: BarComponent, data: {perms: [&#x27;data.access&#x27;]} }
+ * ]
+ *
+ *
+ *
+ */
+@Injectable()
+export class W3AclCanGuard implements CanActivate, CanActivateChild {
+  constructor(
+    private _acl: W3AclService,
+    private _notification: W3NotificationService,
+    private router: Router,
+    @Inject(W3_AUTH_SERVICE) private authService: W3AuthAbstractService
+  ) {}
+
+  /**
+   *
+   * @param next
+   * @param state
+   */
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
+    if (!next.data.perms) {
+      this._notification.error(
+        &quot;Permissão não intendificada! Informar no router. Não foi encontrado o data.perms &#x3D;&gt; url: &quot; +
+          next.url
+      );
+      return false;
+    }
+
+    if (!this._acl.can(next.data.perms)) {
+      this._notification.warning(
+        &quot;Seu usuário não possui acesso a esta permissão: &quot; + next.data.perms
+      );
+      if (next.data.redirectUrl &amp;&amp; this.authService.isLoggedIn()) {
+        this.router.navigate([next.data.redirectUrl]);
+      }
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * CanActivateChild handler
+   */
+  public canActivateChild(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
+    return this.canActivate(next, state);
+  }
+}
+</code></pre>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
+            var COMPODOC_CURRENT_PAGE_URL = 'W3AclCanGuard.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

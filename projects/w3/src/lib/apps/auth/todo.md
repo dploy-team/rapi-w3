@@ -1,6 +1,4 @@
+- [ ] Usar ngrx para emitir valores de alteração de ACL e usuário logado, atualmente os componentes precisam se inscreer nos subscribers;
 
-
-- ao logar carregar perfil e ACL
-- resolver refresh token no servidor
-- tratar erros, ( quando fazer uma consulta e nao for capaz de fazer o refresh, deve deslogar o user e redicionar para tela de login)
-- implementar REDUX ngrx
+- [ ] Colocar demo na documentação (StackBlitz)
+- [ ] Substituir env por configuração no forRoot

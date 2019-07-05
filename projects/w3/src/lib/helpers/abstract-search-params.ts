@@ -1,5 +1,8 @@
 import { w3IsEmpty, w3CheckIsNumeric } from "./utils";
 
+/**
+ * Helper para consultas
+ */
 export abstract class AbstractSearchParams {
   page = 1;
   paginate = 15;

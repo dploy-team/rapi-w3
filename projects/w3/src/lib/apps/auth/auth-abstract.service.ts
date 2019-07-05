@@ -15,11 +15,20 @@ import { UserModel } from "./auth.model";
 
 /**
  * Essential service for authentication
- * @export
+ *
  */
 export abstract class W3AuthAbstractService {
+  /**
+   * Headers for auth request's
+   */
   protected _headers = {};
 
+  /**
+   *
+   * @param http Angular common HttpClientModule
+   * @param storage Service de Storage do W3
+   * @param me Service de controlo do usuário logado do W3
+   */
   protected constructor(
     protected http: HttpClient,
     protected storage: W3StorageService,
@@ -31,10 +40,15 @@ export abstract class W3AuthAbstractService {
     password: string
   ): Observable<UserModel | any>;
 
-  // `${environment.URL_API}/rapi/guardian/auth/refresh`
+  /**
+   * Url de refresh token (deve ser sobreescrita), e.g `.../rapi/guardian/auth/refresh`
+   */
   public abstract getUrlRefreshToken(): string;
 
-  getUrlRevokeToken(): string {
+  /**
+   * Url para expirar o token
+   */
+  public getUrlRevokeToken(): string {
     return `${environment.URL_API}/rapi/guardian/auth/logout`;
   }
 
@@ -67,8 +81,6 @@ export abstract class W3AuthAbstractService {
    * can execute pending requests or retry original one
    */
   public refreshToken(): Observable<any> {
-    console.log("refreshToken");
-
     const refreshToken: string = this.storage.get("access_token");
     const options = {
       headers: { Authorization: `Bearer ${refreshToken}` }
@@ -84,7 +96,6 @@ export abstract class W3AuthAbstractService {
   }
 
   public forceLogout(): void {
-    console.log("forceLogout");
     this.clearToken();
     window.location.href = "/auth/login";
   }
@@ -108,8 +119,11 @@ export abstract class W3AuthAbstractService {
     return url.endsWith("auth/refresh");
   }
 
+  /**
+   * Seta na sessão do navegador dados de auth e.g token, expires_at....
+   * @param authResult Result do login
+   */
   protected setSession(authResult): void {
-    console.log("setSession", authResult);
     const expiresAt = moment().add(authResult.data.expires_in, "second");
 
     this.storage.set("access_token", authResult.data.access_token);
@@ -118,14 +132,25 @@ export abstract class W3AuthAbstractService {
     this.me.refresh();
   }
 
+  /**
+   * Método 'Esqueci minha senha' (deve ser sobreescrito)
+   * @param data
+   */
   public remind(data: any): Observable<any> {
     return of(null);
   }
 
+  /**
+   * Método 'Recuperar senha' (deve ser sobreescrito)
+   * @param data
+   */
   public reset(data: any): Observable<any> {
     return of(null);
   }
 
+  /**
+   * Método que realiza o logout e limpa a sessão
+   */
   public logout(): Observable<any> {
     const refreshToken: string = this.storage.get("access_token");
     const options = {
@@ -134,7 +159,6 @@ export abstract class W3AuthAbstractService {
 
     return this.http.post(this.getUrlRevokeToken(), null, options).pipe(
       map(resp => {
-        console.log("resp", resp);
         this.me.clear();
         this.clearToken();
         return resp;
@@ -142,19 +166,32 @@ export abstract class W3AuthAbstractService {
     );
   }
 
+  /**
+   * Método que remove os dados da sessão
+   */
   public clearToken(): void {
     this.storage.remove("access_token");
     this.storage.remove("expires_at");
   }
 
+  /**
+   * Verifica se o usuário está logado
+   */
   public isLoggedIn(): boolean {
     return moment().isBefore(this.getExpiration());
   }
 
+  /**
+   * Verifica se o usuário está logado
+   * @see isLoggedIn
+   */
   public isLoggedOut(): boolean {
     return !this.isLoggedIn();
   }
 
+  /**
+   * Recupera o time de expiração do token
+   */
   public getExpiration(): any {
     const expiration = this.storage.get("expires_at");
     const expiresAt = JSON.parse(expiration);
@@ -173,6 +210,11 @@ export abstract class W3AuthAbstractService {
     return this._headers;
   }
 
+  /**
+   *
+   * @param key nome do header. e.g `Content-Type`
+   * @param value valor do header. e.g `application/json`
+   */
   public addHeader(key, value): void {
     if (value === null || value === "") {
       delete this._headers[key];

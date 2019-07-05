@@ -1,0 +1,1725 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rapi-w3 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rapi-w3 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>W3AuthAbstractService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>Arquivo</h3>
+        </p>
+        <p class="comment">
+            <code>projects/w3/src/lib/apps/auth/auth-abstract.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Descrição</h3>
+            </p>
+            <p class="comment">
+                <p>Essential service for authentication</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_headers">_headers</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addHeader">addHeader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clearToken">clearToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#forceLogout">forceLogout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getAccessToken">getAccessToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getExpiration">getExpiration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getHeaders">getHeaders</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#getUrlRefreshToken">getUrlRefreshToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUrlRevokeToken">getUrlRevokeToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isAuthorized">isAuthorized</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isLoggedIn">isLoggedIn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isLoggedOut">isLoggedOut</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#login">login</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#logout">logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshShouldHappen">refreshShouldHappen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshToken">refreshToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#remind">remind</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reset">reset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#setSession">setSession</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verifyTokenRequest">verifyTokenRequest</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Protected</span>
+                        <code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, storage: <a href="../injectables/W3StorageService.html">W3StorageService</a>, me: <a href="../injectables/W3MeService.html">W3MeService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="24" class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parâmetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nome</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                                    <td>Descrição</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Angular common HttpClientModule</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>storage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/W3StorageService.html" target="_self" >W3StorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Service de Storage do W3</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>me</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/W3MeService.html" target="_self" >W3MeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Service de controlo do usuário logado do W3</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Propriedades
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_headers"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _headers</b>
+                            <a href="#_headers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Valor padrão : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Definido em <a href="" data-line="24" class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Headers for auth request&#39;s</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addHeader"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addHeader
+                        </b>
+                        <a href="#addHeader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addHeader(key, value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="218"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:218</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Opcional</td>
+                                    <td>Descrição</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                    <td>
+                                        <p>nome do header. e.g <code>Content-Type</code></p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                    <td>
+                                        <p>valor do header. e.g <code>application/json</code></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearToken"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            clearToken
+                        </b>
+                        <a href="#clearToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="172"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método que remove os dados da sessão</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forceLogout"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            forceLogout
+                        </b>
+                        <a href="#forceLogout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forceLogout()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="98"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccessToken"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getAccessToken
+                        </b>
+                        <a href="#getAccessToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAccessToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="72"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get access token</p>
+<p>Should return access token in Observable from e.g.
+localStorage</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExpiration"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getExpiration
+                        </b>
+                        <a href="#getExpiration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExpiration()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="195"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:195</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Recupera o time de expiração do token</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getHeaders"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getHeaders
+                        </b>
+                        <a href="#getHeaders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getHeaders(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="208"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:208</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Add token to headers, dependent on server
+set-up, by default adds a bearer token.
+Called by interceptor.</p>
+<p>To change behavior, override this method.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>token</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>literal type</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUrlRefreshToken"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                            getUrlRefreshToken
+                        </b>
+                        <a href="#getUrlRefreshToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUrlRefreshToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="46"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Url de refresh token (deve ser sobreescrita), e.g <code>.../rapi/guardian/auth/refresh</code></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUrlRevokeToken"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getUrlRevokeToken
+                        </b>
+                        <a href="#getUrlRevokeToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUrlRevokeToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="51"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Url para expirar o token</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAuthorized"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isAuthorized
+                        </b>
+                        <a href="#isAuthorized"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isAuthorized()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="60"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Check, if user already authorized.</p>
+<p>Should return Observable with true or false values</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoggedIn"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isLoggedIn
+                        </b>
+                        <a href="#isLoggedIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLoggedIn()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="180"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Verifica se o usuário está logado</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoggedOut"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isLoggedOut
+                        </b>
+                        <a href="#isLoggedOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLoggedOut()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="188"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:188</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Verifica se o usuário está logado</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                            login
+                        </b>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>login(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="38"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="../interfaces/UserModel.html" target="_self" >Observable&lt;UserModel | any&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            logout
+                        </b>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logout()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="154"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:154</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método que realiza o logout e limpa a sessão</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshShouldHappen"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refreshShouldHappen
+                        </b>
+                        <a href="#refreshShouldHappen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshShouldHappen(response: <a href="../interfaces/Error.html">HttpErrorResponse</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="109"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Function, checks response of failed request to determine,
+whether token be refreshed or not.</p>
+<p>Essentially checks status</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>response</td>
+                                    <td>
+                                                <code><a href="../interfaces/Error.html" target="_self" >HttpErrorResponse</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshToken"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refreshToken
+                        </b>
+                        <a href="#refreshToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="83"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Function, that should perform refresh token verifyTokenRequest</p>
+<p>Should be successfully completed so interceptor
+can execute pending requests or retry original one</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remind"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            remind
+                        </b>
+                        <a href="#remind"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remind(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="139"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método &#39;Esqueci minha senha&#39; (deve ser sobreescrito)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            reset
+                        </b>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reset(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="147"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:147</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método &#39;Recuperar senha&#39; (deve ser sobreescrito)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSession"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            setSession
+                        </b>
+                        <a href="#setSession"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setSession(authResult)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="126"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Seta na sessão do navegador dados de auth e.g token, expires_at....</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Opcional</td>
+                                    <td>Descrição</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>authResult</td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                    <td>
+                                        <p>Result do login</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyTokenRequest"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            verifyTokenRequest
+                        </b>
+                        <a href="#verifyTokenRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifyTokenRequest(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido em <a href="" data-line="118"
+                            class="link-to-prism">projects/w3/src/lib/apps/auth/auth-abstract.service.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Verify that outgoing request is refresh-token,
+so interceptor won&#39;t intercept this request</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parâmetros :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>url</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Não
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpErrorResponse } from &quot;@angular/common/http&quot;;
+
+import { Observable } from &quot;rxjs&quot;;
+import { of } from &quot;rxjs/internal/observable/of&quot;;
+import { catchError, map, tap } from &quot;rxjs/operators&quot;;
+
+//https://www.monkeyuser.com/2018/code-reuse/
+import * as momentImported from &quot;moment&quot;;
+const moment &#x3D; momentImported;
+
+import { environment } from &quot;@env/environment&quot;;
+import { W3StorageService } from &quot;../storage/storage.service&quot;;
+import { W3MeService } from &quot;./me.service&quot;;
+import { UserModel } from &quot;./auth.model&quot;;
+
+/**
+ * Essential service for authentication
+ *
+ */
+export abstract class W3AuthAbstractService {
+  /**
+   * Headers for auth request&#x27;s
+   */
+  protected _headers &#x3D; {};
+
+  /**
+   *
+   * @param http Angular common HttpClientModule
+   * @param storage Service de Storage do W3
+   * @param me Service de controlo do usuário logado do W3
+   */
+  protected constructor(
+    protected http: HttpClient,
+    protected storage: W3StorageService,
+    protected me: W3MeService
+  ) {}
+
+  public abstract login(
+    email: string,
+    password: string
+  ): Observable&lt;UserModel | any&gt;;
+
+  /**
+   * Url de refresh token (deve ser sobreescrita), e.g &#x60;.../rapi/guardian/auth/refresh&#x60;
+   */
+  public abstract getUrlRefreshToken(): string;
+
+  /**
+   * Url para expirar o token
+   */
+  public getUrlRevokeToken(): string {
+    return &#x60;${environment.URL_API}/rapi/guardian/auth/logout&#x60;;
+  }
+
+  /**
+   * Check, if user already authorized.
+   *
+   * Should return Observable with true or false values
+   */
+  public isAuthorized(): Observable&lt;boolean&gt; {
+    // const isAuthorized &#x3D; this.isLoggedIn();
+    const isAuthorized: boolean &#x3D; !!this.storage.get(&quot;access_token&quot;);
+    return of(isAuthorized);
+  }
+
+  /**
+   * Get access token
+   *
+   * Should return access token in Observable from e.g.
+   * localStorage
+   */
+  public getAccessToken(): Observable&lt;string&gt; {
+    const accessToken: string &#x3D; this.storage.get(&quot;access_token&quot;);
+    return of(accessToken);
+  }
+
+  /**
+   * Function, that should perform refresh token verifyTokenRequest
+   *
+   * Should be successfully completed so interceptor
+   * can execute pending requests or retry original one
+   */
+  public refreshToken(): Observable&lt;any&gt; {
+    const refreshToken: string &#x3D; this.storage.get(&quot;access_token&quot;);
+    const options &#x3D; {
+      headers: { Authorization: &#x60;Bearer ${refreshToken}&#x60; }
+    };
+
+    return this.http.post(this.getUrlRefreshToken(), null, options).pipe(
+      tap(res &#x3D;&gt; this.setSession(res)),
+      catchError(err &#x3D;&gt; {
+        this.forceLogout();
+        return err;
+      })
+    );
+  }
+
+  public forceLogout(): void {
+    this.clearToken();
+    window.location.href &#x3D; &quot;/auth/login&quot;;
+  }
+
+  /**
+   * Function, checks response of failed request to determine,
+   * whether token be refreshed or not.
+   *
+   * Essentially checks status
+   */
+  public refreshShouldHappen(response: HttpErrorResponse): boolean {
+    console.log(&quot;refreshShouldHappen&quot;, response);
+    return response.status &#x3D;&#x3D;&#x3D; 401 &amp;&amp; this.storage.get(&quot;access_token&quot;) !&#x3D;&#x3D; null;
+  }
+
+  /**
+   * Verify that outgoing request is refresh-token,
+   * so interceptor won&#x27;t intercept this request
+   */
+  public verifyTokenRequest(url: string): boolean {
+    return url.endsWith(&quot;auth/refresh&quot;);
+  }
+
+  /**
+   * Seta na sessão do navegador dados de auth e.g token, expires_at....
+   * @param authResult Result do login
+   */
+  protected setSession(authResult): void {
+    const expiresAt &#x3D; moment().add(authResult.data.expires_in, &quot;second&quot;);
+
+    this.storage.set(&quot;access_token&quot;, authResult.data.access_token);
+    this.storage.set(&quot;expires_at&quot;, JSON.stringify(expiresAt.valueOf()));
+
+    this.me.refresh();
+  }
+
+  /**
+   * Método &#x27;Esqueci minha senha&#x27; (deve ser sobreescrito)
+   * @param data
+   */
+  public remind(data: any): Observable&lt;any&gt; {
+    return of(null);
+  }
+
+  /**
+   * Método &#x27;Recuperar senha&#x27; (deve ser sobreescrito)
+   * @param data
+   */
+  public reset(data: any): Observable&lt;any&gt; {
+    return of(null);
+  }
+
+  /**
+   * Método que realiza o logout e limpa a sessão
+   */
+  public logout(): Observable&lt;any&gt; {
+    const refreshToken: string &#x3D; this.storage.get(&quot;access_token&quot;);
+    const options &#x3D; {
+      headers: { Authorization: &#x60;Bearer ${refreshToken}&#x60; }
+    };
+
+    return this.http.post(this.getUrlRevokeToken(), null, options).pipe(
+      map(resp &#x3D;&gt; {
+        this.me.clear();
+        this.clearToken();
+        return resp;
+      })
+    );
+  }
+
+  /**
+   * Método que remove os dados da sessão
+   */
+  public clearToken(): void {
+    this.storage.remove(&quot;access_token&quot;);
+    this.storage.remove(&quot;expires_at&quot;);
+  }
+
+  /**
+   * Verifica se o usuário está logado
+   */
+  public isLoggedIn(): boolean {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  /**
+   * Verifica se o usuário está logado
+   * @see isLoggedIn
+   */
+  public isLoggedOut(): boolean {
+    return !this.isLoggedIn();
+  }
+
+  /**
+   * Recupera o time de expiração do token
+   */
+  public getExpiration(): any {
+    const expiration &#x3D; this.storage.get(&quot;expires_at&quot;);
+    const expiresAt &#x3D; JSON.parse(expiration);
+    return moment(expiresAt);
+  }
+
+  /**
+   * Add token to headers, dependent on server
+   * set-up, by default adds a bearer token.
+   * Called by interceptor.
+   *
+   * To change behavior, override this method.
+   */
+  public getHeaders(token: string): { [p: string]: string | string[] } {
+    this._headers[&quot;Authorization&quot;] &#x3D; &#x60;Bearer ${token}&#x60;;
+    return this._headers;
+  }
+
+  /**
+   *
+   * @param key nome do header. e.g &#x60;Content-Type&#x60;
+   * @param value valor do header. e.g &#x60;application/json&#x60;
+   */
+  public addHeader(key, value): void {
+    if (value &#x3D;&#x3D;&#x3D; null || value &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+      delete this._headers[key];
+    } else {
+      this._headers[key] &#x3D; value;
+    }
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'W3AuthAbstractService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -10,6 +10,9 @@ import {
 } from "../responses/responses.model";
 import { HttpPostOptions, W3MetaPagination } from "./request.model";
 
+/**
+ * Classe abstrata para request na API
+ */
 @Injectable()
 export abstract class W3AbstractRequestService<T> {
   public metas: any;
@@ -49,7 +52,9 @@ export abstract class W3AbstractRequestService<T> {
       .pipe(map(res => this.transformItemResponse(res.data)));
   }
 
-  /** retorna os primeiros 15 items itens da rota + includes */
+  /**
+   *  retorna os primeiros 15 items itens da rota + includes
+   */
   get(includes: string): Observable<T[]> {
     return this.search({
       include: includes,
@@ -57,7 +62,9 @@ export abstract class W3AbstractRequestService<T> {
     });
   }
 
-  /** retorna todos os itens da rota + includes */
+  /**
+   *  retorna todos os itens da rota + includes
+   */
   all(includes: string): Observable<T[]> {
     return this.search({
       include: includes,
@@ -65,7 +72,9 @@ export abstract class W3AbstractRequestService<T> {
     });
   }
 
-  /** retorna os itens da rota  filtrados por params*/
+  /**
+   * retorna os itens da rota  filtrados por params
+   */
   search(params): Observable<T[]> {
     params = this.transformRequest(params, "search");
 
@@ -82,9 +91,10 @@ export abstract class W3AbstractRequestService<T> {
       );
   }
 
-  /** salva data */
+  /**
+   * salva data
+   */
   save(data, options?: HttpPostOptions): Observable<T> {
-    console.log(data);
     return this.http
       .post<Response20x>(
         this.getBaseUrl(),
@@ -95,7 +105,9 @@ export abstract class W3AbstractRequestService<T> {
       .pipe(map(res => this.transformItemResponse(res.data)));
   }
 
-  /** edita informações do idem id */
+  /**
+   *  edita informações do idem id
+   */
   update(id: number, data: any, options?: HttpPostOptions): Observable<T> {
     return this.http
       .put<Response20x>(
@@ -106,28 +118,36 @@ export abstract class W3AbstractRequestService<T> {
       .pipe(map(res => this.transformItemResponse(res.data)));
   }
 
-  /** remove registro */
+  /**
+   * remove registro
+   */
   remove(id: number, options?: HttpPostOptions): Observable<boolean> {
     return this.http
       .delete<Response20x>(`${this.getBaseUrl()}/${id}`, options)
       .pipe(map(res => res.status === "success"));
   }
 
-  /** disabled registro */
+  /**
+   * disabled registro
+   */
   disable(id: number, options?: HttpPostOptions): Observable<boolean> {
     return this.http
       .put<Response20x>(`${this.getBaseUrl()}/${id}/disable`, {}, options)
       .pipe(map(res => res.status === "success"));
   }
 
-  /** restore registro */
+  /**
+   * restore registro
+   */
   restore(id: number, options?: HttpPostOptions): Observable<boolean> {
     return this.http
       .put<Response20x>(`${this.getBaseUrl()}/${id}/restore`, {}, options)
       .pipe(map(res => res.status === "success"));
   }
 
-  /** Registra a pagina */
+  /**
+   * Registra a pagina
+   */
   setPage(newPage: number): void {
     this.paginationData.page = newPage;
   }
