@@ -1,11 +1,44 @@
 {
   "name": "rapi-w3",
-  "version": "0.0.2",
+  "version": "0.0.0",
+  "author": {
+    "email": "dploy.web@gmail.com",
+    "name": "Dploy",
+    "url": "https://github.com/dploy-team"
+  },
+  "contributors": [
+    {
+      "email": "valmir.php@gmail.com",
+      "name": "Valmir Barbosa",
+      "url": "https://github.com/valmirphp"
+    },
+    {
+      "email": "wagner.mattei@gmail.com",
+      "name": "Wagner Mattei",
+      "url": "https://github.com/wmattei"
+    },
+    {
+      "name": "Maiara Sassi",
+      "email": "maiara.sassi@gmail.com",
+      "url": "https://github.com/maiara-sassi"
+    }
+  ],
+  "description": "Angular 8+ Boilerplate",
+  "keywords": [
+    "angular",
+    "boilerplate",
+    "auth"
+  ],
+  "readme": "README.md",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/dploy-team/rapi-w3"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "compodoc": "npx compodoc -p projects/w3/tsconfig.lib.json  -w --customLogo src/assets/dploy.jpeg --language pt-br --minimal --disablePrivate --disableLifeCycleHooks",
+    "compodoc": "compodoc -p projects/w3/tsconfig.lib.json  -w --customLogo src/assets/dploy.jpeg --language pt-br --minimal --disablePrivate --disableLifeCycleHooks",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
