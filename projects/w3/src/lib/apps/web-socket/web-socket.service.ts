@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 
-import Echo from "laravel-echo";
-import { environment } from "@env/environment";
 import { W3Notification } from "./notification";
 import { W3StorageService } from "../storage/storage.service";
 
@@ -81,7 +79,7 @@ export class W3WebSocketService {
    *
    * @param connectOptions Instancia do LaravelEcho
    */
-  connect(connectOptions: Echo): W3WebSocketService {
+  connect(connectOptions: any): W3WebSocketService {
     if (this._echo) {
       return this;
     }
