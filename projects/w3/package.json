@@ -1,0 +1,44 @@
+{
+  "name": "@dploy-rapi/w3",
+  "version": "2.0.0",
+  "author": {
+    "email": "dploy.web@gmail.com",
+    "name": "Dploy",
+    "url": "https://github.com/dploy-team"
+  },
+  "keywords": [
+    "angular",
+    "boilerplate",
+    "auth"
+  ],
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/dploy-team/rapi-w3"
+  },
+  "readme": "../../README.md",
+  "contributors": [
+    {
+      "email": "valmir.php@gmail.com",
+      "name": "Valmir Barbosa",
+      "url": "https://github.com/valmirphp"
+    },
+    {
+      "email": "wagner.mattei@gmail.com",
+      "name": "Wagner Mattei",
+      "url": "https://github.com/wmattei"
+    },
+    {
+      "name": "Maiara Sassi",
+      "email": "maiara.sassi@gmail.com",
+      "url": "https://github.com/maiara-sassi"
+    }
+  ],
+  "peerDependencies": {
+    "@angular/common": "^8.0.3",
+    "@angular/core": "^8.0.3",
+    "@angular/animations": "8.0.3",
+    "@angular/router": "8.1.0",
+    "ngx-toastr": "10.0.4",
+    "moment": "2.24.0"
+  }
+}
