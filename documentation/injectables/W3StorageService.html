@@ -18,7 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -37,7 +37,7 @@
 
 
 <ol class="breadcrumb">
-  <li>Injetáveis</li>
+  <li>Injectables</li>
   <li>W3StorageService</li>
 </ol>
 
@@ -53,14 +53,14 @@
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
         <p class="comment">
-            <h3>Arquivo</h3>
+            <h3>File</h3>
         </p>
         <p class="comment">
             <code>projects/w3/src/lib/apps/storage/storage.service.ts</code>
         </p>
 
             <p class="comment">
-                <h3>Descrição</h3>
+                <h3>Description</h3>
             </p>
             <p class="comment">
                 <p>Service de Storage do W3
@@ -82,10 +82,25 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#drive">drive</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Métodos</b></h6>
+                        <h6><b>Methods</b></h6>
                     </td>
                 </tr>
                 <tr>
@@ -93,6 +108,10 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                         <ul class="index-list">
                             <li>
                                 <a href="#get">get</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#key">key</a>
                             </li>
                             <li>
                                 <a href="#remove">remove</a>
@@ -113,7 +132,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 </section>
 
             <section>
-    <h3 id="constructor">Construtor</h3>
+    <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -123,20 +142,20 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido em <a href="" data-line="22" class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:22</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                             <div>
-                                    <b>Parâmetros :</b>
+                                    <b>Parameters :</b>
                                     <table class="params">
                                         <thead>
                                             <tr>
-                                                <td>Nome</td>
-                                                    <td>Tipo</td>
-                                                <td>Opcional</td>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,7 +167,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                                                         </td>
                                                   
                                                     <td>
-                                                            Não
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -164,7 +183,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
             <section>
     
     <h3 id="methods">
-        Métodos
+        Methods
     </h3>
     <table class="table table-sm table-bordered">
         <tbody>
@@ -188,7 +207,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido em <a href="" data-line="43"
+                    <div class="io-line">Defined in <a href="" data-line="43"
                             class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:43</a></div>
                 </td>
             </tr>
@@ -200,14 +219,14 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 </div>
 
                     <div class="io-description">
-                        <b>Parâmetros :</b>
+                        <b>Parameters :</b>
                         <table class="params">
                             <thead>
                                 <tr>
-                                    <td>Nome</td>
-                                    <td>Tipo</td>
-                                    <td>Opcional</td>
-                                    <td>Valor padrão</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -218,7 +237,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
                                     <td>
@@ -232,7 +251,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
                                     <td>
@@ -246,7 +265,77 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="key"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            key
+                        </b>
+                        <a href="#key"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>key(k)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>retorna a chave com o prefixo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>k</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -278,7 +367,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido em <a href="" data-line="69"
+                    <div class="io-line">Defined in <a href="" data-line="69"
                             class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:69</a></div>
                 </td>
             </tr>
@@ -290,13 +379,13 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 </div>
 
                     <div class="io-description">
-                        <b>Parâmetros :</b>
+                        <b>Parameters :</b>
                         <table class="params">
                             <thead>
                                 <tr>
-                                    <td>Nome</td>
-                                    <td>Tipo</td>
-                                    <td>Opcional</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -307,7 +396,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
 
@@ -318,7 +407,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -350,7 +439,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido em <a href="" data-line="58"
+                    <div class="io-line">Defined in <a href="" data-line="58"
                             class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:58</a></div>
                 </td>
             </tr>
@@ -362,13 +451,13 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
 </div>
 
                     <div class="io-description">
-                        <b>Parâmetros :</b>
+                        <b>Parameters :</b>
                         <table class="params">
                             <thead>
                                 <tr>
-                                    <td>Nome</td>
-                                    <td>Tipo</td>
-                                    <td>Opcional</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -379,7 +468,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
 
@@ -391,7 +480,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
 
@@ -402,7 +491,7 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -412,6 +501,40 @@ As configurações de storage podem ser alteradas no método <code>forRoot()</co
             </tr>
         </tbody>
     </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="drive"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            drive</b>
+                            <a href="#drive"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Storage</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/w3/src/lib/apps/storage/storage.service.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
 </section>
 
     </div>
@@ -511,7 +634,7 @@ export class W3StorageService {
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
-        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
     </div>
 </div>
 </div>

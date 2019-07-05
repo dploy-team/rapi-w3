@@ -18,7 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -54,14 +54,14 @@
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
         <p class="comment">
-            <h3>Arquivo</h3>
+            <h3>File</h3>
         </p>
         <p class="comment">
             <code>projects/w3/src/lib/interceptor/api-toast.Interceptor.ts</code>
         </p>
 
             <p class="comment">
-                <h3>Descrição</h3>
+                <h3>Description</h3>
             </p>
             <p class="comment">
                 <p>Interceptor que mostra um Toast com as mensagens de erro/sucesso em cada requisição
@@ -80,7 +80,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
 
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Métodos</b></h6>
+                        <h6><b>Methods</b></h6>
                     </td>
                 </tr>
                 <tr>
@@ -88,6 +88,14 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                         <ul class="index-list">
                             <li>
                                 <a href="#intercept">intercept</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#responseError">responseError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#responseSuccess">responseSuccess</a>
                             </li>
                         </ul>
                     </td>
@@ -102,7 +110,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
 </section>
 
             <section>
-    <h3 id="constructor">Construtor</h3>
+    <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -112,20 +120,20 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido em <a href="" data-line="26" class="link-to-prism">projects/w3/src/lib/interceptor/api-toast.Interceptor.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/w3/src/lib/interceptor/api-toast.Interceptor.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                             <div>
-                                    <b>Parâmetros :</b>
+                                    <b>Parameters :</b>
                                     <table class="params">
                                         <thead>
                                             <tr>
-                                                <td>Nome</td>
-                                                    <td>Tipo</td>
-                                                <td>Opcional</td>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -137,7 +145,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                                                         </td>
                                                   
                                                     <td>
-                                                            Não
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -153,7 +161,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
             <section>
     
     <h3 id="methods">
-        Métodos
+        Methods
     </h3>
     <table class="table table-sm table-bordered">
         <tbody>
@@ -177,7 +185,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido em <a href="" data-line="29"
+                    <div class="io-line">Defined in <a href="" data-line="29"
                             class="link-to-prism">projects/w3/src/lib/interceptor/api-toast.Interceptor.ts:29</a></div>
                 </td>
             </tr>
@@ -187,13 +195,13 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parâmetros :</b>
+                        <b>Parameters :</b>
                         <table class="params">
                             <thead>
                                 <tr>
-                                    <td>Nome</td>
-                                    <td>Tipo</td>
-                                    <td>Opcional</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -204,7 +212,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
 
@@ -216,7 +224,7 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                                     </td>
 
                                     <td>
-                                        Não
+                                        No
                                     </td>
 
 
@@ -227,7 +235,165 @@ As mensagens podem ser sobreescritas definindo um valor diferent para <code>W3_M
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Retorna : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="responseError"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            responseError
+                        </b>
+                        <a href="#responseError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>responseError(req: HttpRequest<any>, err: <a href="../interfaces/Error.html">HttpErrorResponse</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">projects/w3/src/lib/interceptor/api-toast.Interceptor.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Failed request interceptor, check if it has to be processed with refresh</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                            <code>HttpRequest&lt;any&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>err</td>
+                                    <td>
+                                                <code><a href="../interfaces/Error.html" target="_self" >HttpErrorResponse</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="responseSuccess"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            responseSuccess
+                        </b>
+                        <a href="#responseSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>responseSuccess(event: HttpEvent<any>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">projects/w3/src/lib/interceptor/api-toast.Interceptor.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>HttpEvent&lt;any&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -349,7 +515,7 @@ export class W3ApiToastInterceptor implements HttpInterceptor {
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
-        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
     </div>
 </div>
 </div>
