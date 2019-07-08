@@ -116,4 +116,11 @@ export {
 //COnfig
 export { W3_CONFIG, W3Config, w3ConfigDefault } from "./lib/w3.config";
 export { W3Module } from "./lib/w3.module";
-
+export {
+  skipAuthorization,
+  skipToast,
+  skipToastAndAuthorization,
+  W3_MESSAGE_RESPONSE,
+  W3ConfigToast,
+  W3Variables
+} from "./lib/index"

@@ -1,4 +1,4 @@
-import {w3StorageByLocalStorage, W3StorageOption} from './apps/storage';
+import {w3StorageByLocalStorage, W3StorageOption} from './apps/storage/models';
 import {InjectionToken} from '@angular/core';
 
 export const W3_CONFIG = new InjectionToken('w3CustomConfig');
