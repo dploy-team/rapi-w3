@@ -6,7 +6,7 @@ import { map, shareReplay, tap } from "rxjs/operators";
 
 import { UserModel } from "./auth.model";
 import { W3AuthAbstractService } from "./auth-abstract.service";
-import { W3StorageService } from "../storage";
+import { W3StorageService } from "../storage/storage.service";
 
 import { environment } from "@env/environment";
 import { W3MeService } from "./me.service";

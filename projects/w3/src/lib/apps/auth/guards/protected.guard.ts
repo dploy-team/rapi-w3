@@ -36,6 +36,7 @@ export class W3ProtectedGuard implements CanActivate, CanActivateChild {
     _route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
+    console.log('ad');
     return this.authService.isAuthorized().pipe(
       map((isAuthorized: boolean) => {
         if (!isAuthorized && !this.isPublicPage(state)) {

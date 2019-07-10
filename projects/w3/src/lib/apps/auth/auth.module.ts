@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { W3AuthInterceptor } from "./auth.Interceptor";
 import { W3PublicGuard } from "./guards/public.guard";
@@ -31,7 +31,9 @@ import { W3AuthService } from "./auth.service";
  * `{provide: W3_PUBLIC_FALLBACK_PAGE_URI, useValue: '/auth/login'},`
  */
 @NgModule({
-  imports: [],
+  imports: [
+    HttpClientModule
+  ],
   providers: [
     W3PublicGuard,
     W3ProtectedGuard,

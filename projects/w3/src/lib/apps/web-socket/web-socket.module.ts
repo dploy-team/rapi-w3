@@ -10,4 +10,4 @@ import { W3WebSocketService } from "./web-socket.service";
   declarations: [],
   providers: [W3WebSocketService]
 })
-export class WebSocketModule {}
+export class W3WebSocketModule {}
