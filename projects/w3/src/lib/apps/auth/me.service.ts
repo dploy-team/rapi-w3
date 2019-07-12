@@ -44,8 +44,8 @@ export class W3MeService {
   /**
    * Faz o subscribe na consulta de current user
    */
-  refresh(): void {
-    this.me().subscribe();
+  refresh(params?): void {
+    this.me(params).subscribe();
   }
 
   /**
