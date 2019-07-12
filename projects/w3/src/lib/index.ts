@@ -14,7 +14,7 @@ export const W3Variables = {
    * MASKS
    *
    * chamar TextMaskModule no módulo a ser usado
-   * exemplo: [textMask]="{mask: mask.tel}"
+   * exemplo: [textMask]="{mask: mask.cep}"
    * orgem: https://github.com/text-mask/text-mask
    */
   mask: {
@@ -35,7 +35,41 @@ export const W3Variables = {
       /\d/,
       /\d/
     ],
-    cep: [/[1-9]/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/]
+    cep: [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/],
+    date: [
+      /[0-3]/,
+      /[0-9]/,
+      "/",
+      /[0-1]/,
+      /[0-9]/,
+      "/",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/
+    ],
+    time: [/[0-5]/, /[0-9]/, ":", /[0-5]/, /[0-9]/, ":", /[0-5]/, /[0-9]/],
+    dateTime: [
+      /[0-3]/,
+      /[0-9]/,
+      "/",
+      /[0-1]/,
+      /[0-9]/,
+      "/",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      " ",
+      /[0-5]/,
+      /[0-9]/,
+      ":",
+      /[0-5]/,
+      /[0-9]/,
+      ":",
+      /[0-5]/,
+      /[0-9]/
+    ]
   }
 };
 
