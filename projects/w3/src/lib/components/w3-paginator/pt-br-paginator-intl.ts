@@ -50,7 +50,9 @@ export class TranslatedMatPaginatorIntl extends MatPaginatorIntl {
       1 +
       " - " +
       endIndex +
+      " " +
       this.translateService.instant("COMMONS.LIST.DE") +
+      " " +
       length
     );
   };

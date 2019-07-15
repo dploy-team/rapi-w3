@@ -52,7 +52,7 @@ export const provider = {
   imports: [CommonModule, MatPaginatorModule, MatSnackBarModule],
   declarations: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
   exports: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
-  providers: []
+  providers: [provider]
 })
 export class W3Module {
   static forRoot(configs: W3Config): ModuleWithProviders {
