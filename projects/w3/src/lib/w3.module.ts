@@ -28,6 +28,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "assets/i18n/");
 }
 
+export function TranslateFactory(translate: TranslateService) {
+  const service = new TranslatedMatPaginatorIntl();
+  service.injectTranslateService(translate);
+  return service;
+}
+
 export const translate = TranslateModule.forRoot({
   loader: {
     provide: TranslateLoader,
@@ -38,16 +44,12 @@ export const translate = TranslateModule.forRoot({
 
 export const provider = {
   provide: MatPaginatorIntl,
-  useFactory: translate => {
-    const service = new TranslatedMatPaginatorIntl();
-    service.injectTranslateService(translate);
-    return service;
-  },
+  useFactory: TranslateFactory,
   deps: [TranslateService]
 };
 
 @NgModule({
-  imports: [CommonModule, MatPaginatorModule, MatSnackBarModule, translate],
+  imports: [CommonModule, MatPaginatorModule, MatSnackBarModule],
   declarations: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
   exports: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
   providers: [provider]
