@@ -7,11 +7,9 @@ import {
   MatSnackBarModule
 } from "@angular/material";
 import { W3StorageOption } from "./apps/storage/models";
-import { getPtBrPaginatorIntl } from "./components/w3-paginator/pt-br-paginator-intl";
+import { TranslatedMatPaginatorIntl } from "./components/w3-paginator/pt-br-paginator-intl";
 
-import {
-  W3PaginatorComponent
-} from "./components/w3-paginator/w3-paginator.component";
+import { W3PaginatorComponent } from "./components/w3-paginator/w3-paginator.component";
 
 import { W3StorageService } from "./apps/storage/storage.service";
 import { W3PhonePipe } from "./pipes/w3-phone.pipe";
@@ -22,7 +20,9 @@ import { W3_CONFIG, W3Config } from "./w3.config";
   imports: [CommonModule, MatPaginatorModule, MatSnackBarModule],
   declarations: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
   exports: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
-  providers: [{ provide: MatPaginatorIntl, useValue: getPtBrPaginatorIntl() }]
+  providers: [
+    { provide: MatPaginatorIntl, useClass: TranslatedMatPaginatorIntl }
+  ]
 })
 export class W3Module {
   static forRoot(configs: W3Config): ModuleWithProviders {
@@ -30,7 +30,7 @@ export class W3Module {
       ngModule: W3Module,
       providers: [
         W3StorageService,
-        
+
         { provide: W3_CONFIG, useValue: configs },
         { provide: W3StorageOption, useValue: configs.storage }
         // HttpErrorEvent,

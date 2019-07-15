@@ -127,3 +127,5 @@ export {
 
 //Metas
 export { W3Meta, W3MetaService } from "./lib/apps/metas/meta.service";
+export * from "./lib/responses/responses.model";
+export * from "./lib/services/abstract-request.service";
