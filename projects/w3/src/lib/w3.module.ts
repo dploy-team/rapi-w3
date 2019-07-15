@@ -15,14 +15,42 @@ import { W3StorageService } from "./apps/storage/storage.service";
 import { W3PhonePipe } from "./pipes/w3-phone.pipe";
 import { W3WeekDayPipe } from "./pipes/w3-week-day.pipe";
 import { W3_CONFIG, W3Config } from "./w3.config";
+import { HttpClient } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from "@ngx-translate/core";
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "assets/i18n/");
+}
+
+export const translate = TranslateModule.forRoot({
+  loader: {
+    provide: TranslateLoader,
+    useFactory: HttpLoaderFactory,
+    deps: [HttpClient]
+  }
+});
+
+export const provider = {
+  provide: MatPaginatorIntl,
+  useFactory: translate => {
+    const service = new TranslatedMatPaginatorIntl();
+    service.injectTranslateService(translate);
+    return service;
+  },
+  deps: [TranslateService]
+};
 
 @NgModule({
-  imports: [CommonModule, MatPaginatorModule, MatSnackBarModule],
+  imports: [CommonModule, MatPaginatorModule, MatSnackBarModule, translate],
   declarations: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
   exports: [W3PaginatorComponent, W3PhonePipe, W3WeekDayPipe],
-  providers: [
-    { provide: MatPaginatorIntl, useClass: TranslatedMatPaginatorIntl }
-  ]
+  providers: [provider]
 })
 export class W3Module {
   static forRoot(configs: W3Config): ModuleWithProviders {

@@ -30,13 +30,10 @@ import { TranslateService } from "@ngx-translate/core";
 // }
 
 export class TranslatedMatPaginatorIntl extends MatPaginatorIntl {
+  translateService: TranslateService;
   itemsPerPageLabel = "Items per page";
   nextPageLabel = "Next page";
   previousPageLabel = "Previous page";
-
-  constructor(private translateService: TranslateService) {
-    super();
-  }
 
   getRangeLabel = (page, pageSize, length) => {
     if (length === 0 || pageSize === 0) {
@@ -58,12 +55,19 @@ export class TranslatedMatPaginatorIntl extends MatPaginatorIntl {
     );
   };
 
-  getTranslations() {
-    this.translateService
-      .get(["COMMONS.LIST.ITEN_PER_PAGE"])
-      .subscribe(translation => {
-        this.itemsPerPageLabel = translation["COMMONS.LIST.ITEN_PER_PAGE"];
-        this.changes.next();
-      });
+  injectTranslateService(translate: TranslateService) {
+    this.translateService = translate;
+
+    this.translateService.onLangChange.subscribe(() => {
+      this.translateLabels();
+    });
+
+    this.translateLabels();
+  }
+
+  translateLabels() {
+    this.itemsPerPageLabel = this.translateService.instant(
+      "COMMONS.LIST.ITEN_PER_PAGE"
+    );
   }
 }
