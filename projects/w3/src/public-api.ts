@@ -41,6 +41,41 @@ export {
   W3NotificationService
 } from "./lib/apps/notification/notifications.service";
 
+export {
+  NotificationStoreModule
+} from "./lib/apps/web-socket/store/notification-store.module";
+export {
+  LoadNotifications,
+  MarkAsRead,
+  NewNotification,
+  NotificationActions,
+  NotificationActionsTypes,
+  SearchNotifications
+} from "./lib/apps/web-socket/store/notification.actions";
+
+export {
+  NotificationEffects
+} from "./lib/apps/web-socket/store/notification.effects";
+
+export {
+  NotificationState,
+  initialState,
+  notificationAdapter,
+  notificationReducer
+} from "./lib/apps/web-socket/store/notification.reducer";
+
+export {
+  getNewNotificationsNumber,
+  getNotificationArr,
+  getNotificationState,
+  getNotifications,
+  getIsLoading
+} from "./lib/apps/web-socket/store/notification.selector";
+
+export {
+  NotificationService
+} from "./lib/apps/web-socket/store/notification.service";
+
 // Storage
 export { W3StorageOption } from "./lib/apps/storage/models";
 export { w3StorageByLocalSession } from "./lib/apps/storage/models";

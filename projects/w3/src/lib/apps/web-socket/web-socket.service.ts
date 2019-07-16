@@ -84,8 +84,7 @@ export class W3WebSocketService {
       return this;
     }
 
-    const token = this.storage.get("access_token");
-
+    this._echo = connectOptions;
     // this._echo = new Echo({
     //     broadcaster: 'pusher',
     //     key: environment.SOCKET_KEY,
