@@ -66,7 +66,9 @@ export class W3AclCanDirective implements OnInit, OnDestroy {
    * Verifica as permissões
    */
   private check(): void {
+    console.log(this._perms);
     const newStatus = this.acl.can(this._perms);
+    console.log(newStatus);
 
     if (this._last !== newStatus) {
       this._last = newStatus;
