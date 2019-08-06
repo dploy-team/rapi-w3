@@ -95,8 +95,6 @@ export class W3AuthInterceptor implements HttpInterceptor {
     const refreshShouldHappen: boolean = authService.refreshShouldHappen(res);
 
     if (refreshShouldHappen && !this.refreshInProgress) {
-      this.refreshInProgress = true;
-
       authService.refreshToken().subscribe(
         () => {
           this.refreshInProgress = false;
@@ -107,10 +105,6 @@ export class W3AuthInterceptor implements HttpInterceptor {
           this.refreshSubject.next(false);
         }
       );
-    }
-
-    if (refreshShouldHappen && this.refreshInProgress) {
-      return this.retryRequest(req, res);
     }
 
     return throwError(res);

@@ -52,6 +52,9 @@ export abstract class W3AuthAbstractService {
     return `${environment.URL_API}/rapi/guardian/auth/logout`;
   }
 
+  public getLogoutUrl() {
+    return "/auth/login";
+  }
   /**
    * Check, if user already authorized.
    *
@@ -97,7 +100,7 @@ export abstract class W3AuthAbstractService {
 
   public forceLogout(): void {
     this.clearToken();
-    window.location.href = "/auth/login";
+    window.location.href = this.getLogoutUrl();
   }
 
   /**
