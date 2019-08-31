@@ -17,7 +17,7 @@ import { HttpPostOptions, W3MetaPagination } from "./request.model";
 export abstract class W3AbstractRequestService<T> {
   public metas: any;
 
-  public paginationData: W3MetaPagination = {
+  public paginationData: any = {
     page: 1,
     total: 0,
     per_page: 0,
@@ -83,9 +83,11 @@ export abstract class W3AbstractRequestService<T> {
       .pipe(
         tap(res => {
           this.metas = res.meta || {};
-          this.paginationData.total = +this.metas.total;
-          this.paginationData.page = +this.metas.current_page;
-          this.paginationData.per_page = +this.metas.per_page;
+          this.paginationData = {
+            total: +this.metas.total,
+            page: +this.metas.current_page,
+            per_page: +this.metas.per_page
+          };
         }),
         map(res => this.transformCollectionResponse(res.data))
       );
