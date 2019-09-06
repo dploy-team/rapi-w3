@@ -59,15 +59,13 @@ export class W3MeService {
    * Consulta pelo usuário logado
    * @param params
    */
-  me(params?): Observable<UserModel> {
-    return this.http
-      .get<ItemRespDec<UserModel>>(`${environment.URL_API}/rapi/guardian/me`, {
+  me(params?): Observable<any> {
+    return this.http.get<ItemRespDec<UserModel>>(
+      `${environment.URL_API}/rapi/guardian/me`,
+      {
         params: params
-      })
-      .pipe(
-        map(res => res.data),
-        tap(user => this.setUser(user))
-      );
+      }
+    );
   }
 
   /**

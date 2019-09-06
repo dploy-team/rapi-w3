@@ -6,7 +6,7 @@ import { map, tap } from "rxjs/operators";
 
 import { environment } from "@env/environment";
 
-import { ResponseItem } from "../../responses/responses.model";
+import { ResponseItem } from "../../../responses/responses.model";
 import { ResponseAclData, DataAclModel } from "./acl.model";
 import { W3AclService } from "./acl.service";
 

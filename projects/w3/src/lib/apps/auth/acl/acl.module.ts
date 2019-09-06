@@ -5,7 +5,7 @@ import { W3AclService } from "./acl.service";
 import { W3RequestAclService } from "./request-acl.service";
 import { W3AclCanGuard } from "./guards/acl-can.guard";
 import { W3AclCanDirective } from "./directives/w3-acl-can.directive";
-import { W3NotificationModule } from "../notification/notification.module";
+import { W3NotificationModule } from "../../notification/notification.module";
 
 /**
  * Módulo de ACL para controle de acesso

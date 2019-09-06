@@ -30,15 +30,11 @@ export class W3AuthService extends W3AuthAbstractService {
    * @param password
    */
   login(email: string, password: string): Observable<UserModel | any> {
-    return this.http
-      .post(`${environment.URL_API}/rapi/guardian/auth/login`, {
-        email,
-        password
-      })
-      .pipe(
-        tap(res => this.setSession(res)),
-        shareReplay()
-      );
+    console.log("asd");
+    return this.http.post(`${environment.URL_API}/rapi/guardian/auth/login`, {
+      email,
+      password
+    });
   }
 
   /**
