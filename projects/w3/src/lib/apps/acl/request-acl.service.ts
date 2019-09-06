@@ -28,7 +28,6 @@ export class W3RequestAclService {
 
   refresh(): void {
     // : Observable<ResponseAclData>
-    console.log("W3RequestAcl.refresh");
 
     this.findData()
       .pipe(tap(data => this.fillAcl(data)))

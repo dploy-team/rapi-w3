@@ -22,7 +22,6 @@ export class W3AclService {
   }
 
   setData(data: DataAclModel): void {
-    console.log("ACL.setData", data);
     this._data.next(data);
   }
 
@@ -35,7 +34,6 @@ export class W3AclService {
   }
 
   can(perms: string[], requireAll?: boolean): boolean {
-    console.log("ACL.findCan", perms, this.allPerms());
     return this.check(perms, this.allPerms(), requireAll);
   }
 
@@ -46,7 +44,6 @@ export class W3AclService {
   private check(find: string[], data: string[], requireAll?: boolean): boolean {
     if (!find || find.length == 0) return true;
     const result = find.filter(value => data.includes(value));
-    console.log(result);
     if (requireAll) {
       return result.length === data.length;
     }
