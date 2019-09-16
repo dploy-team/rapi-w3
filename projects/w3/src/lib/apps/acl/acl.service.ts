@@ -42,6 +42,7 @@ export class W3AclService {
   }
 
   private check(find: string[], data: string[], requireAll?: boolean): boolean {
+    if (!data) data = [];
     if (!find || find.length == 0) return true;
     const result = find.filter(value => data.includes(value));
     if (requireAll) {
