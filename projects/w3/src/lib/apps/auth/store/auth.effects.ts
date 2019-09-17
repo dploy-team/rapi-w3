@@ -1,8 +1,7 @@
 import { Injectable, Injector } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { map, switchMap, tap, concatMap } from "rxjs/operators";
+import { concatMap, map, switchMap } from "rxjs/operators";
 import { W3AuthAbstractService } from "../auth-abstract.service";
-import { W3AuthService } from "../auth.service";
 import { W3MeService } from "../me.service";
 import { W3_AUTH_SERVICE } from "../tokens";
 import * as AuthActions from "./auth.actions";
@@ -13,13 +12,10 @@ export class AuthEffectsEffects {
 
   constructor(
     private actions$: Actions,
-    // private injector: Injector,
-    private meService: W3MeService,
-    private authService: W3AuthService
+    private injector: Injector,
+    private meService: W3MeService
   ) {
-    // this.api = this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
-
-    actions$.subscribe(res => console.log(res));
+    this.api = this.injector.get<W3AuthAbstractService>(W3_AUTH_SERVICE);
   }
 
   findMe$ = createEffect(() =>
@@ -28,22 +24,22 @@ export class AuthEffectsEffects {
       switchMap(action => {
         return this.meService
           .me({ include: "acl" })
-          .pipe(map(data => AuthActions.FindMeSuccess({ me: data })));
+          .pipe(map(data => AuthActions.FindMeSuccess({ me: data.data })));
       })
     )
   );
 
-  login$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(AuthActions.Login),
+  login$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.login),
       concatMap(action => {
-        return this.authService.login(action.email, action.password).pipe(
+        return this.api.login(action.email, action.password).pipe(
           map(data => {
-            // this.api.setSession(data);
-            return AuthActions.FindMeSuccess({ me: {} as any });
+            this.api.setSession(data);
+            return AuthActions.loginSuccess({});
           })
         );
       })
-    );
-  });
+    )
+  );
 }

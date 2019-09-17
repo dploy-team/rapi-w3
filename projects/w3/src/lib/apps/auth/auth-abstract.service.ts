@@ -131,8 +131,6 @@ export abstract class W3AuthAbstractService {
 
     this.storage.set("access_token", authResult.data.access_token);
     this.storage.set("expires_at", JSON.stringify(expiresAt.valueOf()));
-
-    this.me.refresh();
   }
 
   /**

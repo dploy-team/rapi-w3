@@ -12,8 +12,7 @@ import {
 import { StoreModule } from "@ngrx/store";
 import * as fromAuth from "./store/auth.reducer";
 import { EffectsModule } from "@ngrx/effects";
-import { AuthEffectsEffects } from "./store/auth-effects.effects";
-import { W3RequestAclService } from "./acl/request-acl.service";
+import { AuthEffectsEffects } from "./store/auth.effects";
 
 /**
  * ## Módulo de autenticação do W3

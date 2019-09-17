@@ -1,6 +1,6 @@
 import { UserModel } from "../auth.model";
 import * as AuthActions from "./auth.actions";
-import { createReducer, on } from "@ngrx/store";
+import { createReducer, on, Action } from "@ngrx/store";
 
 export interface AuthState {
   me: UserModel;
@@ -18,7 +18,7 @@ export const initialState: AuthState = {
   sessions: []
 };
 
-export const reducer = createReducer(
+export const authReducer = createReducer(
   initialState,
 
   on(AuthActions.FindMe, (state, action) => {
@@ -67,3 +67,7 @@ export const reducer = createReducer(
     };
   })
 );
+
+export function reducer(state: AuthState | undefined, action: Action) {
+  return authReducer(state, action);
+}

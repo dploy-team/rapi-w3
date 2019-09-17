@@ -8,10 +8,12 @@ export const FindMeSuccess = createAction(
   props<{ me: UserModel }>()
 );
 
-export const Login = createAction(
+export const login = createAction(
   "[Auth] Login",
   props<{ email: string; password: string }>()
 );
+
+export const loginSuccess = createAction("[Auth] Login success", props<{}>());
 
 export const Logout = createAction(
   "[Auth] Logout",
