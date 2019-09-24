@@ -21,6 +21,12 @@ export const Logout = createAction(
   props<{}>()
 );
 
+export const LogoutSuccess = createAction(
+  "[Auth] Logout success",
+
+  props<{}>()
+);
+
 export const UpdateMe = createAction(
   "[Auth] Update me",
 
@@ -33,21 +39,10 @@ export const UpdateMeSuccess = createAction(
   props<{ me: UserModel }>()
 );
 
-export const ChangeMyLang = createAction(
-  "[Auth] Change my lang",
-  props<{ lang: string }>()
-);
-
-export const ChangeMyLangSuccess = createAction(
-  "[Auth] Change my lang Success",
-
-  props<{ me: UserModel }>()
-);
-
 export const LoadSessions = createAction(
   "[Auth] Load Sessions",
 
-  props<{}>()
+  props<{ params: any }>()
 );
 
 export const LoadSessionsSuccess = createAction(
@@ -62,8 +57,8 @@ export const SelectSession = createAction(
   props<{ session: any }>()
 );
 
-export const SelectSessionSuccess = createAction(
-  "[Auth] Select session success",
+export const AuthError = createAction(
+  "[Auth] Error",
 
-  props<{ session: any }>()
+  props<{ error: any }>()
 );

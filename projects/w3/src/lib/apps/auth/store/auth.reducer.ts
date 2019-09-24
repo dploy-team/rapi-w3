@@ -4,7 +4,6 @@ import { createReducer, on, Action } from "@ngrx/store";
 
 export interface AuthState {
   me: UserModel;
-  perms: any[];
   currentSession: any;
   loading: boolean;
   sessions: any[];
@@ -12,7 +11,6 @@ export interface AuthState {
 
 export const initialState: AuthState = {
   me: null,
-  perms: [],
   currentSession: null,
   loading: false,
   sessions: []
@@ -59,11 +57,21 @@ export const authReducer = createReducer(
     };
   }),
 
-  on(AuthActions.SelectSessionSuccess, (state, action) => {
+  on(AuthActions.SelectSession, (state, action) => {
     return {
       ...state,
       loading: false,
       currentSession: action.session
+    };
+  }),
+
+  on(AuthActions.LogoutSuccess, (state, action) => {
+    return {
+      ...state,
+      loading: false,
+      currentSession: null,
+      me: null,
+      sessions: null
     };
   })
 );

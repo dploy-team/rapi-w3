@@ -10,6 +10,7 @@ import { W3StorageService } from "../storage/storage.service";
 
 import { environment } from "@env/environment";
 import { W3MeService } from "./me.service";
+import { of } from "rxjs";
 
 /**
  * Serviço padrão de autenticação
@@ -74,5 +75,9 @@ export class W3AuthService extends W3AuthAbstractService {
           return resp;
         })
       );
+  }
+
+  getSessions() {
+    return of([]);
   }
 }

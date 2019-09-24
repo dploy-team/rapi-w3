@@ -223,4 +223,6 @@ export abstract class W3AuthAbstractService {
       this._headers[key] = value;
     }
   }
+
+  public abstract getSessions(params?): Observable<any[]>;
 }

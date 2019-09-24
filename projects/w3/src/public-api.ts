@@ -13,7 +13,6 @@ export { Permission } from "./lib/apps/auth/acl/acl.model";
 export { ResponseAclData } from "./lib/apps/auth/acl/acl.model";
 export { W3AclModule } from "./lib/apps/auth/acl/acl.module";
 export { W3AclService } from "./lib/apps/auth/acl/acl.service";
-export { W3RequestAclService } from "./lib/apps/auth/acl/request-acl.service";
 
 // Auth
 export { W3AuthService } from "./lib/apps/auth/auth.service";
@@ -29,6 +28,34 @@ export {
 export { W3AuthModule } from "./lib/apps/auth/auth.module";
 export { UserModel } from "./lib/apps/auth/auth.model";
 export { W3AuthInterceptor } from "./lib/apps/auth/auth.Interceptor";
+
+export {
+  FindMe,
+  AuthError,
+  FindMeSuccess,
+  Logout,
+  LogoutSuccess,
+  UpdateMe,
+  UpdateMeSuccess,
+  login,
+  loginSuccess,
+  LoadSessions,
+  LoadSessionsSuccess,
+  SelectSession
+} from "./lib/apps/auth/store/auth.actions";
+export { AuthEffectsEffects } from "./lib/apps/auth/store/auth.effects";
+export {
+  AuthState,
+  authReducer,
+  reducer
+} from "./lib/apps/auth/store/auth.reducer";
+export {
+  getAuthState,
+  getCurrentAcl,
+  getCurrentUser,
+  getCurrentSession,
+  getSessions
+} from "./lib/apps/auth/store/auth.selectors";
 
 // Notification
 export {
