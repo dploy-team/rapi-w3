@@ -8,6 +8,9 @@ import {
 } from "@angular/core";
 import { W3AclService } from "../acl.service";
 import { Subscription } from "rxjs";
+import { AuthState } from "../../store/auth.reducer";
+import { Store } from "@ngrx/store";
+import { getCurrentAcl } from "../../store/auth.selectors";
 
 /**
  * Passe um array de permissões que serão parseadas com as permissões do usuário logado, e verificar se deve ou não mostrar aquele elemento.
@@ -38,7 +41,8 @@ export class W3AclCanDirective implements OnInit, OnDestroy {
   constructor(
     private templateRef: TemplateRef<any>,
     private acl: W3AclService,
-    private viewContainer: ViewContainerRef
+    private viewContainer: ViewContainerRef,
+    private store: Store<AuthState>
   ) {}
 
   /**
@@ -54,11 +58,12 @@ export class W3AclCanDirective implements OnInit, OnDestroy {
    * Faz um subscribe as mudanças de permissões do user logado
    */
   ngOnInit(): void {
-    this._subject = this.acl.onChange$.subscribe(() => this.check());
+    this._subject = this.store
+      .select(getCurrentAcl)
+      .subscribe(() => this.check());
   }
 
   ngOnDestroy(): void {
-    console.log("W3AclCanDirective.ngOnDestroy");
     this._subject.unsubscribe();
   }
 
@@ -66,9 +71,7 @@ export class W3AclCanDirective implements OnInit, OnDestroy {
    * Verifica as permissões
    */
   private check(): void {
-    console.log(this._perms);
     const newStatus = this.acl.can(this._perms);
-    console.log(newStatus);
 
     if (this._last !== newStatus) {
       this._last = newStatus;

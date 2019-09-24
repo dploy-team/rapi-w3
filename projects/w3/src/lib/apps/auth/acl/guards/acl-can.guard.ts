@@ -9,9 +9,9 @@ import {
 
 import { Observable } from "rxjs";
 import { W3AclService } from "../acl.service";
-import { W3NotificationService } from "../../notification/notifications.service";
-import { W3AuthAbstractService } from "../../auth/auth-abstract.service";
-import { W3_AUTH_SERVICE } from "../../auth/tokens";
+import { W3NotificationService } from "../../../notification/notifications.service";
+import { W3AuthAbstractService } from "../../auth-abstract.service";
+import { W3_AUTH_SERVICE } from "../../tokens";
 
 /**
  * Guarda de rotas para ACL.

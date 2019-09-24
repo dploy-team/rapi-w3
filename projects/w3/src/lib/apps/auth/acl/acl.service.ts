@@ -1,20 +1,26 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { BehaviorSubject } from "rxjs";
+import { AuthState } from "../store/auth.reducer";
+import { getCurrentAcl } from "../store/auth.selectors";
 import { DataAclModel } from "./acl.model";
-import * as _ from "lodash";
 
 @Injectable()
 export class W3AclService {
-  public onChange$: Observable<DataAclModel>;
-
   private _dataInit = {
     roles: [],
     perms: []
   };
   private _data = new BehaviorSubject<DataAclModel>(this._dataInit);
 
-  constructor() {
-    this.onChange$ = this._data.asObservable();
+  constructor(private store: Store<AuthState>) {
+    store.select(getCurrentAcl).subscribe(acl => {
+      if (acl)
+        this.setData({
+          roles: acl.roles,
+          perms: acl.permissions.map(permission => permission.name)
+        });
+    });
   }
 
   getData(): DataAclModel {

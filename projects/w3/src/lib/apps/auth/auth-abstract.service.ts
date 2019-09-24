@@ -126,13 +126,11 @@ export abstract class W3AuthAbstractService {
    * Seta na sessão do navegador dados de auth e.g token, expires_at....
    * @param authResult Result do login
    */
-  protected setSession(authResult): void {
+  public setSession(authResult): void {
     const expiresAt = moment().add(authResult.data.expires_in, "second");
 
     this.storage.set("access_token", authResult.data.access_token);
     this.storage.set("expires_at", JSON.stringify(expiresAt.valueOf()));
-
-    this.me.refresh();
   }
 
   /**
@@ -225,4 +223,6 @@ export abstract class W3AuthAbstractService {
       this._headers[key] = value;
     }
   }
+
+  public abstract getSessions(params?): Observable<any[]>;
 }

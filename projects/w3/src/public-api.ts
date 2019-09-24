@@ -5,15 +5,14 @@
 // ACL
 export {
   W3AclCanDirective
-} from "./lib/apps/acl/directives/w3-acl-can.directive";
-export { W3AclCanGuard } from "./lib/apps/acl/guards/acl-can.guard";
-export { DataAclModel } from "./lib/apps/acl/acl.model";
-export { Role } from "./lib/apps/acl/acl.model";
-export { Permission } from "./lib/apps/acl/acl.model";
-export { ResponseAclData } from "./lib/apps/acl/acl.model";
-export { W3AclModule } from "./lib/apps/acl/acl.module";
-export { W3AclService } from "./lib/apps/acl/acl.service";
-export { W3RequestAclService } from "./lib/apps/acl/request-acl.service";
+} from "./lib/apps/auth/acl/directives/w3-acl-can.directive";
+export { W3AclCanGuard } from "./lib/apps/auth/acl/guards/acl-can.guard";
+export { DataAclModel } from "./lib/apps/auth/acl/acl.model";
+export { Role } from "./lib/apps/auth/acl/acl.model";
+export { Permission } from "./lib/apps/auth/acl/acl.model";
+export { ResponseAclData } from "./lib/apps/auth/acl/acl.model";
+export { W3AclModule } from "./lib/apps/auth/acl/acl.module";
+export { W3AclService } from "./lib/apps/auth/acl/acl.service";
 
 // Auth
 export { W3AuthService } from "./lib/apps/auth/auth.service";
@@ -29,6 +28,34 @@ export {
 export { W3AuthModule } from "./lib/apps/auth/auth.module";
 export { UserModel } from "./lib/apps/auth/auth.model";
 export { W3AuthInterceptor } from "./lib/apps/auth/auth.Interceptor";
+
+export {
+  FindMe,
+  AuthError,
+  FindMeSuccess,
+  Logout,
+  LogoutSuccess,
+  UpdateMe,
+  UpdateMeSuccess,
+  login,
+  loginSuccess,
+  LoadSessions,
+  LoadSessionsSuccess,
+  SelectSession
+} from "./lib/apps/auth/store/auth.actions";
+export { AuthEffectsEffects } from "./lib/apps/auth/store/auth.effects";
+export {
+  AuthState,
+  authReducer,
+  reducer
+} from "./lib/apps/auth/store/auth.reducer";
+export {
+  getAuthState,
+  getCurrentAcl,
+  getCurrentUser,
+  getCurrentSession,
+  getSessions
+} from "./lib/apps/auth/store/auth.selectors";
 
 // Notification
 export {

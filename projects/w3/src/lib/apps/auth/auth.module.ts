@@ -1,15 +1,18 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-
 import { W3AuthInterceptor } from "./auth.Interceptor";
-import { W3PublicGuard } from "./guards/public.guard";
+import { W3AuthService } from "./auth.service";
 import { W3ProtectedGuard } from "./guards/protected.guard";
+import { W3PublicGuard } from "./guards/public.guard";
 import { W3MeService } from "./me.service";
 import {
   W3_PROTECTED_FALLBACK_PAGE_URI,
   W3_PUBLIC_FALLBACK_PAGE_URI
 } from "./tokens";
-import { W3AuthService } from "./auth.service";
+import { StoreModule } from "@ngrx/store";
+import * as fromAuth from "./store/auth.reducer";
+import { EffectsModule } from "@ngrx/effects";
+import { AuthEffectsEffects } from "./store/auth.effects";
 
 /**
  * ## Módulo de autenticação do W3
@@ -32,13 +35,16 @@ import { W3AuthService } from "./auth.service";
  */
 @NgModule({
   imports: [
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forFeature("auth", fromAuth.reducer),
+    EffectsModule.forFeature([AuthEffectsEffects])
   ],
   providers: [
     W3PublicGuard,
     W3ProtectedGuard,
     W3AuthInterceptor,
     W3AuthService,
+
     W3MeService,
     {
       provide: HTTP_INTERCEPTORS,

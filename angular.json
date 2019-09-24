@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "w3": {
+      "cli": {
+        "defaultCollection": "@ngrx/schematics"
+      },
       "projectType": "library",
       "root": "projects/w3",
       "sourceRoot": "projects/w3/src",
