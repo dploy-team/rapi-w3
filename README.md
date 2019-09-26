@@ -3,7 +3,7 @@
 ### Installation
 
 ```sh
-$ npm i @dploy-rapi/w3
+$ npm i @dploy-team/rapi-w3
 ```
 
 ### Documentation
