@@ -57,6 +57,12 @@ export const SelectSession = createAction(
   props<{ session: any }>()
 );
 
+export const SetAditionalData = createAction(
+  "[Auth] Set aditional data",
+
+  props<{ data: any }>()
+);
+
 export const AuthError = createAction(
   "[Auth] Error",
 

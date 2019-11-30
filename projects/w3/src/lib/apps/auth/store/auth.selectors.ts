@@ -8,9 +8,8 @@ export const getCurrentUser = createSelector(
   (state: AuthState) => state.me
 );
 
-export const getCurrentAcl = createSelector(
-  getAuthState,
-  (state: AuthState) => (state.me ? state.me.acl : null)
+export const getCurrentAcl = createSelector(getAuthState, (state: AuthState) =>
+  state.me ? state.me.acl : null
 );
 
 export const getCurrentSession = createSelector(
@@ -21,4 +20,9 @@ export const getCurrentSession = createSelector(
 export const getSessions = createSelector(
   getAuthState,
   (state: AuthState) => state.sessions
+);
+
+export const getAditionalData = createSelector(
+  getAuthState,
+  (state: AuthState) => state.aditionalData
 );

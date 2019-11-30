@@ -7,13 +7,15 @@ export interface AuthState {
   currentSession: any;
   loading: boolean;
   sessions: any[];
+  aditionalData: any;
 }
 
 export const initialState: AuthState = {
   me: null,
   currentSession: null,
   loading: false,
-  sessions: []
+  sessions: [],
+  aditionalData: null
 };
 
 export const authReducer = createReducer(
@@ -62,6 +64,14 @@ export const authReducer = createReducer(
       ...state,
       loading: false,
       currentSession: action.session
+    };
+  }),
+
+  on(AuthActions.SetAditionalData, (state, action) => {
+    return {
+      ...state,
+      loading: false,
+      aditionalData: action.data
     };
   }),
 
