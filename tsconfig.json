@@ -17,7 +17,7 @@
       "w3": ["dist/w3"],
       "w3/*": ["dist/w3/*"],
       "@env/*": ["projects/w3/src/environments/*"],
-      "@dploy-rapi/w3/*": ["dist/w3/*"]
+      "@dploy-team/rapi-w3/*": ["dist/w3/*"]
     }
   }
 }
