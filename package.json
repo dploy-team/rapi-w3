@@ -33,7 +33,7 @@
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "laravel-echo": "1.5.4",
-    "moment": "2.24.0",
+    "moment": "2.29.4",
     "ngx-toastr": "10.0.4",
     "rxjs": "~6.4.0",
     "rxjs-compat": "6.5.2",
